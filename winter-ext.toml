@@ -1,0 +1,4 @@
+name = "winter-engineering-requirements"
+prefix = "ereq"
+description = "Engineering Requirements Framework — rules for engineering requirements, assumptions, specs, and slices in a requirements repo — read when working in or changing an engineering-focused requirements repo, or resolving a cited `ereq:` id."
+load = "lazy"
