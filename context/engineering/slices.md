@@ -3,7 +3,7 @@
 How an epic is cut into the changes that build it: what a slice file holds, how the cuts are made, how they are ordered,
 and how slices change. To cut an epic's slices, follow [workflows/slice-an-epic.md](./workflows/slice-an-epic.md).
 
-## Slice files (ereq:slice-files)
+## Slice files (planning:slice-files)
 
 A slice is one mergeable change toward the epic's requirements and spec, written so it can be filed as one work-tracker
 item. An epic's slices live in its `slices/` folder, one file each, named `<nn>-<name>.md`: `nn` is the build order, two
@@ -42,10 +42,10 @@ a slice needs a fact no such file holds, that fact goes to its home first and th
 can be deleted and cut again from the same sources, and their pointers found again in the code, without losing anything.
 For the same reason nothing outside its own `slices/` names a slice: no requirement, spec, decision, or other epic's
 slice cites one. Slices carry no status; the work tracker owns their progress, and the epic's own `status:` says when
-the whole epic is delivered. Slices are written in the engineering voice (`ereq:engineering-voice` in
+the whole epic is delivered. Slices are written in the engineering voice (`planning:engineering-voice` in
 [voice.md](./voice.md)).
 
-## Cutting slices (ereq:slice-cuts)
+## Cutting slices (planning:slice-cuts)
 
 Cut by mechanism and surface, never by what a user notices. A slice is one change a reviewer can hold in their head: it
 merges on its own, its tests pass, and the main branch stays releasable after it. The usual sequence:
@@ -67,14 +67,14 @@ reaches a system already in use, and each strategy is a sequence of slices of it
 
 The closing step of a strategy — retiring, removing the flag, removing the old mechanism — is always a slice, never a
 note on another, so the cleanup is planned and tracked like the rest. When no constraint settles the strategy and the
-choice matters, record it as a decision before cutting (`ereq:decision-bar` in [decisions.md](./decisions.md)).
+choice matters, record it as a decision before cutting (`planning:decision-bar` in [decisions.md](./decisions.md)).
 
 Every `product:` and `engineering:` requirement the epic holds, and every acceptance bullet under it, is delivered by at
 least one slice, and every spec section is built by one; a requirement no slice delivers is unplanned work or a
 requirement that should not be there. A slice that needs a design of its own means the spec is missing a section, so
 write the section and cite it.
 
-## Slice order (ereq:slice-order)
+## Slice order (planning:slice-order)
 
 The numbers are the order the slices are built in, and `depends-on` says why. A slice depends on another only when it
 builds on something that one introduces — a table, an interface, an event, a flag — never because both change the same
@@ -86,11 +86,11 @@ another epic, it depends on that epic, and the other epic's slices are that epic
 on has a lower number, so the numbering is always a valid build order. Slices with no dependency between them can be
 built in parallel; the numbers commit only to one order that works.
 
-## Slice lifecycle (ereq:slice-lifecycle)
+## Slice lifecycle (planning:slice-lifecycle)
 
 An epic can be sliced at any time. The cut is best once its requirements are settled and its spec is complete, but
 slicing earlier is how gaps surface: a fact a slice needs and no file states becomes an assumption, a requirement, a
 decision, a spec section, or an open question, and the epic is better for it. Re-slicing rewrites `slices/` in place: a
 slice with an `external:` keeps its name and `external:` while it still describes the same change, and the rest are
-renumbered, rewritten, or deleted freely. The folder moves to `delivered/` with its epic (`ereq:delivered-archive` in
-[layout.md](./layout.md)) and freezes there, like the spec.
+renumbered, rewritten, or deleted freely. The folder moves to `delivered/` with its epic (`planning:delivered-archive`
+in [layout.md](./layout.md)) and freezes there, like the spec.

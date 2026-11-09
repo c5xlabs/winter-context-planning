@@ -2,10 +2,10 @@
 
 The technical contracts in a work folder's `spec.md`: how the folder's requirements are to be built.
 
-## Spec contracts (ereq:spec-contracts)
+## Spec contracts (planning:spec-contracts)
 
 When an epic's implementation mechanics serve readers different from its requirements, give it a `spec.md`, or once it
-grows, a `spec/` of leaves (`ereq:file-or-folder`). A spec is written for a senior engineer who thinks in contracts,
+grows, a `spec/` of leaves (`planning:file-or-folder`). A spec is written for a senior engineer who thinks in contracts,
 interfaces, domain models, and payloads, so it is artifact-first and prose is usually unnecessary. `spec.md` holds these
 `##` sections, in this order, each optional:
 
@@ -17,12 +17,12 @@ interfaces, domain models, and payloads, so it is artifact-first and prose is us
 4. `Flows` — sequence diagrams for behaviour that crosses services, failure and retry paths included, external services'
    among them.
 5. `Data` — schema as DDL or tables, plus migrations.
-6. `Open questions` (`ereq:inline-questions` in [decisions.md](./decisions.md)).
+6. `Open questions` (`planning:inline-questions` in [decisions.md](./decisions.md)).
 
 A `spec/` leaf is named freely — by use case, contract, or area, whichever reads best — and uses any of these sections,
 or others it needs; there is no index. In either form code blocks and diagrams come first, and a sentence states only
 what no artifact can, such as idempotency, ordering, or failure behaviour, preferably as a comment inside the artifact,
-in the engineering voice (`ereq:engineering-voice` in [voice.md](./voice.md)). An `engineering:` or `product:` id is
+in the engineering voice (`planning:engineering-voice` in [voice.md](./voice.md)). An `engineering:` or `product:` id is
 mentioned where a piece serves it, often in a code comment, and resolves outward like any bare id; no line lists what
 the spec satisfies, and no requirement is restated.
 
@@ -60,15 +60,15 @@ verification sections; metrics, alerts, or logging targets, which are requiremen
 upstream intent; a routing index; a `What already holds` or carry-over section. A decision that overtakes a spec
 corrects it in place, or deletes a leaf that no longer applies.
 
-## Shared contracts (ereq:shared-contracts)
+## Shared contracts (planning:shared-contracts)
 
 A contract several specs answer to has one home: a leaf of the spec of the epic that owns the capability it describes
-(`ereq:capability-epics`). Every other spec links the parts it builds and never copies them; there is no `contracts/`
-folder.
+(`planning:capability-epics`). Every other spec links the parts it builds and never copies them; there is no
+`contracts/` folder.
 
-## Spec freeze (ereq:spec-freeze)
+## Spec freeze (planning:spec-freeze)
 
-A spec freezes when its epic is delivered and moves with it to `delivered/` (`ereq:delivered-archive` in
+A spec freezes when its epic is delivered and moves with it to `delivered/` (`planning:delivered-archive` in
 [layout.md](./layout.md)); what is built is documented in the owning project repo, not here. Later work on the same
 capability is a new epic with a spec of its own, which cites the frozen one where it builds on it and never edits or
 deletes it.

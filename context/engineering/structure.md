@@ -3,23 +3,23 @@
 Which files engineering owns, the test a document passes to enter one, where it goes, how an overtaken document is
 changed, and what is deliberately absent. The layout they sit in is [layout.md](./layout.md).
 
-## Engineering areas (ereq:areas)
+## Engineering areas (planning:areas)
 
 Engineering owns these files in any folder under `work/`, and a file's name promises that everything in it is that
 thing:
 
-| File             | Promise                                                                                                                                    | Not this                                                                                    |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------- |
-| `engineering.md` | What engineering commits to for this epic or initiative, constraints included, one `engineering:` record each (`ereq:requirement-record`). | Design; product intent, which lives upstream; documentation of what is built                |
-| `assumptions.md` | The `assume:` records this folder's requirements rest on (`ereq:assumption-record`).                                                       | Requirements; product intent that has been stated                                           |
-| `spec.md`        | The technical contracts answering this folder's requirements (`ereq:spec-contracts`).                                                      | Implementation progress; documentation of what is built, which is the owning project repo's |
-| `slices/`        | The ordered changes that build the epic, one file each, derived from its requirements and spec (`ereq:slice-files`).                       | Facts of their own; progress, which the work tracker owns                                   |
+| File             | Promise                                                                                                                                        | Not this                                                                                    |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `engineering.md` | What engineering commits to for this epic or initiative, constraints included, one `engineering:` record each (`planning:requirement-record`). | Design; product intent, which lives upstream; documentation of what is built                |
+| `assumptions.md` | The `assume:` records this folder's requirements rest on (`planning:assumption-record`).                                                       | Requirements; product intent that has been stated                                           |
+| `spec.md`        | The technical contracts answering this folder's requirements (`planning:spec-contracts`).                                                      | Implementation progress; documentation of what is built, which is the owning project repo's |
+| `slices/`        | The ordered changes that build the epic, one file each, derived from its requirements and spec (`planning:slice-files`).                       | Facts of their own; progress, which the work tracker owns                                   |
 
 At the root engineering owns only `engineering.md`, holding the constraints that bind the whole system; program-wide
 engineering decisions go in the root `decisions.md`. It may also write the `epic.md` of an epic planned in a tracker,
-which the shared `ereq:tracker-epic` rule in [layout.md](./layout.md) shapes.
+which the shared `planning:tracker-epic` rule in [layout.md](./layout.md) shapes.
 
-## Document admission (ereq:document-admission)
+## Document admission (planning:document-admission)
 
 <!-- shared:document-admission -->
 
@@ -30,7 +30,7 @@ supersedes, which is corrected in place or deleted.
 
 <!-- /shared:document-admission -->
 
-## Placement (ereq:placement)
+## Placement (planning:placement)
 
 <!-- shared:placement -->
 
@@ -65,7 +65,7 @@ Each reader question has exactly one place its answer goes.
 
 <!-- /shared:placement-why -->
 
-## Changing in place (ereq:change-in-place)
+## Changing in place (planning:change-in-place)
 
 <!-- shared:change-in-place -->
 
@@ -77,10 +77,10 @@ frozen: later work cites it and never rewrites it.
 
 <!-- /shared:change-in-place -->
 
-A requirement that no longer binds is deleted (`ereq:requirement-removal`), and a settled assumption with it
-(`ereq:assumption-lifecycle`).
+A requirement that no longer binds is deleted (`planning:requirement-removal`), and a settled assumption with it
+(`planning:assumption-lifecycle`).
 
-## Deliberately absent (ereq:deliberately-absent)
+## Deliberately absent (planning:deliberately-absent)
 
 <!-- shared:deliberately-absent -->
 

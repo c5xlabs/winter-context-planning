@@ -3,7 +3,7 @@
 Decisions (`decision:`), engineering's and product's alike: what earns one, how one is identified, where it lives, how
 an open one is held until it is made, and where a clarifying question goes instead.
 
-## The decision bar (ereq:decision-bar)
+## The decision bar (planning:decision-bar)
 
 <!-- shared:decision-bar -->
 
@@ -15,7 +15,7 @@ that?" about. An answer that only clarifies what was meant edits the requirement
 Choosing time-boxed roles over per-user grants for coordinator cover is a decision; finding that the identity provider
 caps role lifetimes at 90 days is a fact that edits the requirement or spec.
 
-## Decision ids (ereq:decision-slugs)
+## Decision ids (planning:decision-slugs)
 
 <!-- shared:decision-slugs -->
 
@@ -26,9 +26,9 @@ stays when an open decision is made and when a made one is overturned.
 
 <!-- /shared:decision-slugs -->
 
-Scoping follows `ereq:owned-scoped-ids` in [namespaces.md](./namespaces.md).
+Scoping follows `planning:owned-scoped-ids` in [namespaces.md](./namespaces.md).
 
-## The decisions file (ereq:decisions-file)
+## The decisions file (planning:decisions-file)
 
 <!-- shared:decisions-file -->
 
@@ -44,7 +44,7 @@ Never: dates; Context, Decision, or Consequences subsections; monthly or other p
 
 <!-- /shared:decisions-file -->
 
-## Decision format (ereq:decision-format)
+## Decision format (planning:decision-format)
 
 <!-- shared:decision-format -->
 
@@ -79,7 +79,7 @@ Cover is granted through a time-boxed role rather than per-user grants, because 
 expiry then needs no second mechanism.
 ```
 
-## Decision ownership (ereq:decision-ownership)
+## Decision ownership (planning:decision-ownership)
 
 <!-- shared:decision-ownership -->
 
@@ -90,9 +90,9 @@ at all, open or made, is deleted, and whatever cited it is corrected in the same
 
 <!-- /shared:decision-ownership -->
 
-Changing the documents a decision overtakes follows `ereq:change-in-place` in [structure.md](./structure.md).
+Changing the documents a decision overtakes follows `planning:change-in-place` in [structure.md](./structure.md).
 
-## Inline questions (ereq:inline-questions)
+## Inline questions (planning:inline-questions)
 
 <!-- shared:inline-questions -->
 

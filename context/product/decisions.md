@@ -3,7 +3,7 @@
 Decisions (`decision:`), product's and engineering's alike: what earns one, how one is identified, where it lives, how
 an open one is held until it is made, and where a clarifying question goes instead.
 
-## The decision bar (preq:decision-bar)
+## The decision bar (planning:decision-bar)
 
 <!-- shared:decision-bar -->
 
@@ -15,7 +15,7 @@ that?" about. An answer that only clarifies what was meant edits the requirement
 "Can the calendar service publish the roster as a feed?" has a true answer nobody chose, so it edits the requirement;
 "Do we let a shift volunteer extend a loan without the coordinator's say?" is a commitment and needs a decision.
 
-## Decision ids (preq:decision-slugs)
+## Decision ids (planning:decision-slugs)
 
 <!-- shared:decision-slugs -->
 
@@ -26,9 +26,9 @@ stays when an open decision is made and when a made one is overturned.
 
 <!-- /shared:decision-slugs -->
 
-Scoping follows `preq:owned-scoped-ids` in [`./namespaces.md`](./namespaces.md).
+Scoping follows `planning:owned-scoped-ids` in [`./namespaces.md`](./namespaces.md).
 
-## The decisions file (preq:decisions-file)
+## The decisions file (planning:decisions-file)
 
 <!-- shared:decisions-file -->
 
@@ -44,7 +44,7 @@ Never: dates; Context, Decision, or Consequences subsections; monthly or other p
 
 <!-- /shared:decisions-file -->
 
-## Decision format (preq:decision-format)
+## Decision format (planning:decision-format)
 
 <!-- shared:decision-format -->
 
@@ -79,7 +79,7 @@ Each shift puts one volunteer on the counter by default, because shifts that sha
 left members waiting for each to assume the other had them.
 ```
 
-## Decision ownership (preq:decision-ownership)
+## Decision ownership (planning:decision-ownership)
 
 <!-- shared:decision-ownership -->
 
@@ -93,7 +93,7 @@ at all, open or made, is deleted, and whatever cited it is corrected in the same
 An initiative owns decisions about its direct scope or spanning several of its epics; a decision local to one epic stays
 with that epic.
 
-## Inline questions (preq:inline-questions)
+## Inline questions (planning:inline-questions)
 
 <!-- shared:inline-questions -->
 

@@ -4,7 +4,7 @@ The product requirements in an epic's `requirements.md`, or inline in its `epic.
 require, the shape of a requirement record, its acceptance bullets, and how records spread into their own files. The
 files fronting a work folder are [`./intent.md`](./intent.md).
 
-## Classifying a requirement (preq:classify-requirement)
+## Classifying a requirement (planning:classify-requirement)
 
 <!-- shared:classify-requirement -->
 
@@ -31,7 +31,7 @@ fast" is a product promise with no number, so it becomes an open `decision:` or 
 
 <!-- /shared:classify-requirement -->
 
-## Requirement records (preq:requirement-records)
+## Requirement records (planning:requirement-records)
 
 A product requirement is a record of its own, named for what it requires. Whatever supports a requirement — an
 engineering requirement serving it, a decision, a tracker item — may cite its id, and that citation is the only link. An
@@ -39,10 +39,10 @@ epic's `requirements.md` holds, in order:
 
 1. A `#` title, then one line citing the epic's `epic:` id.
 2. One record per requirement: a `## <Name> (product:<subject>)` heading, the name a short phrase for the capability and
-   the subject naming what it requires (`preq:id-citations` in [`./namespaces.md`](./namespaces.md)); then one or two
-   plain sentences of what changes for the person once it holds, linking any mockup and citing any `decision:` inline;
-   then its acceptance bullets. A requirement no longer wanted is deleted, and every citation of it rewritten or removed
-   in the same change (`preq:change-in-place` in [`./structure.md`](./structure.md)).
+   the subject naming what it requires (`planning:id-citations` in [`./namespaces.md`](./namespaces.md)); then one or
+   two plain sentences of what changes for the person once it holds, linking any mockup and citing any `decision:`
+   inline; then its acceptance bullets. A requirement no longer wanted is deleted, and every citation of it rewritten or
+   removed in the same change (`planning:change-in-place` in [`./structure.md`](./structure.md)).
 3. Optional: `## Open questions`.
 
 <!-- shared:requirement-status -->
@@ -56,8 +56,8 @@ the marker. Proposed and accepted are the only two states, and nothing records w
 Never: prose between records, the problem restated, status, slices, stories, test-level criteria, or engineering ids.
 
 A small epic may skip the file and write the same records inline in `epic.md`, after its intent, under a
-`## Requirements` heading, each record a `###` section, the same pattern as file-or-folder (`preq:file-or-folder`): a
-record keeps its name, id, and shape in either file, so moving it changes only its heading level. An epic planned in a
+`## Requirements` heading, each record a `###` section, the same pattern as file-or-folder (`planning:file-or-folder`):
+a record keeps its name, id, and shape in either file, so moving it changes only its heading level. An epic planned in a
 tracker has no records here.
 
 ```markdown
@@ -75,19 +75,19 @@ Acceptance:
 An initiative's `requirements.md` takes the same shape, its opening line citing the `initiative:` id, and each record
 takes a subject no epic in the initiative has as its slug, so a full id never reads as an epic.
 
-## Requirement acceptance (preq:requirement-acceptance)
+## Requirement acceptance (planning:requirement-acceptance)
 
 A requirement record may close with a short `Acceptance:` list — a few bullets of what product judges at acceptance by
 watching the outcome: what the person is told, what they see, what they can do, and how soon. Each bullet is observable
-without knowing how the system works (`preq:classify-requirement`); a bound engineering derives to keep it, or how the
-code keeps it, belongs to engineering instead.
+without knowing how the system works (`planning:classify-requirement`); a bound engineering derives to keep it, or how
+the code keeps it, belongs to engineering instead.
 
-## Requirement files (preq:requirement-files)
+## Requirement files (planning:requirement-files)
 
 When an epic's requirement records outgrow one file, move to the folder form, one leaf per requirement and no index —
-`requirements/<subject>.md` (`preq:file-or-folder` in [`./layout.md`](./layout.md)). The epic frontmatter names no leaf.
-A leaf holds its record under the same heading and may carry frontmatter naming its epic, never a status, a slice, or an
-`external:` value:
+`requirements/<subject>.md` (`planning:file-or-folder` in [`./layout.md`](./layout.md)). The epic frontmatter names no
+leaf. A leaf holds its record under the same heading and may carry frontmatter naming its epic, never a status, a slice,
+or an `external:` value:
 
 ```yaml
 ---

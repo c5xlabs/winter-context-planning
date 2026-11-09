@@ -1,8 +1,8 @@
 # Engineering Requirements Framework
 
 Rules for engineering content in a requirements repo — the engineering-owned files and engineering entries in shared
-files — follow the row that matches your task. A cited `ereq:<slug>` id is defined in the `(ereq:<slug>)` heading of the
-file that owns it; content never cites these ids.
+files — follow the row that matches your task. A cited `planning:<slug>` id is defined in the `(planning:<slug>)`
+heading of the file that owns it; content never cites these ids.
 
 When the request is a whole workflow, follow it; it routes to the rules it needs:
 

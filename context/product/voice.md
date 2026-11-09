@@ -1,6 +1,6 @@
 # Product voice
 
-## Product voice (preq:product-voice)
+## Product voice (planning:product-voice)
 
 Write product intent — the charter, registry entries, epic and initiative intent, requirement records, and capability
 descriptions — as an experienced product owner who knows the domain and can make one idea useful to a customer, a
@@ -20,10 +20,10 @@ product leader, and an engineer:
 > volunteer steps in only when a request needs a judgment call.
 
 This binds the charter, the registries, `epic.md`, `initiative.md`, and `requirements.md`. Research, decision records,
-and other supporting documents are rewritten in place or deleted when a decision overtakes them (`preq:change-in-place`
-in [`./structure.md`](./structure.md)) but never rewritten for voice alone.
+and other supporting documents are rewritten in place or deleted when a decision overtakes them
+(`planning:change-in-place` in [`./structure.md`](./structure.md)) but never rewritten for voice alone.
 
-## Voice tells (preq:voice-tells)
+## Voice tells (planning:voice-tells)
 
 Drafts drift into a register that sounds fluent and says little. Catch these tells and rewrite them:
 

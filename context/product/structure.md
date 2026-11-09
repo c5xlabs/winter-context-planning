@@ -3,7 +3,7 @@
 Which files product owns, the test a document passes to enter one, where it goes, how an overtaken document is changed,
 and what is deliberately absent. The layout they sit in is [`./layout.md`](./layout.md).
 
-## Product areas (preq:areas)
+## Product areas (planning:areas)
 
 Product owns these areas, and an area's name promises that everything in it is that thing. R = required when the repo
 holds product content; O = optional. Root paths are relative to the repo root; folder files sit in a folder under
@@ -23,7 +23,7 @@ holds product content; O = optional. Root paths are relative to the repo root; f
 Technical design stays out of the product files because it serves the implementer and drifts at a different rate from
 product intent. Use nested epics only when part of an initiative's investment has its own focused promise.
 
-## Document admission (preq:document-admission)
+## Document admission (planning:document-admission)
 
 <!-- shared:document-admission -->
 
@@ -34,7 +34,7 @@ supersedes, which is corrected in place or deleted.
 
 <!-- /shared:document-admission -->
 
-## Placement (preq:placement)
+## Placement (planning:placement)
 
 <!-- shared:placement -->
 
@@ -69,7 +69,7 @@ Each reader question has exactly one place its answer goes.
 
 <!-- /shared:placement-why -->
 
-## Changing in place (preq:change-in-place)
+## Changing in place (planning:change-in-place)
 
 <!-- shared:change-in-place -->
 
@@ -81,7 +81,7 @@ frozen: later work cites it and never rewrites it.
 
 <!-- /shared:change-in-place -->
 
-## Deliberately absent (preq:deliberately-absent)
+## Deliberately absent (planning:deliberately-absent)
 
 <!-- shared:deliberately-absent -->
 

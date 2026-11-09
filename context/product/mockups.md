@@ -3,7 +3,7 @@
 UI mockups: the optional kit, how a mockup is authored, and how mockups are published. A mockup makes a screen arguable
 before anyone builds it, which works only when it looks like the application it proposes.
 
-## Mockup kit (preq:mockup-kit)
+## Mockup kit (planning:mockup-kit)
 
 The framework does not supply a kit; it cannot know a product's design system. A repo that authors mockups may carry one
 at the root `mockup-kit/`, and nowhere else, holding:
@@ -18,7 +18,7 @@ at the root `mockup-kit/`, and nowhere else, holding:
 Tokens are extracted from the design system, never designed in the kit; when the design system moves, re-extract and
 update the README's version. Mockups share the kit rather than carrying copied styles.
 
-## Authoring a mockup (preq:mockup-authoring)
+## Authoring a mockup (planning:mockup-authoring)
 
 Author each mockup as a standalone HTML file built on the kit:
 
@@ -31,7 +31,7 @@ Author each mockup as a standalone HTML file built on the kit:
    `Item 1`. Placeholder data hides the problems a mockup exists to surface, such as a column too narrow.
 5. Keep it standalone: no build step, bundler, or network dependency beyond a webfont.
 
-## Publishing mockups (preq:mockup-publishing)
+## Publishing mockups (planning:mockup-publishing)
 
 Publishing is optional and the framework does not supply it. When a repo publishes its mockups as a site:
 

@@ -1,8 +1,8 @@
 # Product Requirements Framework
 
 Rules for product content in a requirements repo — the product-owned files and product entries in shared files — follow
-the one row that matches your task. A cited `preq:<slug>` id is defined in the `(preq:<slug>)` heading of the file that
-owns it.
+the one row that matches your task. A cited `planning:<slug>` id is defined in the `(planning:<slug>)` heading of the
+file that owns it.
 
 When the request is a whole workflow, follow it; it routes to the rules it needs:
 

@@ -1,6 +1,6 @@
 # Engineering voice
 
-## Engineering voice (ereq:engineering-voice)
+## Engineering voice (planning:engineering-voice)
 
 Write engineering content as a senior software engineer writing for other engineers: someone who will build to it, test
 it, and get paged for it.
@@ -21,12 +21,12 @@ it, and get paged for it.
 > to the catalog and emits one `reservation.lapsed` event. Serves `product:no-show-release`.
 
 This binds `engineering.md`, `assumptions.md`, `spec.md` or `spec/`, `slices/`, and engineering's entries in
-`decisions.md`; an assumption still states its intent in product terms (`ereq:assumption-record` in
+`decisions.md`; an assumption still states its intent in product terms (`planning:assumption-record` in
 [assumptions.md](./assumptions.md)) and is otherwise written this way. Research and other supporting documents are
-rewritten in place or deleted when a decision overtakes them (`ereq:change-in-place` in [structure.md](./structure.md))
-but never rewritten for voice alone.
+rewritten in place or deleted when a decision overtakes them (`planning:change-in-place` in
+[structure.md](./structure.md)) but never rewritten for voice alone.
 
-## Voice tells (ereq:voice-tells)
+## Voice tells (planning:voice-tells)
 
 Drafts drift into a register that reads fluent and says little. Catch these tells and rewrite them:
 

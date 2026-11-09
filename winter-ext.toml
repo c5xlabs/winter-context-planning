@@ -1,4 +1,4 @@
 name = "winter-context-planning"
-prefix = "plan"
-description = "Planning Framework — rules for product and engineering content in a planning repo — read when working in or changing a planning or requirements repo, or resolving a cited `preq:` or `ereq:` id."
+prefix = "planning"
+description = "Planning Framework — rules for product and engineering content in a planning repo — read when working in or changing a planning or requirements repo, or resolving a cited `planning:` id."
 load = "lazy"

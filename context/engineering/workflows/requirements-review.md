@@ -13,22 +13,22 @@ work.
    moved.
 2. **Product against engineering.** For each product requirement, and each acceptance bullet under it:
    - Where engineering must commit to more than the product text says, an engineering requirement does, and none merely
-     restates it — `ereq:beyond-product`.
+     restates it — `planning:beyond-product`.
    - Intent engineering needs and product has not stated is an assumption, never a choice made silently in a requirement
-     or the spec — `ereq:assumption-record`.
-   - At least one slice delivers it — `ereq:slice-cuts`.
+     or the spec — `planning:assumption-record`.
+   - At least one slice delivers it — `planning:slice-cuts`.
 3. **Engineering against product.** For each engineering requirement, assumption, spec section, and slice:
-   - Every upstream id it cites still exists and still says what it relied on — `ereq:serves`.
+   - Every upstream id it cites still exists and still says what it relied on — `planning:serves`.
    - A requirement serves live intent or is a standalone constraint; one serving nothing is deleted —
-     `ereq:requirement-removal`.
+     `planning:requirement-removal`.
    - A bound still keeps the promise it derives from, such as a latency that still fits the time product gives —
-     `ereq:classify-requirement`.
-   - An assumption product has since stated or refused is settled — `ereq:assumption-lifecycle`.
-   - A slice still derives from what it cites — `ereq:slice-files`.
+     `planning:classify-requirement`.
+   - An assumption product has since stated or refused is settled — `planning:assumption-lifecycle`.
+   - A slice still derives from what it cites — `planning:slice-files`.
 4. **Fix at the home.** Rewrite in place or delete each engineering record that no longer holds, fixing every citation
-   of an id it removes in the same change — `ereq:change-in-place`. A product requirement whose meaning is unclear gets
-   a bullet in the `## Open questions` of its file, citing no engineering id; one that needs a choice gets an open
-   decision — `ereq:inline-questions`, `ereq:decision-format`. When any slice changed, re-slice —
+   of an id it removes in the same change — `planning:change-in-place`. A product requirement whose meaning is unclear
+   gets a bullet in the `## Open questions` of its file, citing no engineering id; one that needs a choice gets an open
+   decision — `planning:inline-questions`, `planning:decision-format`. When any slice changed, re-slice —
    [slice-an-epic.md](./slice-an-epic.md).
-5. **Report** what changed on each side and every question or decision left open, then commit — `ereq:commit-messages`
-   in [contributing.md](../contributing.md).
+5. **Report** what changed on each side and every question or decision left open, then commit —
+   `planning:commit-messages` in [contributing.md](../contributing.md).

@@ -4,7 +4,7 @@ How a requirements repo is laid out: the `work/` and `delivered/` trees, owned a
 the folder front door, an epic planned in a tracker, where a shared capability goes, and how finished work is archived.
 Every rule here is shared word for word with the Engineering Requirements Framework.
 
-## Repository layout (preq:layout)
+## Repository layout (planning:layout)
 
 <!-- shared:layout -->
 
@@ -40,7 +40,7 @@ carries its status and names the tracker epic in its `external:` frontmatter, an
 
 <!-- /shared:layout -->
 
-## File ownership (preq:file-ownership)
+## File ownership (planning:file-ownership)
 
 <!-- shared:file-ownership -->
 
@@ -51,7 +51,7 @@ itself a shared rule. This keeps either framework adoptable alone.
 
 <!-- /shared:file-ownership -->
 
-## File or folder (preq:file-or-folder)
+## File or folder (planning:file-or-folder)
 
 <!-- shared:file-or-folder -->
 
@@ -64,7 +64,7 @@ folder form, and its leaves carry their build order in their names.
 
 <!-- /shared:file-or-folder -->
 
-## Epics planned in a tracker (preq:tracker-epic)
+## Epics planned in a tracker (planning:tracker-epic)
 
 <!-- shared:tracker-epic -->
 
@@ -93,7 +93,7 @@ Engineering Requirements Framework shapes the file by this rule alone.
 
 <!-- /shared:tracker-epic -->
 
-## Capability epics (preq:capability-epics)
+## Capability epics (planning:capability-epics)
 
 <!-- shared:capability-epics -->
 
@@ -109,7 +109,7 @@ A capability epic's `epic.md` opens by naming what it supports: *"Supports `epic
 `epic:reliable-borrowing/reservations`: members hear about a due date or a lapsed reservation without checking the
 app."*
 
-## Delivered archive (preq:delivered-archive)
+## Delivered archive (planning:delivered-archive)
 
 <!-- shared:delivered-archive -->
 

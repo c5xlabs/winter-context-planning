@@ -1,27 +1,27 @@
 # Product id namespaces
 
-The stable ids product content mints and cites, and the ids it never cites. Rule ids (`preq:`) live only in this
+The stable ids product content mints and cites, and the ids it never cites. Rule ids (`planning:`) live only in this
 framework; content never cites them.
 
-## Id namespaces (preq:id-namespaces)
+## Id namespaces (planning:id-namespaces)
 
 Every product id belongs to exactly one namespace, and each namespace has one canonical home — the file holding the id's
-defining row, section, or record, relative to the repo root. `preq:repository-entry` in
+defining row, section, or record, relative to the repo root. `planning:repository-entry` in
 [`./repository-entry.md`](./repository-entry.md) covers homes outside the repo.
 
-| Prefix        | Names                                                                            | Canonical home                                                                                                                             |
-| ------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| `persona:`    | A person the product serves                                                      | Row in `charter/personas.md`, or the persona's leaf in `charter/personas/` (`preq:persona-registry`)                                       |
-| `job:`        | Something a person is trying to accomplish                                       | Row in `charter/jobs.md`                                                                                                                   |
-| `initiative:` | A durable product investment broader than one capability                         | Row in `initiatives.md`                                                                                                                    |
-| `epic:`       | A major capability the product must establish, `<epic>` or `<initiative>/<epic>` | The epic's `epic.md`, under `work/` or `delivered/`; `epics.md` lists the live ones                                                        |
-| `product:`    | A product requirement of an epic, or one binding every epic of an initiative     | `## <Name> (product:<subject>)` heading in the owner's `requirements.md`, or `###` in `epic.md` when inline (`preq:requirement-records`)   |
-| `milestone:`  | A destination visible in a person's work                                         | `## <Name> (milestone:<slug>)` section in `milestones.md`, or in `delivered.md` once reached                                               |
-| `decision:`   | A decision of either tier, open or made                                          | `## <Name> (decision:…)` heading in the owner's `decisions.md`, shared with engineering (`preq:decision-slugs`, `preq:decision-ownership`) |
+| Prefix        | Names                                                                            | Canonical home                                                                                                                                     |
+| ------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `persona:`    | A person the product serves                                                      | Row in `charter/personas.md`, or the persona's leaf in `charter/personas/` (`planning:persona-registry`)                                           |
+| `job:`        | Something a person is trying to accomplish                                       | Row in `charter/jobs.md`                                                                                                                           |
+| `initiative:` | A durable product investment broader than one capability                         | Row in `initiatives.md`                                                                                                                            |
+| `epic:`       | A major capability the product must establish, `<epic>` or `<initiative>/<epic>` | The epic's `epic.md`, under `work/` or `delivered/`; `epics.md` lists the live ones                                                                |
+| `product:`    | A product requirement of an epic, or one binding every epic of an initiative     | `## <Name> (product:<subject>)` heading in the owner's `requirements.md`, or `###` in `epic.md` when inline (`planning:requirement-records`)       |
+| `milestone:`  | A destination visible in a person's work                                         | `## <Name> (milestone:<slug>)` section in `milestones.md`, or in `delivered.md` once reached                                                       |
+| `decision:`   | A decision of either tier, open or made                                          | `## <Name> (decision:…)` heading in the owner's `decisions.md`, shared with engineering (`planning:decision-slugs`, `planning:decision-ownership`) |
 
 A fact that would still be true for a different product belongs in this framework, not in the repo.
 
-## Slugs, not numbers (preq:slugs-not-numbers)
+## Slugs, not numbers (planning:slugs-not-numbers)
 
 <!-- shared:slugs-not-numbers -->
 
@@ -31,14 +31,14 @@ slugs need no allocation, so parallel authors collide only when they name the sa
 
 <!-- /shared:slugs-not-numbers -->
 
-## Stable product ids (preq:stable-product-ids)
+## Stable product ids (planning:stable-product-ids)
 
 Never rename or reuse a `persona:`, `job:`, `initiative:`, or `milestone:` slug, an epic's own slug, or a `product:`
 subject: these ids are cited from trackers, other repos, and people, and none of those citations update. An epic id
-changes only when the epic moves into or out of an initiative (`preq:moving-ids`). A product id's defining row, heading,
-or frontmatter entry leaves only through a decision. A deleted subject keeps its slug out of circulation.
+changes only when the epic moves into or out of an initiative (`planning:moving-ids`). A product id's defining row,
+heading, or frontmatter entry leaves only through a decision. A deleted subject keeps its slug out of circulation.
 
-## Owned and scoped ids (preq:owned-scoped-ids)
+## Owned and scoped ids (planning:owned-scoped-ids)
 
 <!-- shared:owned-scoped-ids -->
 
@@ -59,7 +59,7 @@ what the requirement requires. The program is the program-wide owner and holds n
 direction is the charter's, so there is no root `requirements.md`, and a bare `product:` resolves no further out than
 its initiative.
 
-## Bare ids (preq:bare-ids)
+## Bare ids (planning:bare-ids)
 
 <!-- shared:bare-ids -->
 
@@ -73,7 +73,7 @@ in, and a bare id no level defines is read as a full id. The full form is valid 
 
 <!-- /shared:bare-ids -->
 
-## Moving ids (preq:moving-ids)
+## Moving ids (planning:moving-ids)
 
 <!-- shared:moving-ids -->
 
@@ -87,7 +87,7 @@ id moves or is deleted, and that is the accepted cost, so make a move deliberate
 
 <!-- /shared:moving-ids -->
 
-## Id citations and headings (preq:id-citations)
+## Id citations and headings (planning:id-citations)
 
 <!-- shared:id-citations -->
 
@@ -106,12 +106,12 @@ section. Any other link points at a document rather than citing an id, and stays
 An id whose home is outside the repo is cited the same way; the Defined in column of the README's Ids table says where
 to look it up.
 
-## Product cites only product (preq:product-cites-product)
+## Product cites only product (planning:product-cites-product)
 
 Product-owned files — the charter, the registries, `epic.md`, `initiative.md`, `requirements.md`, and mockups — cite
 only product ids and the external homes the README declares for them, never an `engineering:` or `assume:` id, and never
 link an engineering file. Any file may cite any `decision:`. Engineering derives from product and cites it; the reverse
 would tie product intent to one implementation, go stale whenever engineering changes, and break in a repo holding no
-engineering content. A requirement's acceptance bullets (`preq:requirement-acceptance` in
+engineering content. A requirement's acceptance bullets (`planning:requirement-acceptance` in
 [`./requirements.md`](./requirements.md)) say what product judges it by, not the engineering records serving it. The
 shared files — `decisions.md` and the `epic.md` of an epic planned in a tracker — follow their shared rules instead.

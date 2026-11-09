@@ -3,7 +3,7 @@
 Engineering requirements in a work folder's `engineering.md`: one record per `engineering:` id, each stating what
 engineering commits to.
 
-## Classifying a requirement (ereq:classify-requirement)
+## Classifying a requirement (planning:classify-requirement)
 
 <!-- shared:classify-requirement -->
 
@@ -30,27 +30,28 @@ fast" is a product promise with no number, so it becomes an open `decision:` or 
 
 <!-- /shared:classify-requirement -->
 
-## Requirement ids (ereq:requirement-ids)
+## Requirement ids (planning:requirement-ids)
 
 A requirement's id is `engineering:<owner id>/<subject>`, the owner being the epic or initiative whose folder holds it,
-or `engineering:<subject>` for one the root holds; a bare id resolves outward from the citing folder (`ereq:bare-ids`),
-and a move into or out of an initiative rewrites full ids (`ereq:moving-ids`). So
+or `engineering:<subject>` for one the root holds; a bare id resolves outward from the citing folder
+(`planning:bare-ids`), and a move into or out of an initiative rewrites full ids (`planning:moving-ids`). So
 `engineering:overdue-returns/overdue-sweep` in `work/overdue-returns/` becomes
 `engineering:reliable-borrowing/overdue-returns/overdue-sweep` if the epic moves under `reliable-borrowing`, and that
 move rewrites every full citation, while `engineering:overdue-sweep` inside the folder stays. Otherwise an id is never
 renamed or reused. A record moves only with its whole folder — into `delivered/`, keeping its id; one that belongs to
 another epic is deleted here and minted under a new id there, in a change that rewrites every citation
-(`ereq:requirement-removal`).
+(`planning:requirement-removal`).
 
-## Requirement records (ereq:requirement-record)
+## Requirement records (planning:requirement-record)
 
-Every requirement is a `##` section headed `<Name> (engineering:<subject>)` (`ereq:id-citations`), then one or two
+Every requirement is a `##` section headed `<Name> (engineering:<subject>)` (`planning:id-citations`), then one or two
 sentences of what engineering commits to: a bound derived from a product promise, citing inline the intent it serves
-(`ereq:serves` in [derivation.md](./derivation.md)), or a standalone constraint (`ereq:engineering-constraints`). There
-are no fields and no "implemented" state: delivery lives in the work tracker and the upstream intent. In folder form
-(`ereq:file-or-folder`), each leaf is `engineering/<subject>.md`, with no index. The record carries the behaviour and
-its reason in prose, which the spec leaves out (`ereq:spec-contracts` in [specs.md](./specs.md)). Records are written in
-the engineering voice (`ereq:engineering-voice` in [voice.md](./voice.md)).
+(`planning:serves` in [derivation.md](./derivation.md)), or a standalone constraint
+(`planning:engineering-constraints`). There are no fields and no "implemented" state: delivery lives in the work tracker
+and the upstream intent. In folder form (`planning:file-or-folder`), each leaf is `engineering/<subject>.md`, with no
+index. The record carries the behaviour and its reason in prose, which the spec leaves out (`planning:spec-contracts` in
+[specs.md](./specs.md)). Records are written in the engineering voice (`planning:engineering-voice` in
+[voice.md](./voice.md)).
 
 <!-- shared:requirement-status -->
 
@@ -71,7 +72,7 @@ Acceptance:
 - A roster change the stand-in submits 61 seconds after the end time is refused.
 ```
 
-## Beyond product (ereq:beyond-product)
+## Beyond product (planning:beyond-product)
 
 A requirement never restates a product requirement: it states what engineering commits to beyond it, or it is not
 written. Acceptance criteria are optional — an `Acceptance:` list of at most a few bullets under the sentences, as on a
@@ -81,7 +82,7 @@ volunteer sees, or how soon, is an acceptance bullet under the `product:` requir
 the epic's `epic.md`. Nothing else goes in the record: how the code keeps a promise belongs in the spec, progress and
 task breakdown in the work tracker, and why one option beat another in a decision.
 
-## Engineering constraints (ereq:engineering-constraints)
+## Engineering constraints (planning:engineering-constraints)
 
 A standalone constraint, one nobody upstream asked for — the language and runtime ("The service is written in
 TypeScript"), data handling ("Member phone numbers never appear in logs"), idempotency, delivery semantics, migration
@@ -92,7 +93,7 @@ several of its epics, or of the root when it binds the whole system, as the lang
 handling one kind of data everywhere usually does. When alternatives were weighed, a decision records why, and the
 record cites it. It is never an assumption: engineering owns it outright.
 
-## Engineering sections (ereq:engineering-sections)
+## Engineering sections (planning:engineering-sections)
 
 A `engineering.md` holds, in order:
 
@@ -100,14 +101,14 @@ A `engineering.md` holds, in order:
 2. Optional: `## What already holds` — behaviour the work builds on that exists already, such as another epic's
    delivered requirement, a contract it consumes, or a system limit, each cited by id or linked, so a reader knows what
    not to rebuild and what not to break.
-3. The `engineering:` records (`ereq:requirement-record`), any of them opening **Proposed.**
-4. Optional: `## Open questions` (`ereq:inline-questions` in [decisions.md](./decisions.md)).
+3. The `engineering:` records (`planning:requirement-record`), any of them opening **Proposed.**
+4. Optional: `## Open questions` (`planning:inline-questions` in [decisions.md](./decisions.md)).
 
-The root file holds only constraints binding the whole system (`ereq:engineering-constraints`). Never: restated product
-text, progress, or tasks.
+The root file holds only constraints binding the whole system (`planning:engineering-constraints`). Never: restated
+product text, progress, or tasks.
 
-## Removing a requirement (ereq:requirement-removal)
+## Removing a requirement (planning:requirement-removal)
 
 A requirement that no longer binds is deleted, and the same change rewrites or removes every citation of its id
-(`ereq:change-in-place` in [structure.md](./structure.md)). Nothing marks it as gone; a decision behind the removal says
-why.
+(`planning:change-in-place` in [structure.md](./structure.md)). Nothing marks it as gone; a decision behind the removal
+says why.

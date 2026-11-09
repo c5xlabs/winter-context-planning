@@ -77,7 +77,7 @@ Product intent does not have to live in git. A repo may keep some or all of it i
 where each kind of id lives; the framework then governs only the product files the repo holds.
 
 Agents working in the workspace load the framework on demand through [`index.md`](./index.md) and cite its rules as
-`preq:<slug>`.
+`planning:<slug>`.
 
 ### Engineering tier
 
@@ -92,8 +92,8 @@ intent can live in the same repo, in another repo, in a tracker or wiki, or acro
 
 The repo never needs this framework to be read: every id appears verbatim at its home, every status is in the README
 glossary, and no file names the framework or its tooling. Agents load the framework lazily, reading
-[index.md](./index.md) when they work in or change an engineering-focused requirements repo, or resolve an `ereq:` rule
-id.
+[index.md](./index.md) when they work in or change an engineering-focused requirements repo, or resolve an `planning:`
+rule id.
 
 ## 🎯 Scope
 

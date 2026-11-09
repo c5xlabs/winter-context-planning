@@ -1,24 +1,25 @@
 # Engineering ids
 
-The stable ids engineering content mints and cites. Rule ids (`ereq:`) live in this framework and never appear in
+The stable ids engineering content mints and cites. Rule ids (`planning:`) live in this framework and never appear in
 content.
 
-## Id namespaces (ereq:id-namespaces)
+## Id namespaces (planning:id-namespaces)
 
 Every stable id engineering content mints belongs to one namespace, with one canonical home — the record or row that
 defines it. Engineering's prefixes are disjoint from product's except `decision:`, which both tiers share under one
-subject rule (`ereq:decision-slugs` in [decisions.md](./decisions.md)), so both tiers share a folder without colliding.
+subject rule (`planning:decision-slugs` in [decisions.md](./decisions.md)), so both tiers share a folder without
+colliding.
 
-| Prefix         | Names                                                      | Format                                                                                     | Canonical home                                                                                                                         |
-| -------------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `engineering:` | What engineering commits to                                | `engineering:<owner id>/<subject>`, or bare `engineering:<subject>`, always so at the root | `## <Name> (engineering:<subject>)` heading in the owning folder's, or the root's, `engineering.md`                                    |
-| `assume:`      | Product intent engineering assumed because none was stated | `assume:<owner id>/<subject>`, or bare `assume:<subject>`                                  | `## <Name> (assume:<subject>)` heading in the `assumptions.md` of the folder whose requirements rest on it                             |
-| `decision:`    | A decision of either tier, open or made                    | `decision:<owner id>/<subject>` or `decision:<subject>`, always in full                    | `## <Name> (decision:…)` heading in the owner's `decisions.md`, shared with product (`ereq:decision-slugs`, `ereq:decision-ownership`) |
+| Prefix         | Names                                                      | Format                                                                                     | Canonical home                                                                                                                                 |
+| -------------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `engineering:` | What engineering commits to                                | `engineering:<owner id>/<subject>`, or bare `engineering:<subject>`, always so at the root | `## <Name> (engineering:<subject>)` heading in the owning folder's, or the root's, `engineering.md`                                            |
+| `assume:`      | Product intent engineering assumed because none was stated | `assume:<owner id>/<subject>`, or bare `assume:<subject>`                                  | `## <Name> (assume:<subject>)` heading in the `assumptions.md` of the folder whose requirements rest on it                                     |
+| `decision:`    | A decision of either tier, open or made                    | `decision:<owner id>/<subject>` or `decision:<subject>`, always in full                    | `## <Name> (decision:…)` heading in the owner's `decisions.md`, shared with product (`planning:decision-slugs`, `planning:decision-ownership`) |
 
-Upstream ids — the product intent a requirement derives from — use the schemes of `ereq:upstream-schemes` in
+Upstream ids — the product intent a requirement derives from — use the schemes of `planning:upstream-schemes` in
 [derivation.md](./derivation.md), not namespaces minted here.
 
-## Slugs, not numbers (ereq:slugs-not-numbers)
+## Slugs, not numbers (planning:slugs-not-numbers)
 
 <!-- shared:slugs-not-numbers -->
 
@@ -28,7 +29,7 @@ slugs need no allocation, so parallel authors collide only when they name the sa
 
 <!-- /shared:slugs-not-numbers -->
 
-## Owned and scoped ids (ereq:owned-scoped-ids)
+## Owned and scoped ids (planning:owned-scoped-ids)
 
 <!-- shared:owned-scoped-ids -->
 
@@ -46,10 +47,10 @@ moves nothing in them.
 
 Owners are epics, initiatives, and the program, and a scoped owner id is an epic id — `<epic>` or `<initiative>/<epic>`
 — or an initiative slug. The program holds only the `engineering:` constraints binding the whole system
-(`ereq:engineering-constraints` in [engineering.md](./engineering.md)), always bare, and never an `assume:`, since a
+(`planning:engineering-constraints` in [engineering.md](./engineering.md)), always bare, and never an `assume:`, since a
 constraint rests on no assumption; an unscoped `decision:` is program-wide.
 
-## Bare ids (ereq:bare-ids)
+## Bare ids (planning:bare-ids)
 
 <!-- shared:bare-ids -->
 
@@ -63,7 +64,7 @@ in, and a bare id no level defines is read as a full id. The full form is valid 
 
 <!-- /shared:bare-ids -->
 
-## Moving ids (ereq:moving-ids)
+## Moving ids (planning:moving-ids)
 
 <!-- shared:moving-ids -->
 
@@ -77,7 +78,7 @@ id moves or is deleted, and that is the accepted cost, so make a move deliberate
 
 <!-- /shared:moving-ids -->
 
-## Id citations and headings (ereq:id-citations)
+## Id citations and headings (planning:id-citations)
 
 <!-- shared:id-citations -->
 

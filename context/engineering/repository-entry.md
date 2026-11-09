@@ -3,11 +3,11 @@
 What a requirements repo holding engineering content must carry so that content reads correctly on its own. The
 framework supplies none of it.
 
-## Repository entry (ereq:repository-entry)
+## Repository entry (planning:repository-entry)
 
-A repo with engineering content carries a README, the `work/` tree of `ereq:layout` in [layout.md](./layout.md), and
+A repo with engineering content carries a README, the `work/` tree of `planning:layout` in [layout.md](./layout.md), and
 nothing that needs this framework to be read: no `AGENTS.md`, `CLAUDE.md`, `context/`, or `winter-ext.toml`, no rule
-text, no `ereq:` id, no tool or extension name. The README opens with a `#` title naming the product's requirements,
+text, no `planning:` id, no tool or extension name. The README opens with a `#` title naming the product's requirements,
 such as `# Toolshed requirements`, and directly under it, before any `##`, one paragraph naming the system the
 requirements are for and saying the repo holds requirements content only. Its `##` sections follow, one for each `###`
 below, starting at Contents. This rule shapes only engineering's part of the intro and of each section; another tier's
@@ -30,7 +30,7 @@ Engineering conforms fully in every case; only the Upstream schemes table change
 
 ### Upstream schemes
 
-- The `Scheme | Resolves to | Example` table `ereq:scheme-declaration` in [derivation.md](./derivation.md) owns,
+- The `Scheme | Resolves to | Example` table `planning:scheme-declaration` in [derivation.md](./derivation.md) owns,
   introduced as how a reader resolves the upstream ids requirements and assumptions cite.
 - Its `product:` row by case: in this repo, this repository and where an epic's product requirements are looked up; in
   another repo, that repo's URL and where they are looked up; only in a tracker or wiki, "not used", plus one row per
@@ -40,10 +40,10 @@ Engineering conforms fully in every case; only the Upstream schemes table change
 ### Frontmatter
 
 - A slice's keys — `name`, `external` in its scalar form, `depends-on` with what it may name, and `code`
-  (`ereq:slice-files` in [slices.md](./slices.md)) — in one short YAML example.
+  (`planning:slice-files` in [slices.md](./slices.md)) — in one short YAML example.
 - Unless another tier's part covers them, the keys and values of each `epic.md` engineering keeps for an epic planned in
-  a tracker (`ereq:tracker-epic`): `epic`, `refinement` and its grades, `status` and its values, and `external` in its
-  scalar form.
+  a tracker (`planning:tracker-epic`): `epic`, `refinement` and its grades, `status` and its values, and `external` in
+  its scalar form.
 
 ### Markers
 

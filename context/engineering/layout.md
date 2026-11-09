@@ -4,7 +4,7 @@ How a requirements repo is laid out: the `work/` and `delivered/` trees, owned a
 the folder front door, an epic planned in a tracker, where a shared capability goes, and how finished work is archived.
 Every rule here is shared word for word with the Product Requirements Framework.
 
-## Repository layout (ereq:layout)
+## Repository layout (planning:layout)
 
 <!-- shared:layout -->
 
@@ -40,7 +40,7 @@ carries its status and names the tracker epic in its `external:` frontmatter, an
 
 <!-- /shared:layout -->
 
-## File ownership (ereq:file-ownership)
+## File ownership (planning:file-ownership)
 
 <!-- shared:file-ownership -->
 
@@ -51,7 +51,7 @@ itself a shared rule. This keeps either framework adoptable alone.
 
 <!-- /shared:file-ownership -->
 
-## File or folder (ereq:file-or-folder)
+## File or folder (planning:file-or-folder)
 
 <!-- shared:file-or-folder -->
 
@@ -64,7 +64,7 @@ folder form, and its leaves carry their build order in their names.
 
 <!-- /shared:file-or-folder -->
 
-## Epics planned in a tracker (ereq:tracker-epic)
+## Epics planned in a tracker (planning:tracker-epic)
 
 <!-- shared:tracker-epic -->
 
@@ -96,7 +96,7 @@ Engineering Requirements Framework shapes the file by this rule alone.
 In a repo whose product intent all lives in a tracker, engineering writes each epic's `epic.md` as it files the epic's
 work, and keeps its `status:` in step with the tracker.
 
-## Capability epics (ereq:capability-epics)
+## Capability epics (planning:capability-epics)
 
 <!-- shared:capability-epics -->
 
@@ -111,7 +111,7 @@ component, or system area. Making the capability an epic gives it an owner who s
 If a requirement serves a shared capability no epic owns yet, ask product for that epic rather than parking the
 requirement in the first epic that needed it.
 
-## Delivered archive (ereq:delivered-archive)
+## Delivered archive (planning:delivered-archive)
 
 <!-- shared:delivered-archive -->
 

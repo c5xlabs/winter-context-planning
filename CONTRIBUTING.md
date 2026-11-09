@@ -20,8 +20,8 @@ outside the markers.
 [`context/index.md`](./context/index.md) routes to the two tier routers, `context/product/index.md` and
 `context/engineering/index.md`: every row states *when to read* the target, never what is inside it. The root
 [`index.md`](./index.md) stays a short pointer to it. Adding, moving, or removing a rule file updates its tier router
-row and the README's Files table in the same change; a `preq:` or `ereq:` rule id lives only in the heading of the rule
-that defines it.
+row and the README's Files table in the same change; a `planning:` rule id lives only in the heading of the rule that
+defines it.
 
 ## Commit messages
 
