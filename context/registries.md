@@ -1,43 +1,32 @@
 # Product registries
 
-The four registries — `initiatives.md`, `epics.md`, `milestones.md`, and `delivered.md` — at the repo root, or in each
-project folder of a repo with projects. Each opens with one paragraph in the product voice saying what the file is and
-that it is not a status board, and that paragraph carries no status, dates, or epic list; each rule below says what
-follows it.
+A repo holding product content keeps four registries — `initiatives.md`, `epics.md`, `milestones.md`, and `delivered.md`
+— at its root, or in each project folder when the repo has projects. Each opens with one product-voice paragraph saying
+what the file is and that it is not a status board; that paragraph carries no status, dates, or epic list. The sections
+below say what comes after it.
 
 ## Registries across projects (planning:registry-levels)
 
-In a repo with projects (`planning:projects` in [`./projects.md`](./projects.md)), each project folder carries its own
-four registries for its own work, each shaped by the rule below for it, and its links point into the project's `work/`
-and `delivered/`. The program root carries no `epics.md` or `initiatives.md`, since it holds no work:
+In a repo with [projects](./projects.md), each project folder keeps its own registries for its own work, linking into
+that project's `work/` and `delivered/`. The program root holds no work, so it has no `epics.md` or `initiatives.md`;
+its `milestones.md` and `delivered.md` hold only destinations that belong to the program rather than to any one project.
 
-- **Project `milestones.md`** — the project's own destinations, its chart citing another project's epic by full id when
-  the destination needs one.
-- **Program `milestones.md`** — destinations that are the program's, not any one project's, each chart row citing an
-  epic or initiative by full id.
-
-A milestone lives at the level whose destination it is, never at both.
-
-- **Program `delivered.md`** — the program milestones reached, with no `## Outside the milestones` section: an epic
-  serving no milestone is recorded in its own project's ledger.
-
-**Detect.** An `epics.md` or `initiatives.md` at the root of a repo with projects; a milestone slug defined in a
-project's registry and the program's.
+A milestone lives at the level whose destination it is, never at both. A chart row citing an epic or initiative from
+another project uses its full id. The program's `delivered.md` has no `## Outside the milestones` section: an epic that
+serves no milestone is recorded in its own project's ledger.
 
 ## Initiative registry (planning:initiative-registry)
 
-A repo that uses initiatives carries `initiatives.md`; a repo with none omits it. An initiative is a durable product
-investment broader than one capability; it may own work directly and may contain epics. After the opening paragraph
-comes one table `Initiative | Outcome`:
+A repo that uses initiatives keeps `initiatives.md`. An initiative is a durable product investment broader than one
+capability; it can own work directly and contain epics. After the opening paragraph comes one table,
+`Initiative | Outcome`:
 
-- Initiative: a stable `initiative:<slug>` id, itself the link to the initiative's owning doc —
-  `work/<initiative>/initiative.md`, whose frontmatter lists its epics and whose body owns the problem, the outcome, and
-  what it leaves for later (`planning:initiative-frontmatter`), or the initiative's declared external home
+- **Initiative** is the stable `initiative:<slug>` id, linked to the initiative's owning doc: its
+  `work/<initiative>/initiative.md` (`planning:initiative-frontmatter`) or its declared external home
   (`planning:repository-entry`). Once its last epic settles, the link points into `delivered/`.
-- Outcome: the shared product result — never a project phase, team, or mechanism.
+- **Outcome** is the shared product result, not a project phase, team, or mechanism.
 
-Rows carry no status, dates, tracker keys, epic list, or supporting-material links: the registry says which investments
-exist and what each is for, and everything else has its own home.
+Rows carry nothing else: no status, dates, tracker keys, epic list, or links to supporting material.
 
 ```markdown
 | Initiative                                                                 | Outcome                                                                                                      |
@@ -47,24 +36,24 @@ exist and what each is for, and everything else has its own home.
 
 ## Epic registry (planning:epic-registry)
 
-A repo holding product content carries `epics.md`: the capabilities the product still intends to build, as a reference
-registry. After the opening paragraph comes one table `Epic | Capability`, ordered by product priority; the order
-changes only through a deliberate reprioritization. Each row holds these facts and no other — no status, dates, tracker
-keys, horizons, milestones served, dependencies, gating, or scope rationale. Status lives in epic frontmatter
-(`planning:epic-frontmatter`), the work tracker owns workflow, and the rest belongs in the epic's `epic.md`.
+A repo holding product content keeps `epics.md`, the capabilities the product still intends to build. After the opening
+paragraph comes one table, `Epic | Capability`, in product-priority order; the order changes only through a deliberate
+reprioritization.
 
-- Epic: a stable `epic:<slug>` id, itself the one link to the epic's `epic.md`, the home of its id — for an epic planned
-  in a tracker, the `epic.md` naming the tracker item (`planning:tracker-epic`).
-- Capability: the row's only prose, starting with the person, problem, and promise before any mechanism. A durable
-  constraint on the capability belongs here; a relationship to other work does not.
+- **Epic** is the stable `epic:<slug>` id (`epic:<initiative>/<epic>` under an initiative), and is the row's one link,
+  to the epic's `epic.md`. For an epic planned in a tracker, that `epic.md` names the tracker item
+  (`planning:tracker-epic`).
+- **Capability** is the row's only prose. It starts with the person, problem, and promise before any mechanism. A
+  durable constraint on the capability belongs here; a relationship to other work does not.
 
-Every epic is needed by at least one milestone, directly or through its initiative, or its Capability cell states the
-operational necessity that justifies it without a destination.
+Rows carry no status, dates, tracker keys, horizons, milestones served, dependencies, gating, or scope rationale. Status
+lives in the epic's frontmatter (`planning:epic-frontmatter`), the tracker owns workflow, and the rest goes in
+`epic.md`.
 
-A milestone creates the demand for an epic, and naming an epic writes its row and its `epic.md` together
-(`planning:lifecycle` in [`./contributing.md`](./contributing.md)). Opening tracker work does not change the row. A
-delivered epic has no row; its id still resolves at its `epic.md` in `delivered/`. An epic under an initiative is listed
-by its full id, `epic:<initiative>/<epic>`.
+Every epic is needed by at least one milestone, directly or through its initiative; an epic that isn't uses its
+Capability cell to state the operational necessity that justifies it. Naming an epic writes its row and its `epic.md`
+together (`planning:lifecycle` in [`./contributing.md`](./contributing.md)); opening tracker work doesn't change the
+row. A delivered epic loses its row, and its id resolves to its `epic.md` in `delivered/`.
 
 ```markdown
 | Epic                                                                                     | Capability                                                                                                                                                                      |
@@ -75,22 +64,22 @@ by its full id, `epic:<initiative>/<epic>`.
 
 ## Milestone registry (planning:milestone-registry)
 
-A repo holding product content carries `milestones.md`, the top-down origin of product planning: each milestone states a
-destination in a person's work and names the epics required to reach it. The file holds only milestones not yet reached.
-After the opening paragraph comes one section per milestone, in the order they are meant to be reached, headed
-`## <Name> (milestone:<slug>)` (`planning:id-citations`). Each section holds a short product-voice paragraph saying what
-people will be able to do once it is reached, then a chart `Epic | Status`: one row per epic, its id as plain text, or
-one row for an initiative when the milestone needs all of it. There is no summary table; the headings are the list.
+A repo holding product content keeps `milestones.md`, where product planning starts: each milestone states a destination
+in a person's work and names the epics needed to reach it. The file holds only unreached milestones, one section each,
+in the order they are meant to be reached. The headings are the list; there is no summary table.
 
-The milestone id is stable, and until the milestone is reached its section here is the id's only home. The destination
-is observable in a person's work, never a feature, an implementation, or a date. Status is the epic's own `status:`
-(`planning:epic-status`). An initiative's row is `delivered` once every epic in it is, `in-progress` once any of them is
-in progress or delivered, otherwise `planned`. The cell is kept in step with the epic, in the same change that moves the
-epic's status; when the two disagree, the epic is the source, so correct the cell. One epic may serve several
-milestones.
+Each section is headed `## <Name> (milestone:<slug>)` with a stable slug, and until the milestone is reached that
+heading is the id's only home. It holds a short product-voice paragraph saying what people will be able to do once it is
+reached — something observable in their work, not a feature, an implementation, or a date — then a chart
+`Epic | Status`. Each row is one epic, its id as plain text, or one initiative when the milestone needs all of it. An
+epic can serve several milestones.
+
+An epic's Status is its own `status:` (`planning:epic-status`), updated in the same change that moves the epic; when the
+two disagree, the epic is right and the cell gets corrected. An initiative's row is `delivered` once all its epics are,
+`in-progress` once any is in progress or delivered, and `planned` otherwise.
 
 A milestone enters before or with the epics it needs. It is reached when every row is `delivered`, and the change that
-delivers the last of them moves its section into `delivered.md`.
+delivers the last one moves its section into `delivered.md`.
 
 ```markdown
 ## Reserve ahead (milestone:reserve-ahead)
@@ -106,20 +95,17 @@ shelf when the window starts.
 
 ## Delivery ledger (planning:delivery-ledger)
 
-A repo holding product content carries `delivered.md`, the durable record of the milestones reached. After the opening
-paragraph comes one section per reached milestone, newest first, as `planning:milestone-registry` moves it here. A moved
-section keeps its `## <Name> (milestone:<slug>)` heading, which from then on is the milestone id's home, then holds one
-sentence of what people can now do and a table `Epic | Notes`, the chart's rows with the Status column replaced: each
-Notes cell says in a few words what that epic covered. An epic may appear under more than one milestone. There are no
-dates; git records when a section moved.
+A repo holding product content keeps `delivered.md`, the durable record of reached milestones, newest first. A section
+moved here keeps its heading, which becomes the milestone id's home, and holds one sentence of what people can now do
+and an `Epic | Notes` table: the chart's rows, each Notes cell saying in a few words what that epic covered. There are
+no dates; git records when a section moved.
 
-The ledger closes with `## Outside the milestones`, in the same `Epic | Notes` shape: each delivered epic that served no
-milestone, added by the change that delivers it. The section is absent when there are none. An empty ledger holds only
-its heading and opening paragraph, never placeholder history. Entries are append-mostly: correct factual errors, but
-never reshape history to later vocabulary.
+The ledger ends with `## Outside the milestones`, in the same shape, for delivered epics that served no milestone; the
+change that delivers such an epic adds its row. Omit the section when it would be empty. An empty ledger is just its
+heading and opening paragraph. Correct factual errors, but don't rewrite history into later vocabulary.
 
 The ledger is not the `delivered/` archive (`planning:delivered-archive` in [`./layout.md`](./layout.md)), which takes
-an epic's folder when the epic is delivered, whether or not a milestone it serves is reached.
+an epic's folder when the epic is delivered, whether or not any milestone it serves is reached.
 
 ```markdown
 ## Reserve ahead (milestone:reserve-ahead)

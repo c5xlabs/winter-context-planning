@@ -1,83 +1,70 @@
 # Projects
 
-The optional project level, for one requirements repo planning several products of one program. How ids carry a project
-is [`./namespaces.md`](./namespaces.md).
+Projects are an optional level for a requirements repo that plans several products of one program. How an id carries its
+project is covered in [namespaces.md](./namespaces.md).
 
 ## The program and its projects (planning:projects)
 
-A requirements repo plans one program. A program whose products share personas, contracts, or requirements but are
-planned and delivered apart divides into projects, one folder each at `projects/<project>/`, named by its project slug.
-The taxonomy runs program, project, initiative, epic, slice: the program states what binds everything in it, each
-project plans one product, and initiatives, epics, and slices sit inside a project as they sit in a repo without
-projects. Every level may hold requirements, each binding everything beneath it.
+A requirements repo plans one program. When the program's products share personas, contracts, or requirements but are
+planned and delivered separately, the program divides into projects, each in its own folder at `projects/<project>/`
+named by its slug. The levels run program, project, initiative, epic, slice. The program states what binds everything in
+it, each project plans one product, and initiatives, epics, and slices sit inside a project just as they do in a repo
+without projects. Requirements can sit at any level and bind everything beneath it.
 
-Projects are optional, and a repo planning one product has none: it has no `projects/` folder, its root takes the layout
-of `planning:layout` in [`./layout.md`](./layout.md), and nothing in this file applies to it. A repo with projects has
-at least two. The set of projects is the listing of `projects/` and the README's Contents rows naming each one
-(`planning:repository-entry` in [`./repository-entry.md`](./repository-entry.md)); there is no project registry.
+A repo that plans one product has no projects and no `projects/` folder. Its root follows `planning:layout` in
+[layout.md](./layout.md), and the rest of this file doesn't apply. A repo with projects has at least two. There is no
+project registry: the projects are what `projects/` contains, and the README names each one in its Contents rows
+([repository-entry.md](./repository-entry.md)).
 
-A project is named by the product it plans, never a team, phase, or technology. The level is a project, not a product,
-because `product:` already names a product requirement.
+Name a project after the product it plans, not a team, phase, or technology.
 
 ## The program root (planning:program-root)
 
-In a repo with projects, the root holds what binds the whole program and no work of its own:
+In a repo with projects, the root holds what binds the whole program, and no work of its own. It always has:
 
-| Path                                         | R/O | Holds                                                                                               |
-| -------------------------------------------- | --- | --------------------------------------------------------------------------------------------------- |
-| `README.md`                                  | R   | The repo's one README (`planning:repository-entry`); no project carries its own                     |
-| `charter/`                                   | R   | The program's charter (`planning:charter-levels` in [`./charter.md`](./charter.md))                 |
-| `projects/`                                  | R   | One folder per project (`planning:project-folder`)                                                  |
-| `requirements.md`                            | O   | `product:` records binding every epic in the program                                                |
-| `engineering.md`                             | O   | `engineering:` records binding the whole program                                                    |
-| `decisions.md`                               | O   | Decisions across projects, or that no project owns                                                  |
-| `milestones.md`                              | O   | Destinations that are the program's, not any one project's                                          |
-| `delivered.md`                               | O   | The program milestones reached, once there are any                                                  |
-| `strategy/`                                  | O   | Direction-setting papers (`planning:product-areas` in [`./structure.md`](./structure.md))           |
-| `mockup-kit/`                                | O   | The one kit every project's mockups share (`planning:mockup-kit` in [`./mockups.md`](./mockups.md)) |
-| `research/`, `presentations/`, `supporting/` | O   | As at the root of a repo without projects (`planning:layout`)                                       |
+- `README.md`, the repo's only README; projects don't get their own
+- `charter/`, the program's charter ([charter.md](./charter.md))
+- `projects/`, one folder per project
 
-The root holds no `work/`, `delivered/` archive, `epics.md`, or `initiatives.md`: every epic belongs to a project.
+It may also have:
+
+- `requirements.md` and `engineering.md`, for records that bind the whole program
+- `decisions.md`, for decisions that span projects or that no project owns
+- `milestones.md`, for destinations that are the program's rather than one project's, and `delivered.md` once one is
+  reached
+- `strategy/`, for direction-setting papers ([structure.md](./structure.md))
+- `mockup-kit/`, the one kit every project's mockups share ([mockups.md](./mockups.md))
+- `research/`, `presentations/`, and `supporting/`, as in a repo without projects
+
+Every epic belongs to a project, so the root has no `work/`, `delivered/`, `epics.md`, or `initiatives.md`.
 
 ## The project folder (planning:project-folder)
 
-A project folder takes the root layout of a repo without projects (`planning:layout`), minus what only the program
-holds:
+A project folder is laid out like the root of a repo without projects, minus what belongs to the program: `README.md`,
+`strategy/`, `mockup-kit/`, and `supporting/`.
 
-| Path                                        | R/O | Holds                                                                                                    |
-| ------------------------------------------- | --- | -------------------------------------------------------------------------------------------------------- |
-| `charter/`                                  | R   | The project's charter (`planning:charter-levels`); `mission.md` is the project's front door              |
-| `epics.md`, `milestones.md`, `delivered.md` | R   | The project's registries and ledger (`planning:registry-levels` in [`./registries.md`](./registries.md)) |
-| `initiatives.md`                            | O   | The project's initiative registry, when it uses initiatives                                              |
-| `requirements.md`, `engineering.md`         | O   | Records binding every epic in the project                                                                |
-| `decisions.md`                              | O   | Decisions across the project's epics, or that no epic owns                                               |
-| `work/`, `delivered/`                       | R   | The project's epic and initiative folders, live and archived                                             |
-| `research/`, `presentations/`               | O   | Material local to the project                                                                            |
+It always has `charter/`, whose `mission.md` is the project's front door; the `epics.md`, `milestones.md`, and
+`delivered.md` registries ([registries.md](./registries.md)); and `work/` and `delivered/` for its live and archived
+epic and initiative folders. It may have `initiatives.md` if it uses initiatives, `requirements.md` and `engineering.md`
+for records that bind every epic in the project, `decisions.md` for decisions that span its epics or that no epic owns,
+and `research/` and `presentations/`.
 
-It never holds a `README.md`, `strategy/`, `mockup-kit/`, or `supporting/`, which belong to the program.
-
-An epic's folder sits at `projects/<project>/work/<epic>/`, or `projects/<project>/work/<initiative>/<epic>/` under an
-initiative, and moves to the matching path under the project's `delivered/` (`planning:delivered-archive` in
-[`./layout.md`](./layout.md)).
+An epic lives at `projects/<project>/work/<epic>/`, or `projects/<project>/work/<initiative>/<epic>/` under an
+initiative, and moves to the same path under the project's `delivered/` when it is delivered.
 
 ## Project slugs (planning:project-slugs)
 
-A project slug is reserved across the repo: no initiative, epic, or program-level record of any prefix takes a project's
-slug as its own, so the first segment of any id that matches a project slug always names that project
-(`planning:owned-scoped-ids` in [`./namespaces.md`](./namespaces.md)). A project slug is never renamed or reused, like
-every product id (`planning:stable-product-ids`).
-
-**Detect.** An initiative, standalone epic, persona, job, milestone, or program-level `product:`, `engineering:`, or
-`decision:` subject whose slug is a project's.
+A project slug is reserved across the repo. No initiative, standalone epic, persona, job, milestone, or program-level
+`product:`, `engineering:`, or `decision:` record may take it as its own slug, so an id whose first segment matches a
+project slug always names that project. Like any product id, a project slug is never renamed or reused.
 
 ## Work shared across projects (planning:cross-project)
 
 Each record lives at the narrowest level it binds: an epic or initiative, a project, or the program. A requirement,
-constraint, or decision binding more than one project, or a milestone that is no one project's destination, belongs to
-the program. A capability several projects build on is a capability epic in the project that owns it
-(`planning:capability-epics` in [`./layout.md`](./layout.md)), never at the program root, which holds no work; other
-projects cite it by its full id. Where a persona or job lives is `planning:charter-levels` in
-[`./charter.md`](./charter.md). Nothing shared is copied into a second project.
+constraint, or decision that binds more than one project, or a milestone that is no single project's destination,
+belongs to the program. A capability several projects build on is a capability epic in the project that owns it
+([layout.md](./layout.md)), since the program root holds no work; other projects cite it by its full id. Nothing shared
+is copied into a second project. Where personas and jobs live is covered in [charter.md](./charter.md).
 
-Moving an epic or initiative from one project to another, or a record from a project to the program, changes its id
-(`planning:moving-ids` in [`./namespaces.md`](./namespaces.md)).
+Moving an epic or initiative to another project, or a record from a project up to the program, changes its id
+([namespaces.md](./namespaces.md)).

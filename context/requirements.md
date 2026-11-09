@@ -1,56 +1,44 @@
 # Product requirements
 
-The product requirements in an epic's `requirements.md`, or inline in its `epic.md`: what makes a statement product's to
-require, the shape of a requirement record, its acceptance bullets, and how records spread into their own files. The
-files fronting a work folder are [`./intent.md`](./intent.md).
+An epic's product requirements live in its `requirements.md`, or inline in its `epic.md`. The files that front a work
+folder are covered in [`./intent.md`](./intent.md).
 
 ## Classifying a requirement (planning:classify-requirement)
 
-Three tells, asked in order, give any statement about the system its home. Could a user notice it changing? Then it is a
-product requirement (`product:`), or an assumption (`assume:`) when product never said it. Does it only describe how the
-code keeps a promise? Then it belongs in the spec, not in any requirement. Otherwise, does it bind every implementation?
-Then it is an engineering requirement (`engineering:`), in one of two shapes: a bound derived from a product promise,
-which engineering can change alone so long as the promise holds, or a standalone constraint nobody upstream asked for —
-the language and runtime, data handling, idempotency, delivery semantics, migration compatibility, tracing. A choice
-between real alternatives is a decision recording its reason, whichever home its outcome takes. One topic, traced
-through every home:
+To find a statement's home, ask three questions in order. Could a user notice it changing? Then it is a product
+requirement (`product:`), or an assumption (`assume:`) if product never said it. Does it only describe how the code
+keeps a promise? Then it belongs in the spec. Does it bind every implementation? Then it is an engineering requirement
+(`engineering:`): either a bound derived from a product promise, which engineering may change alone while the promise
+holds, or a standalone constraint nobody upstream asked for, such as the runtime, data handling, idempotency, delivery
+semantics, migration compatibility, or tracing. A choice between real alternatives is also recorded as a `decision:`
+with its reason, wherever its outcome lands.
 
-| Statement                                                                                                              | Home           | Why                                                                                    |
-| ---------------------------------------------------------------------------------------------------------------------- | -------------- | -------------------------------------------------------------------------------------- |
-| A volunteer cannot check in a tool they borrowed themselves.                                                           | `product:`     | A coordinator would notice if it broke.                                                |
-| A member hears their reservation lapsed within five minutes of the shift closing.                                      | `product:`     | A member would notice an hour; changing it is a product call.                          |
-| (Product never gave a time.) A member needs to hear their reservation lapsed within five minutes of the shift closing. | `assume:`      | Product-shaped, made up by engineering, held until product confirms.                   |
-| The `reservation.lapsed` event is consumed within 10 s at p95.                                                         | `engineering:` | A bound engineering derived so the five minutes hold; engineering can change it alone. |
-| `CHECK (checked_in_by <> borrower_id)`                                                                                 | spec, `Data`   | How the code keeps the no-self-check-in promise.                                       |
-| Loan periods kept in a table rather than in code, because the coordinator sets one per tool category.                  | `decision:`    | A choice between real alternatives, with its reason.                                   |
+One topic, traced through every home:
 
-Two statements that sound like requirements are neither. "Use a transaction around the check" is spec. "It should be
-fast" is a product promise with no number, so it becomes an open `decision:` or an `assume:`.
+| Statement                                                                                                              | Home           |
+| ---------------------------------------------------------------------------------------------------------------------- | -------------- |
+| A volunteer cannot check in a tool they borrowed themselves.                                                           | `product:`     |
+| A member hears their reservation lapsed within five minutes of the shift closing.                                      | `product:`     |
+| (Product never gave a time.) A member needs to hear their reservation lapsed within five minutes of the shift closing. | `assume:`      |
+| The `reservation.lapsed` event is consumed within 10 s at p95.                                                         | `engineering:` |
+| `CHECK (checked_in_by <> borrower_id)`                                                                                 | spec, `Data`   |
+| Loan periods kept in a table rather than in code, because the coordinator sets one per tool category.                  | `decision:`    |
+
+Some statements only sound like requirements. "Use a transaction around the check" is spec. "It should be fast" is a
+promise with no number, so it becomes an open `decision:` or an `assume:`.
 
 ## Requirement records (planning:requirement-records)
 
-A product requirement is a record of its own, named for what it requires. Whatever supports a requirement — an
-engineering requirement serving it, a decision, a tracker item — may cite its id, and that citation is the only link. An
-epic's `requirements.md` holds, in order:
+Each product requirement is its own record, named for what it requires. Anything that supports it, whether an
+engineering requirement, a decision, or a tracker item, may cite its id, and that citation is the only link between
+them.
 
-1. A `#` title, then one line citing the epic's `epic:` id.
-2. One record per requirement: a `## <Name> (product:<subject>)` heading, the name a short phrase for the capability and
-   the subject naming what it requires (`planning:id-citations` in [`./namespaces.md`](./namespaces.md)); then one or
-   two plain sentences of what changes for the person once it holds, linking any mockup and citing any `decision:`
-   inline; then its acceptance bullets. A requirement no longer wanted is deleted, and every citation of it rewritten or
-   removed in the same change (`planning:change-in-place` in [`./structure.md`](./structure.md)).
-3. Optional: `## Open questions`.
-
-A requirement has one optional status, the **Proposed.** marker opening its body: written down but not yet binding. A
-requirement without it is accepted and binds; build and test to it. The change that accepts a proposed requirement drops
-the marker. Proposed and accepted are the only two states, and nothing records whether a requirement is met.
-
-Never: prose between records, the problem restated, status, slices, stories, test-level criteria, or engineering ids.
-
-A small epic may skip the file and write the same records inline in `epic.md`, after its intent, under a
-`## Requirements` heading, each record a `###` section, the same pattern as file-or-folder (`planning:file-or-folder`):
-a record keeps its name, id, and shape in either file, so moving it changes only its heading level. An epic planned in a
-tracker has no records here.
+An epic's `requirements.md` opens with a `#` title and one line citing the epic's `epic:` id, then has one record per
+requirement, then optionally `## Open questions`. A record is a `## <Name> (product:<subject>)` heading, where the name
+is a short phrase for the capability and the subject names what it requires (see `planning:id-citations` in
+[`./namespaces.md`](./namespaces.md)); then one or two plain sentences on what changes for the person once it holds,
+linking any mockup and citing any `decision:` inline; then its acceptance bullets. Nothing else goes in the file: no
+prose between records, no restated problem, and no status, slices, stories, test-level criteria, or engineering ids.
 
 ```markdown
 ## Coordinator cover (product:coordinator-cover)
@@ -64,25 +52,33 @@ Acceptance:
 - The calls return to the coordinator when the cover ends.
 ```
 
-An initiative's `requirements.md` takes the same shape, its opening line citing the `initiative:` id; so does a
-project's, its opening line naming the project, and the program's at the root, with no opening line. Each holds only
-requirements binding every epic beneath it: a program requirement is a promise every epic in the program keeps, such as
-a format every surface emits, never direction the charter already states. Each record takes a subject no initiative or
-epic beneath it has as its slug, so a full id never reads as an epic.
+A requirement is accepted and binding unless its body opens with **Proposed.**, which means written down but not yet
+binding. Accepting it drops the marker. There are no other states, and nothing records whether a requirement is met. A
+requirement no longer wanted is deleted, and every citation of it is rewritten or removed in the same change (see
+`planning:change-in-place` in [`./structure.md`](./structure.md)).
+
+A small epic may skip the file and put the same records in `epic.md` under a `## Requirements` heading after its intent,
+each record a `###` section. Moving a record between the two changes only its heading level. An epic planned in a
+tracker has no records here.
+
+Initiatives, projects, and the program at the root may have a `requirements.md` of the same shape. An initiative's
+opening line cites its `initiative:` id, a project's names the project, and the program's has none. These hold only
+requirements that bind every epic beneath them; a program requirement is a promise every epic keeps, such as a format
+every surface emits, not direction the charter already gives. Each record's subject must differ from every initiative
+and epic slug beneath it, so its id never reads as an epic's.
 
 ## Requirement acceptance (planning:requirement-acceptance)
 
-A requirement record may close with a short `Acceptance:` list — a few bullets of what product judges at acceptance by
-watching the outcome: what the person is told, what they see, what they can do, and how soon. Each bullet is observable
-without knowing how the system works (`planning:classify-requirement`); a bound engineering derives to keep it, or how
-the code keeps it, belongs to engineering instead.
+A record may close with a short `Acceptance:` list: a few bullets product can judge by watching the outcome, covering
+what the person is told, what they see, what they can do, and how soon. Each bullet must be observable without knowing
+how the system works. A derived bound, or how the code meets the bullet, belongs to engineering.
 
 ## Requirement files (planning:requirement-files)
 
-When an epic's requirement records outgrow one file, move to the folder form, one leaf per requirement and no index —
-`requirements/<subject>.md` (`planning:file-or-folder` in [`./layout.md`](./layout.md)). The epic frontmatter names no
-leaf. A leaf holds its record under the same heading and may carry frontmatter naming its epic, never a status, a slice,
-or an `external:` value:
+When an epic's records outgrow one file, switch to a folder with one leaf per requirement, `requirements/<subject>.md`,
+and no index (see `planning:file-or-folder` in [`./layout.md`](./layout.md)). The epic frontmatter names no leaf. A leaf
+keeps its record's heading and may carry frontmatter naming its epic, but never a status, a slice, or an `external:`
+value:
 
 ```yaml
 ---

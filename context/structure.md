@@ -1,93 +1,109 @@
 # Structure
 
-Which files each tier owns, the test a document passes to enter one, where it goes, how an overtaken document is
-changed, and what is deliberately absent. The layout they sit in is [`./layout.md`](./layout.md).
+Which files product and engineering own, when a new document earns a place, where it goes, how it changes once
+overtaken, and what the repo leaves out on purpose. The folders these sit in are described in
+[`./layout.md`](./layout.md).
 
 ## Product areas (planning:product-areas)
 
-Product owns these areas, and an area's name promises that everything in it is that thing. R = required when the repo
-holds product content; O = optional. Root paths are relative to the repo root; folder files sit in a folder under
-`work/`. In a repo with projects, the program root and each project folder split the root areas between them
-(`planning:program-root` and `planning:project-folder` in [`./projects.md`](./projects.md)).
+An area's name is a promise that everything in it is that thing. Product owns these areas; the required ones are
+required once the repo holds any product content. In a repo with projects, the program root and each project folder
+split the root areas between them ([`./projects.md`](./projects.md)).
 
-| Area                                                          | R/O                       | Promise                                                                                                                                                                                                                           | Not this                                                                                                    |
-| ------------------------------------------------------------- | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `charter/`                                                    | R                         | The standing product direction: mission, vision, and the `persona:` and `job:` registries ([`./charter.md`](./charter.md)).                                                                                                       | Epic-level intent                                                                                           |
-| `initiatives.md`, `epics.md`, `milestones.md`, `delivered.md` | R (`initiatives.md` O)    | The live registries and the delivery ledger, at the root ([`./registries.md`](./registries.md)).                                                                                                                                  | Work-item workflow, which is the work tracker's                                                             |
-| `epic.md`                                                     | R in an epic folder       | The folder's front door: the epic's frontmatter, problem, outcome, and Left for later; its requirement records too when it has no `requirements.md` ([`./intent.md`](./intent.md)).                                               | Technical design — sequence diagrams, schemas, endpoint contracts; program-wide direction; raw analysis     |
-| `initiative.md`                                               | R in an initiative folder | The folder's front door: the initiative's frontmatter, problem, outcome, and Left for later ([`./intent.md`](./intent.md)).                                                                                                       | Its epics' intent; technical design                                                                         |
-| `requirements.md`                                             | O                         | In an epic folder, one `product:` record per requirement with its acceptance bullets; in an initiative or project folder or at the root, only requirements binding every epic beneath ([`./requirements.md`](./requirements.md)). | The problem and outcome, which are `epic.md`'s; program direction, which is the charter's; technical design |
-| `mockups/`                                                    | O                         | In a work folder, the mockups for that epic, or for several epics of that initiative ([`./mockups.md`](./mockups.md)).                                                                                                            | The kit                                                                                                     |
-| `strategy/`                                                   | O                         | At the root, direction-setting papers — program intent, framing, and priorities. Few, long-lived, heavily cited.                                                                                                                  | Intent for one initiative or epic; research findings                                                        |
-| `mockup-kit/`                                                 | O                         | At the root, the stylesheet and brand marks mockups share, with the kit README ([`./mockups.md`](./mockups.md)).                                                                                                                  | The mockups themselves, which live with their work                                                          |
+| Area                                                          | Required                     | Holds                                                                                                    |
+| ------------------------------------------------------------- | ---------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `charter/`                                                    | Yes                          | Mission, vision, and the `persona:` and `job:` registries ([`./charter.md`](./charter.md))               |
+| `initiatives.md`, `epics.md`, `milestones.md`, `delivered.md` | Yes, except `initiatives.md` | The live registries and the delivery ledger ([`./registries.md`](./registries.md))                       |
+| `epic.md`                                                     | In every epic folder         | The epic's front door ([`./intent.md`](./intent.md))                                                     |
+| `initiative.md`                                               | In every initiative folder   | The initiative's front door ([`./intent.md`](./intent.md))                                               |
+| `requirements.md`                                             | No                           | Product requirement records ([`./requirements.md`](./requirements.md))                                   |
+| `mockups/`                                                    | No                           | Mockups for the folder's epic, or for several of its initiative's epics ([`./mockups.md`](./mockups.md)) |
+| `strategy/`                                                   | No                           | Direction-setting papers for the program, at the root                                                    |
+| `mockup-kit/`                                                 | No                           | The stylesheet, brand marks, and README the mockups share, at the root ([`./mockups.md`](./mockups.md))  |
 
-Technical design stays out of the product files because it serves the implementer and drifts at a different rate from
-product intent. Use nested epics only when part of an initiative's investment has its own focused promise.
+An `epic.md` holds the epic's frontmatter, problem, outcome, and Left for later, plus its requirement records when the
+folder has no `requirements.md`. An `initiative.md` holds the same for the initiative, but not its epics' intent. In an
+epic folder, `requirements.md` has one `product:` record per requirement with its acceptance bullets; anywhere above an
+epic, it holds only requirements binding every epic beneath. Strategy papers are few, long-lived, and heavily cited;
+intent for a single initiative or epic belongs in its folder, and research findings in `research/`.
+
+Technical design, such as sequence diagrams, schemas, and endpoint contracts, stays out of product files. Nest an epic
+only when part of an initiative's investment has its own focused promise.
 
 ## Engineering areas (planning:engineering-areas)
 
-Engineering owns these files in any folder under `work/`, and a file's name promises that everything in it is that
-thing:
+Engineering owns these files in any folder under `work/`:
 
-| File             | Promise                                                                                                                                        | Not this                                                                                    |
-| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `engineering.md` | What engineering commits to for this epic or initiative, constraints included, one `engineering:` record each (`planning:requirement-record`). | Design; product intent, which lives upstream; documentation of what is built                |
-| `assumptions.md` | The `assume:` records this folder's requirements rest on (`planning:assumption-record`).                                                       | Requirements; product intent that has been stated                                           |
-| `spec.md`        | The technical contracts answering this folder's requirements (`planning:spec-contracts`).                                                      | Implementation progress; documentation of what is built, which is the owning project repo's |
-| `slices/`        | The ordered changes that build the epic, one file each, derived from its requirements and spec (`planning:slice-files`).                       | Facts of their own; progress, which the work tracker owns                                   |
+| File             | Holds                                                                                                    |
+| ---------------- | -------------------------------------------------------------------------------------------------------- |
+| `engineering.md` | What engineering commits to for this epic or initiative, constraints included, as `engineering:` records |
+| `assumptions.md` | The `assume:` records this folder's requirements rest on                                                 |
+| `spec.md`        | The technical contracts that answer this folder's requirements                                           |
+| `slices/`        | The ordered changes that build the epic, one file each                                                   |
 
-At the root, and in a project folder, engineering owns only `engineering.md`, holding the records that bind the whole
-program or project; their engineering decisions go in the `decisions.md` beside it. It may also write the `epic.md` of
-an epic planned in a tracker, which the shared `planning:tracker-epic` rule in [`./layout.md`](./layout.md) shapes.
+Slices are derived from the requirements and spec and add no facts of their own. Progress belongs to the work tracker
+and documentation of what was built to the project repo that owns it; neither lives here. Product intent that has
+already been stated is not an assumption.
+
+At the root and in a project folder, engineering owns only `engineering.md`, for records that bind the whole program or
+project, with their engineering decisions in the `decisions.md` beside it. Engineering may also write the `epic.md` of
+an epic planned in a tracker, shaped by `planning:tracker-epic` in [`./layout.md`](./layout.md).
 
 ## Document admission (planning:document-admission)
 
-A new document lands only if it owns a distinct subject no existing document owns — otherwise improve that one; has a
-read-trigger, a question a reader arrives with — otherwise its content belongs in an existing document; takes the name
-and place the layout gives it, or is linked in the same change from the document owning its subject; and retires what it
-supersedes, which is corrected in place or deleted.
+A new document lands only if:
+
+- it owns a subject no existing document owns; otherwise, improve that one
+- a reader arrives with a question it answers; otherwise, its content goes in an existing document
+- it takes the name and place the layout gives it, or the document owning its subject links to it in the same change
+- the same change corrects or deletes whatever it supersedes
 
 ## Placement (planning:placement)
 
-Place a document by the question its reader arrives with, not by the work or team that produced it. Research groups by
-subject, not consumer, because it outlives the work that commissioned it and is cited by more than one owner; a script
-stays beside the findings it produced so the result can be re-derived. When several documents misfit the area they sit
-in, rename the area to name the real boundary and repoint the routers — never widen the area's promise to cover the
-misfits.
+Place a document by the question its reader arrives with, not by the work or team that produced it. Each question has
+exactly one place its answer goes:
 
-| Reader asks                                       | Goes in                                                                                                             |
-| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| What are we trying to achieve?                    | `strategy/`                                                                                                         |
-| Why does this work exist, and what will change?   | The owning folder's `epic.md` or `initiative.md`                                                                    |
-| What are we building, and how will people use it? | The epic's `requirements.md`, or its `epic.md` when the requirement records are inline                              |
-| What must the system do?                          | The owning folder's `engineering.md`; the project's or the root's for a record binding the whole project or program |
-| What are we assuming?                             | The `assumptions.md` of the folder whose requirements rest on it                                                    |
-| How is it built?                                  | The epic folder's `spec.md`, or its `spec/` in folder form                                                          |
-| In what steps is it built?                        | The epic folder's `slices/`                                                                                         |
-| What did we learn?                                | The owning folder's `research/` when local to it, otherwise the root `research/<subject>/`                          |
-| What did we settle, or leave to decide?           | The owning folder's `decisions.md`; the project's or the root's for calls across its epics, or that no epic owns    |
-| What did this mean?                               | The `## Open questions` at the end of the file it concerns                                                          |
+| Reader asks                                       | Goes in                                                                                |
+| ------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| What are we trying to achieve?                    | `strategy/`                                                                            |
+| Why does this work exist, and what will change?   | The owning folder's `epic.md` or `initiative.md`                                       |
+| What are we building, and how will people use it? | The epic's `requirements.md`, or its `epic.md` when the records are inline             |
+| What must the system do?                          | The owning folder's `engineering.md`                                                   |
+| What are we assuming?                             | The `assumptions.md` of the folder whose requirements rest on it                       |
+| How is it built?                                  | The epic folder's `spec.md`, or `spec/` in folder form                                 |
+| In what steps is it built?                        | The epic folder's `slices/`                                                            |
+| What did we learn?                                | The owning folder's `research/`, or the root `research/<subject>/` when it isn't local |
+| What did we settle, or leave to decide?           | The owning folder's `decisions.md`                                                     |
+| What did this mean?                               | The `## Open questions` at the end of the file it concerns                             |
 
-Each reader question has exactly one place its answer goes.
+A record or decision that binds a whole project or program, or that no single epic owns, goes in that project's or the
+root's file. Root research is grouped by subject rather than by who asked for it, and a script stays beside the findings
+it produced.
+
+When several documents misfit their area, rename the area to name the real boundary and repoint the routers; don't widen
+its promise to cover them.
 
 ## Changing in place (planning:change-in-place)
 
-When a decision or a later document overtakes a document, a passage, or a record, rewrite it in place in the same change
-to say what now holds; when it no longer applies at all, delete it. Either way, the same change rewrites or removes
-every citation of an id that no longer exists, so no citation is left dangling. Git history keeps the old version, and
-nothing in the repo marks content as stale. Decisions follow their own format instead, and a folder in `delivered/` is
-frozen: later work cites it and never rewrites it.
+When a decision or a later document overtakes a document, passage, or record, rewrite it in the same change to say what
+now holds, or delete it if it no longer applies. The same change rewrites or removes every citation of an id that no
+longer exists. Nothing in the repo marks content as stale; git keeps the old version.
 
-A requirement that no longer binds is deleted (`planning:requirement-removal`), and a settled assumption with it
-(`planning:assumption-lifecycle`).
+Two exceptions: decisions follow their own format, and a folder in `delivered/` is frozen, so later work cites it but
+never rewrites it. A requirement that no longer binds is deleted (`planning:requirement-removal`), and so is an
+assumption once it is settled (`planning:assumption-lifecycle`).
 
 ## Deliberately absent (planning:deliberately-absent)
 
-These are missing on purpose; do not add them. There is no `product/` or `engineering/` root, because work is organized
-by epic. There is no folder per service, component, or system area; a shared capability is an epic of its own. There is
-no status folder other than `delivered/`: progress lives in frontmatter and the work tracker, and the one move finished
-work makes is one way. There is no `contracts/` folder; a shared contract lives with the epic owning its capability.
-There is no separate questions file: clarifying questions sit in the file they concern and deferred calls are open
-decisions. There is no project registry: the `projects/` listing and the README name the projects, and a repo planning
-one product has no `projects/` folder. There is no `index.md` anywhere: a work folder's front door is its `epic.md` or
-`initiative.md`, a document folder is only its leaves, and the layout plus a listing says what each folder holds.
+The repo leaves these out on purpose; don't add them:
+
+- A `product/` or `engineering/` root. Work is organized by epic.
+- A folder per service, component, or system area. A shared capability is an epic of its own.
+- A status folder other than `delivered/`. Progress lives in frontmatter and the work tracker, and moving to
+  `delivered/` is one way.
+- A `contracts/` folder. A shared contract lives with the epic that owns its capability.
+- A separate questions file. Clarifying questions sit in the file they concern, and deferred calls are open decisions.
+- A project registry. The `projects/` listing and the README name the projects; a repo planning one product has no
+  `projects/` folder.
+- An `index.md` anywhere. A work folder's front door is its `epic.md` or `initiative.md`, and a document folder holds
+  only its leaves.

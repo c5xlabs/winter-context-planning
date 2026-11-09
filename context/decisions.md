@@ -1,53 +1,42 @@
 # Decisions
 
-Decisions (`decision:`), product's and engineering's alike, in one shared format: what earns one, how one is identified,
-where it lives, how an open one is held until it is made, and where a clarifying question goes instead.
+Product and engineering record decisions (`decision:`) in one shared format.
 
 ## The decision bar (planning:decision-bar)
 
-A decision is a genuine choice between real alternatives, one someone could later reasonably ask "why this and not
-that?" about. An answer that only clarifies what was meant edits the requirement and never becomes a record.
+A decision is a real choice between alternatives, the kind someone could later ask "why this and not that?" about. An
+answer that only clarifies what was meant is not a decision; it edits the requirement or spec.
 
-"Can the calendar service publish the roster as a feed?" has a true answer nobody chose, so it edits the requirement;
-"Do we let a shift volunteer extend a loan without the coordinator's say?" is a commitment and needs a decision. On the
-engineering side, choosing time-boxed roles over per-user grants for coordinator cover is a decision; finding that the
-identity provider caps role lifetimes at 90 days is a fact that edits the requirement or spec.
+"Can the calendar service publish the roster as a feed?" has a true answer that nobody chose. "Do we let a shift
+volunteer extend a loan without the coordinator's say?" is a commitment, so it needs a decision. In the same way,
+choosing time-boxed roles over per-user grants for coordinator cover is a decision, but finding that the identity
+provider caps role lifetimes at 90 days is a fact.
 
 ## Decision ids (planning:decision-slugs)
 
-Every decision, product's or engineering's, carries a stable `decision:` id naming the subject decided, not the edit
-that recorded it, scoped to its owner — `decision:<owner id>/<subject>`, always written in full, or `decision:<subject>`
-when it is program-wide. Both tiers share the namespace, so no two decisions in one owner's file share a subject. The id
-stays when an open decision is made and when a made one is overturned.
-
-Scoping follows `planning:owned-scoped-ids` in [`./namespaces.md`](./namespaces.md).
+A decision's id names the subject decided, not the edit that recorded it: `decision:<owner id>/<subject>`, always
+written in full, or `decision:<subject>` for a program-wide decision. Owner ids follow
+[`planning:owned-scoped-ids`](./namespaces.md). Product and engineering share the namespace, so two decisions in one
+owner's file never share a subject. The id stays the same when an open decision is made and when a made one is
+overturned.
 
 ## The decisions file (planning:decisions-file)
 
-A folder's `decisions.md` holds both tiers' decisions in one list, in order:
+A folder's `decisions.md` holds both product's and engineering's decisions in a single list: a `#` title naming the
+folder, then the open decisions, then the made ones, newest first. There are no per-tier decision files. The file is
+created along with the folder's first decision.
 
-1. A `#` title naming the folder.
-2. The open decisions.
-3. The made decisions, newest first.
-
-Never: dates; Context, Decision, or Consequences subsections; monthly or other per-period files; tables. A project's
-`decisions.md` holds the calls cutting across its epics, and the root's the program's, for calls that cut across
-projects, or across epics in a repo without them. Both tiers' decisions share the one list and the `decision:`
-namespace, so there are no per-tier decision files. The file is created with the folder's first decision.
+Keep it plain: no dates, no tables, no Context, Decision, or Consequences subsections, and no monthly or other
+per-period files.
 
 ## Decision format (planning:decision-format)
 
-Each decision is a `##` section of its owner's `decisions.md`: a heading naming the decision with its id in parentheses;
-optionally, one line right under it naming who decides, a person or a group, `product` and `engineering` being groups
-like any other — `**Decider:** engineering`, `**Decider:** Dana Reyes`; then one or two sentences stating what was
-decided and why. A decision is open or made, and has no other status. A call deliberately deferred is an open decision:
-its body starts **Open.** and says in one or two sentences what must be decided and what it blocks, cited by id. Making
-it rewrites the same entry as a made decision, dropping the marker and keeping its id, and moves it to the top of the
-made ones. Overturning a made decision rewrites the same entry under the same id to state what is decided now and why.
-There are no other fields and no decision indexes: the owner's file is the list, and history carries when.
+Each decision is a `##` section with the id in parentheses after its name. An optional `**Decider:**` line names who
+decides, a person or a group (`product` and `engineering` are groups like any other). The body is one or two sentences
+saying what was decided and why. There are no other fields and no decision indexes; git history records when.
 
-````markdown
-An engineering decision takes the same shape:
+A decision is either open or made. A call that is deliberately deferred is an open decision. Its body starts with
+**Open.** and says what must be decided and which ids it blocks:
 
 ```markdown
 ## Volunteers per shift (decision:volunteer-shifts/volunteers-per-shift)
@@ -57,9 +46,8 @@ An engineering decision takes the same shape:
 **Open.** Whether a shift puts one volunteer on the counter by default or two sharing it, so pickups keep moving while
 one checks a return; it blocks `product:shift-roster`.
 ```
-````
 
-Made, the same entry reads:
+Making the decision rewrites the same entry without the marker and moves it to the top of the made decisions:
 
 ```markdown
 ## Volunteers per shift (decision:volunteer-shifts/volunteers-per-shift)
@@ -70,23 +58,25 @@ Each shift puts one volunteer on the counter by default, because shifts that sha
 left members waiting for each to assume the other had them.
 ```
 
+Overturning a made decision also rewrites the same entry, saying what is decided now and why.
+
 ## Decision ownership (planning:decision-ownership)
 
-A decision belongs to the epic, initiative, or project whose delivery it constrains most, or to the program when no
-single one's does. Its one home is the owner's folder's `decisions.md`, or the root's for the program, and a scoped id's
-scope is that owner's id. A document elsewhere that it binds cites its id and never copies it. A decision that no longer
-applies at all, open or made, is deleted, and whatever cited it is corrected in the same change.
+A decision belongs to the epic, initiative, or project whose delivery it constrains most. A decision that is local to
+one epic stays with that epic. An initiative owns the decisions about its direct scope and those spanning several of its
+epics, and a project owns those cutting across its epics. Calls that cut across projects, or across epics in a repo
+without projects, belong to the program and live in the root `decisions.md`.
 
-An initiative owns decisions about its direct scope or spanning several of its epics; a decision local to one epic stays
-with that epic. Changing the documents a decision overtakes follows `planning:change-in-place` in
-[`./structure.md`](./structure.md).
+The decision lives only in its owner's `decisions.md`. Any document it binds cites its id rather than copying it. When a
+decision overtakes other documents, they change as [`planning:change-in-place`](./structure.md) describes. A decision
+that no longer applies, open or made, is deleted, and the same change corrects everything that cited it.
 
 ## Inline questions (planning:inline-questions)
 
-A clarifying question — one whose answer will say what was meant, not choose between alternatives — sits in the file it
-concerns. Any requirements or spec file may end with an `## Open questions` section of plain bullets, with no ids, each
-naming who can answer it. When one is answered, fold the answer into the text and delete the bullet; history keeps the
-question. A question nobody can answer without choosing is an open decision instead. Clarifying questions are tracked
-nowhere else, and there is no separate questions file.
+A clarifying question, one whose answer will say what was meant rather than choose between alternatives, sits in the
+file it concerns. Any requirements or spec file may end with an `## Open questions` section of plain bullets without
+ids, each naming who can answer it. For engineering content that means `engineering.md` or the spec, or in folder form
+the leaf the question concerns. When a question is answered, fold the answer into the text and delete the bullet. There
+is no separate questions file and no other tracking.
 
-For engineering content that covers `engineering.md` and the spec; in folder form, the leaf a question concerns.
+If a question can't be answered without choosing, make it an open decision instead.

@@ -1,27 +1,25 @@
 # Slice an epic
 
-Cut an epic into the ordered changes that build it, writing its `slices/` folder. Use it to slice an epic for the first
-time or to re-slice one after its requirements or spec change. What a slice holds and how slices are cut is
-[`../slices.md`](../slices.md); this is only the order of work.
+Cut an epic into the ordered changes that build it, writing its `slices/` folder, either for the first time or after its
+requirements or spec change. [`../slices.md`](../slices.md) says what a slice holds and how slices are cut; this is the
+order of work.
 
-1. **Read the sources.** The epic folder's `epic.md`, its product requirements or the upstream intent its README points
-   to, `engineering.md`, `assumptions.md`, the spec, and `decisions.md`; then the `engineering.md` of its initiative,
-   its project, and the root, and the `epic.md` of every epic it builds on.
-2. **Choose the strategy.** From the constraints that bind the epic, pick how the change reaches a system already in use
-   — `planning:slice-cuts`. If none settles it and the choice matters, record a decision first.
-3. **Cut and order.** Seam first, then each surface, carry-over, proof, and harness, inside the strategy's sequence —
-   `planning:slice-cuts`; number them in build order with dependencies pointing back — `planning:slice-order`.
-4. **Fill the gaps at their homes.** Every fact a slice needs that no source states goes to its home before the slice
-   cites it: an assumption, a requirement, a decision, a spec section, or an open question — `planning:slice-files`.
-5. **Write the files**, pointing `code:` at the code each slice changes — `planning:slice-files`. When re-slicing, keep
-   each filed slice's name and `external:` while it still describes the same change — `planning:slice-lifecycle`.
+1. **Read the sources.** In the epic folder: `epic.md`, the product requirements or upstream intent its README points
+   to, `engineering.md`, `assumptions.md`, the spec, and `decisions.md`. Then the `engineering.md` of its initiative,
+   project, and root, and the `epic.md` of every epic it builds on.
+2. **Choose the strategy** for how the change reaches a system already in use. If the epic's constraints don't settle it
+   and the choice matters, record a decision first.
+3. **Cut and order the slices** (`planning:slice-cuts`, `planning:slice-order`): seam first, then each surface,
+   carry-over, proof, and harness, within the strategy's sequence. Number them in build order.
+4. **Fill the gaps.** A fact a slice needs that no source states goes to its home first, as an assumption, requirement,
+   decision, spec section, or open question, so the slice can cite it.
+5. **Write the files** (`planning:slice-files`), pointing `code:` at the code each slice changes. When re-slicing, a
+   filed slice that still describes the same change keeps its name and `external:` (`planning:slice-lifecycle`).
 6. **Check the cut.**
-   - Every requirement the epic holds, and each of its acceptance bullets, is delivered by a slice, and every spec
-     section is built by one.
-   - Every `depends-on` names a lower-numbered slice of this epic, or an epic or initiative, and only something the
-     slice builds on.
-   - Each slice is one change that merges alone and leaves the main branch releasable.
+   - Every requirement, acceptance bullet, and spec section of the epic is delivered by a slice.
+   - Every `depends-on` names something the slice builds on: a lower-numbered slice of this epic, or an epic or
+     initiative.
+   - Each slice merges alone and leaves the main branch releasable.
    - The strategy's closing step is a slice of its own.
-   - Nothing in a slice lacks a home it cites.
-7. **Report** the slices in order with what each depends on, and every gap filled or left open, then commit —
-   `planning:commit-messages` in [`../contributing.md`](../contributing.md).
+7. **Report** the slices in order with their dependencies and every gap filled or left open, then commit
+   (`planning:commit-messages` in [`../contributing.md`](../contributing.md)).
