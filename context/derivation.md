@@ -16,25 +16,25 @@ assumption (`planning:assumption-record`) and serve it.
 
 Cite upstream intent only through these schemes:
 
-| Scheme              | Form                                                                                                   | Names                                                                                                                                   |
-| ------------------- | ------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
-| `product:`          | `product:<epic id>/<subject>` or `product:<initiative>/<subject>`, or a bare subject, resolved outward | One of an epic's product requirements, or a requirement binding every epic of an initiative, where the README's scheme table points     |
-| `epic:`             | `epic:<epic id>`                                                                                       | A whole epic, when no requirement of it is specific enough to cite, at its `epic.md` — in this repo, or where the `product:` row points |
-| `assume:`           | `assume:<owner id>/<subject>`, or a bare `assume:<subject>`, resolved outward                          | An assumption record in a folder's `assumptions.md` (`planning:assumption-record`)                                                      |
-| Tracker/wiki scheme | `<scheme>:<native key>` — `jira:SHED-123`, `linear:ENG-42`, `confluence:<page id>`                     | An item in a tracker or wiki, keyed as that system keys it; the repo names the scheme in its scheme table                               |
+| Scheme              | Form                                                                               | Names                                                                                                                                                |
+| ------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `product:`          | `product:<owner id>/<subject>`, or a bare subject, resolved outward                | One of an epic's product requirements, or one binding every epic of an initiative, a project, or the program, where the README's scheme table points |
+| `epic:`             | `epic:<epic id>`                                                                   | A whole epic, when no requirement of it is specific enough to cite, at its `epic.md` — in this repo, or where the `product:` row points              |
+| `assume:`           | `assume:<owner id>/<subject>`, or a bare `assume:<subject>`, resolved outward      | An assumption record in a folder's `assumptions.md` (`planning:assumption-record`)                                                                   |
+| Tracker/wiki scheme | `<scheme>:<native key>` — `jira:SHED-123`, `linear:ENG-42`, `confluence:<page id>` | An item in a tracker or wiki, keyed as that system keys it; the repo names the scheme in its scheme table                                            |
 
 The framework fixes `product:`, `epic:`, and `assume:`; tracker and wiki schemes are the repo's to declare. Never guess
 where `product:` resolves — read the scheme table. A `product:` id names one product requirement. Its scope is the
-epic's id — `<epic>` or `<initiative>/<epic>` — never a path, so it survives delivery's move to `delivered/` but changes
-when the epic moves into or out of an initiative; its final `/<subject>` is the `## <Name> (product:<subject>)` heading
-in the epic's `requirements.md`, or the `###` one under `## Requirements` in its `epic.md` when the records are inline.
-A whole epic is cited as `epic:<epic id>`, never as a `product:` id without a subject. An initiative's own `product:`
-subject is never one of its epics' slugs, so the segments of a full id read unambiguously; a bare subject resolves
-outward from the citing folder, no further than the initiative, since the root holds no `product:` (`planning:bare-ids`
-in [`./namespaces.md`](./namespaces.md)). Milestones, personas, and jobs are not upstream ids, and product ids'
-stability is the product tier's to keep. A tracker id is written exactly as the `external:` value naming the same item
-in an `epic.md` (`planning:tracker-epic` in [`./layout.md`](./layout.md)); when its key moves, update both in place. A
-raw URL is not an upstream id.
+owner's id — `<epic>` or `<initiative>/<epic>`, an initiative or project slug, or none for the program — never a path,
+so it survives delivery's move to `delivered/` but changes when the epic moves into or out of an initiative; its final
+`/<subject>` is the `## <Name> (product:<subject>)` heading in the epic's `requirements.md`, or the `###` one under
+`## Requirements` in its `epic.md` when the records are inline. A whole epic is cited as `epic:<epic id>`, never as a
+`product:` id without a subject. An owner's own `product:` subject is never the slug of an initiative or epic beneath
+it, so the segments of a full id read unambiguously; a bare subject resolves outward from the citing folder through its
+initiative and project to the program (`planning:bare-ids` in [`./namespaces.md`](./namespaces.md)). Milestones,
+personas, and jobs are not upstream ids, and product ids' stability is the product tier's to keep. A tracker id is
+written exactly as the `external:` value naming the same item in an `epic.md` (`planning:tracker-epic` in
+[`./layout.md`](./layout.md)); when its key moves, update both in place. A raw URL is not an upstream id.
 
 ## Scheme declaration (planning:scheme-declaration)
 

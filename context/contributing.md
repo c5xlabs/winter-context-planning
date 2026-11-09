@@ -22,9 +22,9 @@ Every epic takes the same path from idea to delivered, and each step is a delibe
 5. **Deliver and archive.** Evidence of delivery sets `status: delivered`, and that one change archives the epic and
    updates every registry naming it, following [`./workflows/deliver-an-epic.md`](./workflows/deliver-an-epic.md).
 
-Turning an epic into an initiative, or moving an epic into or out of one, is a deliberate change of its own: it changes
-the epic's id and every `product:`, `engineering:`, `assume:`, and `decision:` id scoped to it, and that change rewrites
-every citation in the repo (`planning:moving-ids`).
+Turning an epic into an initiative, moving an epic into or out of one, or moving either to another project, is a
+deliberate change of its own: it changes the epic's id and every `product:`, `engineering:`, `assume:`, and `decision:`
+id scoped to it, and that change rewrites every citation in the repo (`planning:moving-ids`).
 
 ## Engineering lifecycle (planning:engineering-lifecycle)
 
@@ -46,10 +46,11 @@ requirement, or wherever the README declares product lives:
 ## Commit messages (planning:commit-messages)
 
 Commits follow Conventional Commits, scoped by the epic or initiative id they touch —
-`docs(reliable-borrowing/reservations): …` — or by the root file for a program-wide change. Use `feat` for a new
-registry row or a new requirements, spec, or slice file, `chore` for a status move or an archive move, and `docs` for
-any other edit. When a change moves work along its lifecycle, the body says which move — outline written, slices cut,
-epic in progress, epic delivered and archived.
+`docs(reliable-borrowing/reservations): …`, carrying its project in a repo with projects, `docs(fleet/board): …` — or by
+the project for a project-wide change, and by the root file for a program-wide one. Use `feat` for a new registry row or
+a new requirements, spec, or slice file, `chore` for a status move or an archive move, and `docs` for any other edit.
+When a change moves work along its lifecycle, the body says which move — outline written, slices cut, epic in progress,
+epic delivered and archived.
 
 ## Contribution checklists (planning:contributing)
 
@@ -75,9 +76,10 @@ documents it corrects — landing together.
 2. Check it commits to something beyond the product requirement it serves; if it only restates one, write nothing —
    `planning:beyond-product`.
 3. Find the epic it serves — `planning:capability-epics` — or, for a constraint serving no product requirement, the
-   epic, initiative, or whole system it binds — `planning:engineering-constraints`.
+   epic, initiative, project, or whole program it binds — `planning:engineering-constraints`.
 4. Mint the id and add its section, headed by a short name and the bare id in parentheses, to that folder's
-   `engineering.md`, or the root's — `planning:requirement-ids`, `planning:owned-scoped-ids`, `planning:id-citations`.
+   `engineering.md`, or the project's or root's — `planning:requirement-ids`, `planning:owned-scoped-ids`,
+   `planning:id-citations`.
 5. Write one or two sentences starting **Proposed.**, citing what it serves — `planning:requirement-record`,
    `planning:serves`. Add a README scheme row for any new scheme (`planning:scheme-declaration`); if the intent it needs
    is unstated, record an assumption first.
@@ -105,7 +107,7 @@ documents it corrects — landing together.
 
 1. Check it clears the bar — `planning:decision-bar`. A clarification edits the requirement or spec instead.
 2. Choose the owner — `planning:decision-ownership` — which fixes the file and the id's scope; then the slug —
-   `planning:decision-slugs` — checking the owner's `decisions.md` for a collision.
+   `planning:decision-slugs` — checking the owner's `decisions.md`, and every level outward, for a collision.
 3. Write it in the owner's `decisions.md` — `planning:decision-format` — open if the call is deferred. A folder's first
    decision creates the file (`planning:decisions-file`).
 4. When making an open decision or overturning a made one, rewrite its entry in place and keep the id.
@@ -133,7 +135,10 @@ answered, fold the answer into the text and delete the bullet.
 - Every cited id is plain text and appears verbatim in a real row, heading, or frontmatter field — a bare one at the
   nearest level outward from the citing file that defines it — and each scheme id resolves through a row in the README's
   scheme table. No heading is an id alone.
-- No citation points at a deleted id, and no scoped id changed except by moving its epic into or out of an initiative.
+- No citation points at a deleted id, and no scoped id changed except by moving its epic into or out of an initiative,
+  or to another project.
+- No subject is defined at two levels on one path to the root (`planning:no-shadowing`), and no initiative, epic, or
+  program record takes a project's slug (`planning:project-slugs`).
 - No product-owned file cites an `engineering:` or `assume:` id or links an engineering file
   (`planning:product-cites-product`).
 - Every changed `epic.md` or `initiative.md` still satisfies its frontmatter rule, every milestone chart naming a

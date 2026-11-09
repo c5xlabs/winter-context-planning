@@ -6,8 +6,8 @@ engineering commits to. Whether a statement is engineering's to require at all i
 
 ## Requirement ids (planning:requirement-ids)
 
-A requirement's id is `engineering:<owner id>/<subject>`, the owner being the epic or initiative whose folder holds it,
-or `engineering:<subject>` for one the root holds; a bare id resolves outward from the citing folder
+A requirement's id is `engineering:<owner id>/<subject>`, the owner being the epic, initiative, or project whose folder
+holds it, or `engineering:<subject>` for one the root holds; a bare id resolves outward from the citing folder
 (`planning:bare-ids`), and a move into or out of an initiative rewrites full ids (`planning:moving-ids`). So
 `engineering:overdue-returns/overdue-sweep` in `work/overdue-returns/` becomes
 `engineering:reliable-borrowing/overdue-returns/overdue-sweep` if the epic moves under `reliable-borrowing`, and that
@@ -58,22 +58,25 @@ TypeScript"), data handling ("Member phone numbers never appear in logs"), idemp
 compatibility, tracing, metrics, alerts, and logging targets, or a necessity the system cannot run without, such as
 rotating TLS certificates before expiry — is an `engineering:` record that stands without a "Serves" link. It lives at
 the narrowest level it binds: the `engineering.md` of the epic whose work it binds, of the initiative when it binds
-several of its epics, or of the root when it binds the whole system, as the language, the runtime, or a rule for
-handling one kind of data everywhere usually does. When alternatives were weighed, a decision records why, and the
-record cites it. It is never an assumption: engineering owns it outright.
+several of its epics, of the project when it binds the project's whole system, or of the root when it binds the whole
+program, as the language, the runtime, or a rule for handling one kind of data everywhere usually does. When
+alternatives were weighed, a decision records why, and the record cites it. It is never an assumption: engineering owns
+it outright.
 
 ## Engineering sections (planning:engineering-sections)
 
 A `engineering.md` holds, in order:
 
-1. A `#` title, then one line citing the folder's `epic:` or `initiative:` id; the root file omits the line.
+1. A `#` title, then one line citing the folder's `epic:` or `initiative:` id, or naming its project; the root file
+   omits the line.
 2. Optional: `## What already holds` — behaviour the work builds on that exists already, such as another epic's
    delivered requirement, a contract it consumes, or a system limit, each cited by id or linked, so a reader knows what
    not to rebuild and what not to break.
 3. The `engineering:` records (`planning:requirement-record`), any of them opening **Proposed.**
 4. Optional: `## Open questions` (`planning:inline-questions` in [`./decisions.md`](./decisions.md)).
 
-The root file holds only constraints binding the whole system (`planning:engineering-constraints`). Never: restated
+The root and project files hold only records binding the whole program or project: constraints
+(`planning:engineering-constraints`), and bounds derived from the `product:` records at their own level. Never: restated
 product text, progress, or tasks.
 
 ## Removing a requirement (planning:requirement-removal)

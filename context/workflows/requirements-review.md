@@ -9,8 +9,8 @@ and is not reviewed. What each record holds is [`../engineering.md`](../engineer
 
 1. **Read both sides.** The epic folder's `epic.md` and its product requirements, or the upstream intent its README
    points to; its `engineering.md`, `assumptions.md`, spec, `decisions.md`, and `slices/`; then the `engineering.md` of
-   its initiative and of the root. `git log` on the product files since the engineering files last changed shows what
-   moved.
+   its initiative, its project, and the root. `git log` on the product files since the engineering files last changed
+   shows what moved.
 2. **Product against engineering.** For each product requirement, and each acceptance bullet under it:
    - Where engineering must commit to more than the product text says, an engineering requirement does, and none merely
      restates it — `planning:beyond-product`.

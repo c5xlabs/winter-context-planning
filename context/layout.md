@@ -29,13 +29,15 @@ An epic folder holds `epic.md`, its front door, and whichever of the rest it nee
 | `mockups/`        | Product                                  | UI mockups, optional; a mockup never goes in `assets/`                                      |
 
 The root holds `README.md`, `work/`, `delivered/` once anything is delivered, the program's `decisions.md`, its
-`engineering.md` when a constraint binds the whole system, the shared `research/`, `presentations/`, and `supporting/`
-when present, and the program-wide product files (`planning:product-areas` in [`./structure.md`](./structure.md)); it
-holds no `requirements.md`. `research/` holds findings and options stopping short of a choice, one `research/<subject>/`
-folder per subject with the scripts that produced them beside the findings; `supporting/` holds reference material
-authored outside the team, edited only when someone asks. A repo whose product intent lives in a tracker uses the same
-tree: each epic folder's `epic.md` carries its status and names the tracker epic in its `external:` frontmatter, and the
-folder holds no `requirements.md`.
+`requirements.md` when a product requirement binds every epic, its `engineering.md` when an engineering record binds the
+whole system, the shared `research/`, `presentations/`, and `supporting/` when present, and the program-wide product
+files (`planning:product-areas` in [`./structure.md`](./structure.md)). A repo with projects keeps this layout inside
+each project folder, and its root holds only what binds the whole program (`planning:program-root` and
+`planning:project-folder` in [`./projects.md`](./projects.md)). `research/` holds findings and options stopping short of
+a choice, one `research/<subject>/` folder per subject with the scripts that produced them beside the findings;
+`supporting/` holds reference material authored outside the team, edited only when someone asks. A repo whose product
+intent lives in a tracker uses the same tree: each epic folder's `epic.md` carries its status and names the tracker epic
+in its `external:` frontmatter, and the folder holds no `requirements.md`.
 
 ## File ownership (planning:file-ownership)
 
@@ -94,18 +96,20 @@ A capability epic's `epic.md` opens by naming what it supports: *"Supports `epic
 app."*
 
 If a requirement serves a shared capability no epic owns yet, ask product for that epic rather than parking the
-requirement in the first epic that needed it.
+requirement in the first epic that needed it. In a repo with projects, a capability epic sits in the project that owns
+the capability, and the others cite it by full id (`planning:cross-project` in [`./projects.md`](./projects.md)).
 
 ## Delivered archive (planning:delivered-archive)
 
 When an epic's `epic.md` frontmatter sets `status: delivered`, its folder moves with `git mv` from `work/` to
 `delivered/`, keeping its shape — `delivered/<epic>/`, or `delivered/<initiative>/<epic>/` — in the same change that
-sets the status, and that change repoints every relative link to or from it. Nothing moves back: later work on a
-delivered capability is a new epic. A delivered folder is frozen: it records what was promised and how it was to be
-built when the epic was delivered, and nothing in it changes afterwards except a citation or link a later change
-repoints. Ids never name the `work/` or `delivered/` root, so the move changes none. An initiative with live epics stays
-in `work/` while its finished epics move one at a time; the change that delivers its last epic moves the rest of its
-folder, `initiative.md` included, to `delivered/<initiative>/`.
+sets the status, and that change repoints every relative link to or from it. In a repo with projects, the move stays
+inside the epic's project, from its `work/` to its `delivered/`. Nothing moves back: later work on a delivered
+capability is a new epic. A delivered folder is frozen: it records what was promised and how it was to be built when the
+epic was delivered, and nothing in it changes afterwards except a citation or link a later change repoints. Ids never
+name the `work/` or `delivered/` root, so the move changes none. An initiative with live epics stays in `work/` while
+its finished epics move one at a time; the change that delivers its last epic moves the rest of its folder,
+`initiative.md` included, to `delivered/<initiative>/`.
 
 Engineering content moves with its epic — requirements, assumptions, the spec, and the slices — keeping its ids, and
 freezes with the rest of the folder.

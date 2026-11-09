@@ -15,7 +15,8 @@ When the request is a whole workflow, follow it; it routes to the rules it needs
 | File                                             | When to read                                                                                                                                            |
 | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [`./repository-entry.md`](./repository-entry.md) | Setting up a repo's README or its upstream scheme table, or product content lives in a tracker or wiki                                                  |
-| [`./namespaces.md`](./namespaces.md)             | Before citing an id or minting one, or moving an epic into or out of an initiative                                                                      |
+| [`./projects.md`](./projects.md)                 | Splitting a repo into projects, or placing a file, record, or shared capability in a repo that has them                                                 |
+| [`./namespaces.md`](./namespaces.md)             | Before citing an id or minting one, or moving an epic into or out of an initiative or between projects                                                  |
 | [`./layout.md`](./layout.md)                     | Before creating, moving, splitting, or archiving a work folder or a file in one, keeping an epic planned in a tracker, or placing shared capability     |
 | [`./structure.md`](./structure.md)               | Before adding, moving, renaming, or retiring a document, or adding a folder                                                                             |
 | [`./charter.md`](./charter.md)                   | Writing or changing mission, vision, personas, or jobs                                                                                                  |

@@ -5,20 +5,22 @@ supplies none of it.
 
 ## Repository entry (planning:repository-entry)
 
-A repo holding product or engineering content carries a README, the `work/` tree of `planning:layout` in
-[`./layout.md`](./layout.md), and nothing that needs this framework to be read: no `AGENTS.md`, `CLAUDE.md`, `context/`,
-or `winter-ext.toml`, no rule text, no `planning:` id, no tool or extension name, and no deferring to "the framework
-rules". The README opens with a `#` title naming the product's requirements, such as `# Toolshed requirements`, and
-directly under it, before any `##`, one paragraph naming the product and saying the repo holds requirements content
-only. Its `##` sections follow, one for each `###` below, starting at Contents, all required, in this order; Upstream
-schemes appears only when the repo holds engineering content. Each section holds the parts for the tiers the repo holds,
-and a tier's part is omitted when the repo does not hold that tier.
+A repo holding product or engineering content carries one README at its root, the `work/` tree of `planning:layout` in
+[`./layout.md`](./layout.md) — inside each project folder when it has projects (`planning:projects` in
+[`./projects.md`](./projects.md)) — and nothing that needs this framework to be read: no `AGENTS.md`, `CLAUDE.md`,
+`context/`, or `winter-ext.toml`, no rule text, no `planning:` id, no tool or extension name, and no deferring to "the
+framework rules". The README opens with a `#` title naming the product's requirements, such as
+`# Toolshed requirements`, and directly under it, before any `##`, one paragraph naming the product and saying the repo
+holds requirements content only. Its `##` sections follow, one for each `###` below, starting at Contents, all required,
+in this order; Upstream schemes appears only when the repo holds engineering content. Each section holds the parts for
+the tiers the repo holds, and a tier's part is omitted when the repo does not hold that tier.
 
 Product intent lives in one of four places, and each section below that depends on it says how: in this repo; in another
 repo; only in a tracker or wiki; or mixed, partly in this repo and partly elsewhere.
 
-The README routes to `work/`, `delivered/`, and the root files. No index file maps the tree: each folder's `epic.md` or
-`initiative.md` is its front door, and the layout says what else a folder holds (`planning:layout` in
+The README routes to `work/`, `delivered/`, and the root files, or, in a repo with projects, to each project folder and
+the program's root files; no project carries a README of its own. No index file maps the tree: each folder's `epic.md`
+or `initiative.md` is its front door, and the layout says what else a folder holds (`planning:layout` in
 [`./layout.md`](./layout.md)).
 
 Whatever the case, a product id has exactly one home. While the repo holds a namespace's registry, the registry row is
@@ -40,6 +42,9 @@ content conforms fully in every case; only the Upstream schemes table changes.
 - Engineering's rows: the root `engineering.md` when present, and, written as `work/<initiative>/<epic>/…`,
   `engineering.md`, `assumptions.md`, `spec.md` or `spec/`, and `slices/`.
 - A shared file such as `decisions.md` gets one row, which either tier may write.
+- In a repo with projects: the program's root files, then one row per project folder, `projects/<project>/`, naming the
+  product it plans — these rows are the repo's list of projects — and the folder files written as
+  `projects/<project>/work/<initiative>/<epic>/…`.
 - In another repo, the repo holds no product file and product has no rows; only in a tracker or wiki, it holds only each
   tracker-planned epic's `epic.md`, and that is product's one row.
 
@@ -81,6 +86,8 @@ One line per status word content puts in a body rather than frontmatter: the mil
   external system its rows link to.
 - How an epic id carries its initiative, how a bare `product:` resolves, and that an id is cited as plain text and found
   by searching for the heading or row carrying it.
+- In a repo with projects, how an id carries its project as its first segment, and that inside a project an id may drop
+  it and resolves in the project first, then at the program.
 - Rows for `engineering:` and `assume:` when the repo holds engineering content, their Defined in cell naming the file
   in each work folder and at the root that holds them, or the other repo's URL and path.
 - How a scoped engineering id carries its owner's epic id, that a bare `engineering:` or `assume:` resolves from the

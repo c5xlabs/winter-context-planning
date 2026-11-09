@@ -1,8 +1,28 @@
 # Product registries
 
-The four registries at the repo root: `initiatives.md`, `epics.md`, `milestones.md`, and `delivered.md`. Each opens with
-one paragraph in the product voice saying what the file is and that it is not a status board, and that paragraph carries
-no status, dates, or epic list; each rule below says what follows it.
+The four registries — `initiatives.md`, `epics.md`, `milestones.md`, and `delivered.md` — at the repo root, or in each
+project folder of a repo with projects. Each opens with one paragraph in the product voice saying what the file is and
+that it is not a status board, and that paragraph carries no status, dates, or epic list; each rule below says what
+follows it.
+
+## Registries across projects (planning:registry-levels)
+
+In a repo with projects (`planning:projects` in [`./projects.md`](./projects.md)), each project folder carries its own
+four registries for its own work, each shaped by the rule below for it, and its links point into the project's `work/`
+and `delivered/`. The program root carries no `epics.md` or `initiatives.md`, since it holds no work:
+
+- **Project `milestones.md`** — the project's own destinations, its chart citing another project's epic by full id when
+  the destination needs one.
+- **Program `milestones.md`** — destinations that are the program's, not any one project's, each chart row citing an
+  epic or initiative by full id.
+
+A milestone lives at the level whose destination it is, never at both.
+
+- **Program `delivered.md`** — the program milestones reached, with no `## Outside the milestones` section: an epic
+  serving no milestone is recorded in its own project's ledger.
+
+**Detect.** An `epics.md` or `initiatives.md` at the root of a repo with projects; a milestone slug defined in a
+project's registry and the program's.
 
 ## Initiative registry (planning:initiative-registry)
 

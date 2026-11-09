@@ -64,8 +64,11 @@ Acceptance:
 - The calls return to the coordinator when the cover ends.
 ```
 
-An initiative's `requirements.md` takes the same shape, its opening line citing the `initiative:` id, and each record
-takes a subject no epic in the initiative has as its slug, so a full id never reads as an epic.
+An initiative's `requirements.md` takes the same shape, its opening line citing the `initiative:` id; so does a
+project's, its opening line naming the project, and the program's at the root, with no opening line. Each holds only
+requirements binding every epic beneath it: a program requirement is a promise every epic in the program keeps, such as
+a format every surface emits, never direction the charter already states. Each record takes a subject no initiative or
+epic beneath it has as its slug, so a full id never reads as an epic.
 
 ## Requirement acceptance (planning:requirement-acceptance)
 

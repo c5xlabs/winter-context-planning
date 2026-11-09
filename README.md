@@ -17,6 +17,8 @@ namespace.
 ### Product tier
 
 - **Charter** — mission, vision, and the persona and job registries every epic answers to.
+- **Projects** — an optional level that splits one program into several products, each with its own charter, registries,
+  and work, under a program root holding what binds them all.
 - **Epics and initiatives** — one folder per epic under `work/`, optionally grouped by initiative, with the registries
   that list them and a `delivered/` archive once they finish.
 - **Product requirements** — one record per `product:` id, each with acceptance bullets, kept apart from what
@@ -61,12 +63,13 @@ Then run `winter ws init`.
 ## 🧩 How it works
 
 A requirements repo holds content only, organized by product work: one folder per epic under `work/`, optionally grouped
-by initiative, moving to `delivered/` once finished, with program-wide files at the root. The framework governs the
-product-owned files — the charter, the registries, each folder's `epic.md` or `initiative.md`, `requirements.md`, and
-`mockups/` — the engineering-owned files — `engineering.md`, `assumptions.md`, `spec.md`, and `slices/` — and the files
-both tiers share, such as `decisions.md`: what each holds, how ids are minted and kept stable, how decisions are
-recorded open or made, where clarifying questions sit, and the voice each tier is written in. Where the framework cannot
-supply something — a README, a charter, a mockup kit — it states what the repo's own version must contain.
+by initiative, moving to `delivered/` once finished, with program-wide files at the root; a program of several products
+splits into project folders, each laid out the same way. The framework governs the product-owned files — the charter,
+the registries, each folder's `epic.md` or `initiative.md`, `requirements.md`, and `mockups/` — the engineering-owned
+files — `engineering.md`, `assumptions.md`, `spec.md`, and `slices/` — and the files both tiers share, such as
+`decisions.md`: what each holds, how ids are minted and kept stable, how decisions are recorded open or made, where
+clarifying questions sit, and the voice each tier is written in. Where the framework cannot supply something — a README,
+a charter, a mockup kit — it states what the repo's own version must contain.
 
 Engineering derives from product intent but never assumes where it is. A requirement cites upstream ids by scheme —
 `product:volunteer-shifts/coordinator-cover`, `jira:SHED-412`, `assume:volunteer-shifts/cover-max-duration`, or a bare
@@ -105,6 +108,7 @@ content, only engineering content, or both, and their files sit side by side in 
 | [`index.md`](./index.md)                                                         | Extension entry point; when to read the routing hub                                                                   |
 | [`context/index.md`](./context/index.md)                                         | Agent routing hub                                                                                                     |
 | [`repository-entry.md`](./context/repository-entry.md)                           | The README sections a repo must carry, by tier; external homes                                                        |
+| [`projects.md`](./context/projects.md)                                           | The project level: program root, project folders, reserved slugs, work shared across projects                         |
 | [`namespaces.md`](./context/namespaces.md)                                       | Id prefixes of both tiers, slugs, stability, scopes, citation, and the engineering ids product never cites            |
 | [`layout.md`](./context/layout.md)                                               | The `work/` layout, file ownership, file-or-folder, front doors, epics planned in a tracker, the `delivered/` archive |
 | [`structure.md`](./context/structure.md)                                         | Product and engineering areas, admission, placement, changing in place, what is deliberately absent                   |

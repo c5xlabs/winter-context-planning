@@ -5,8 +5,8 @@ time or to re-slice one after its requirements or spec change. What a slice hold
 [`../slices.md`](../slices.md); this is only the order of work.
 
 1. **Read the sources.** The epic folder's `epic.md`, its product requirements or the upstream intent its README points
-   to, `engineering.md`, `assumptions.md`, the spec, and `decisions.md`; then the `engineering.md` of its initiative and
-   of the root, and the `epic.md` of every epic it builds on.
+   to, `engineering.md`, `assumptions.md`, the spec, and `decisions.md`; then the `engineering.md` of its initiative,
+   its project, and the root, and the `epic.md` of every epic it builds on.
 2. **Choose the strategy.** From the constraints that bind the epic, pick how the change reaches a system already in use
    — `planning:slice-cuts`. If none settles it and the choice matters, record a decision first.
 3. **Cut and order.** Seam first, then each surface, carry-over, proof, and harness, inside the strategy's sequence —

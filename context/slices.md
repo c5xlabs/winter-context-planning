@@ -56,8 +56,8 @@ merges on its own, its tests pass, and the main branch stays releasable after it
 4. **Proof** — an end-to-end slice, when no surface slice exercises the whole path.
 5. **The harness** — the procedure or guide people need once the change is theirs.
 
-The constraints binding the epic — in its `engineering.md`, its initiative's, and the root's — choose how a change
-reaches a system already in use, and each strategy is a sequence of slices of its own:
+The constraints binding the epic — in its `engineering.md`, its initiative's, its project's, and the root's — choose how
+a change reaches a system already in use, and each strategy is a sequence of slices of its own:
 
 | Strategy              | When                                                   | Slices, in order                                                                  |
 | --------------------- | ------------------------------------------------------ | --------------------------------------------------------------------------------- |

@@ -1,7 +1,7 @@
 # Ids
 
-The stable ids product and engineering content mint and cite, and which ids product never cites. Rule ids (`planning:`)
-live only in this framework; content never cites them.
+The stable ids product and engineering content mint and cite, how a scope and a project enter them, how they resolve,
+and which ids product never cites. Rule ids (`planning:`) live only in this framework; content never cites them.
 
 ## Id namespaces (planning:id-namespaces)
 
@@ -13,12 +13,12 @@ disjoint except `decision:`, which both tiers share under one subject rule (`pla
 
 | Prefix         | Tier        | Names                                                                                      | Canonical home                                                                                                                               |
 | -------------- | ----------- | ------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `persona:`     | Product     | A person the product serves                                                                | Row in `charter/personas.md`, or the persona's leaf in `charter/personas/` (`planning:persona-registry`)                                     |
-| `job:`         | Product     | Something a person is trying to accomplish                                                 | Row in `charter/jobs.md`                                                                                                                     |
+| `persona:`     | Product     | A person the product serves                                                                | Row in a charter's `personas.md`, or the persona's leaf in its `personas/` (`planning:persona-registry`)                                     |
+| `job:`         | Product     | Something a person is trying to accomplish                                                 | Row in a charter's `jobs.md`                                                                                                                 |
 | `initiative:`  | Product     | A durable product investment broader than one capability                                   | Row in `initiatives.md`                                                                                                                      |
 | `epic:`        | Product     | A major capability the product must establish, `<epic>` or `<initiative>/<epic>`           | The epic's `epic.md`, under `work/` or `delivered/`; `epics.md` lists the live ones                                                          |
-| `product:`     | Product     | A product requirement of an epic, or one binding every epic of an initiative               | `## <Name> (product:<subject>)` heading in the owner's `requirements.md`, or `###` in `epic.md` when inline (`planning:requirement-records`) |
-| `milestone:`   | Product     | A destination visible in a person's work                                                   | `## <Name> (milestone:<slug>)` section in `milestones.md`, or in `delivered.md` once reached                                                 |
+| `product:`     | Product     | A product requirement of an epic, or one binding every epic of its owner                   | `## <Name> (product:<subject>)` heading in the owner's `requirements.md`, or `###` in `epic.md` when inline (`planning:requirement-records`) |
+| `milestone:`   | Product     | A destination visible in a person's work                                                   | `## <Name> (milestone:<slug>)` section in a `milestones.md`, or in the `delivered.md` beside it once reached                                 |
 | `engineering:` | Engineering | What engineering commits to, `<owner id>/<subject>` or bare, always bare at the root       | `## <Name> (engineering:<subject>)` heading in the owning folder's, or the root's, `engineering.md`                                          |
 | `assume:`      | Engineering | Product intent engineering assumed because none was stated, `<owner id>/<subject>` or bare | `## <Name> (assume:<subject>)` heading in the `assumptions.md` of the folder whose requirements rest on it                                   |
 | `decision:`    | Both        | A decision of either tier, open or made, always written in full                            | `## <Name> (decision:…)` heading in the owner's `decisions.md` (`planning:decision-slugs`, `planning:decision-ownership`)                    |
@@ -47,40 +47,68 @@ each hold an epic of the same name; an initiative's id is its slug. An id an own
 `<prefix>:<owner id>/<subject>` — `engineering:reliable-borrowing/reservations/confirmed-event-consumption` — and the
 last segment is always the subject. A record binding the whole program has no scope —
 `engineering:written-in-typescript` in the root `engineering.md`. Decision ids are always written in full, and one with
-no scope is program-wide; never add a filler scope to one. Ids never name the `work/` or `delivered/` root, so delivery
-moves nothing in them.
+no scope is program-wide; never add a filler scope to one. Ids never name the `work/`, `delivered/`, or `projects/`
+folder, so delivery moves nothing in them.
 
-**Detect.** An id naming `work/` or `delivered/`; a decision id written bare or given a filler scope.
+**Detect.** An id naming `work/`, `delivered/`, or `projects/`; a decision id written bare or given a filler scope.
 
-Product's owners are initiatives and epics, and a `decision:` or `product:` id may belong to either; a `product:`
-subject names what the requirement requires. The program is the program-wide owner and holds no `product:`: program-wide
-product direction is the charter's, so there is no root `requirements.md`, and a bare `product:` resolves no further out
-than its initiative.
+Product's owners are epics, initiatives, and the program, and a `decision:` or `product:` id may belong to any of them;
+a `product:` subject names what the requirement requires. The program's `product:` records, in the root
+`requirements.md`, bind every epic in it, and their ids are always bare. Program-wide direction — who the product serves
+and why it exists — stays the charter's; a program requirement is a promise every epic must keep.
 
-Engineering's owners are epics, initiatives, and the program, and a scoped owner id is an epic id — `<epic>` or
-`<initiative>/<epic>` — or an initiative slug. The program holds only the `engineering:` constraints binding the whole
-system (`planning:engineering-constraints` in [`./engineering.md`](./engineering.md)), always bare, and never an
-`assume:`, since a constraint rests on no assumption; an unscoped `decision:` is program-wide.
+Engineering's owners are the same, and a scoped owner id is an epic id — `<epic>` or `<initiative>/<epic>` — or an
+initiative slug. The program's `engineering:` records bind the whole system (`planning:engineering-constraints` in
+[`./engineering.md`](./engineering.md)) and are always bare; an unscoped `decision:` is program-wide. The program holds
+no `assume:`: an assumption sits beside the requirements resting on it, inside the work.
+
+In a repo with projects (`planning:projects` in [`./projects.md`](./projects.md)), a project is an owner between the
+program and its initiatives, and its slug is the first segment of every id it scopes: `epic:fleet/board`,
+`epic:fleet/reliability/hub`, `product:fleet/board/live-status`, `engineering:fleet/written-in-go`,
+`decision:fleet/board/column-order`, `initiative:fleet/reliability`, `persona:fleet/operator`,
+`milestone:fleet/first-run`. A record binding the whole project is scoped by the project alone. Program records stay
+unscoped — `persona:developer`, `product:stable-json` — and a first segment that is a project slug always names that
+project (`planning:project-slugs` in [`./projects.md`](./projects.md)).
 
 ## Bare ids (planning:bare-ids)
 
 A `product:`, `engineering:`, or `assume:` id may be written bare, as its subject alone, and the heading defining it
 always carries the bare subject, since its folder supplies the scope. A bare id resolves like a scoped variable: first
 in the work folder holding the citing file, a document folder such as `spec/` counting as part of it, then in each
-enclosing initiative folder outward, then at the root; the first that defines the subject wins, never a folder further
-in, and a bare id no level defines is read as a full id. The full form is valid everywhere.
+enclosing initiative folder outward, then in the project folder when there is one, then at the root; the first that
+defines the subject wins, never a folder further in, and a bare id no level defines is read as a full id. The full form
+is valid everywhere.
 
-**Detect.** A defining heading carrying a full id; a bare citation that no level from the citing folder outward defines.
+Inside a project, every id the project scopes may also drop its project segment — `epic:board`, `persona:operator`,
+`decision:board/column-order` inside `fleet` — and resolves in the citing file's project first, then at the program.
+Frontmatter and defining headings inside a project write ids in this project-relative form, since the folder supplies
+the project. Outside its project, an id always carries it: a `workspace` file cites `epic:fleet/board`, never
+`epic:board`.
+
+**Detect.** A defining heading carrying a full id; a bare citation that no level from the citing folder outward defines;
+a citation dropping the project segment of an id another project scopes.
+
+## No shadowing (planning:no-shadowing)
+
+An inner level never defines an id an enclosing level already defines: no epic or initiative reuses a `product:`,
+`engineering:`, or `assume:` subject its initiative, project, or the program holds, and no project mints a `persona:`,
+`job:`, `milestone:`, or `decision:` slug the program holds. Resolution stops at the innermost definition, so a shadowed
+outer record could no longer be cited from inside the level hiding it, and two records naming the same subject on one
+path are one record written twice. Before minting, check every level outward from the folder that will hold the id.
+
+**Detect.** The same subject defined at two levels on one path from a work folder to the root.
 
 ## Moving ids (planning:moving-ids)
 
-Moving an epic into or out of an initiative changes the epic's id and every id scoped to it, and the change that moves
-it rewrites every full citation in the repo and every bare one inside its folder that resolved to the initiative it
-leaves; other bare ids stay as they are. A record changing owner is deleted from its old owner's file and written under
-a new id in its new owner's, in a change that rewrites every citation. Citations outside the repo do not update when an
-id moves or is deleted, and that is the accepted cost, so make a move deliberately.
+Moving an epic into or out of an initiative, or an epic or initiative from one project to another, changes its id and
+every id scoped to it, and the change that moves it rewrites every full citation in the repo and every bare or
+project-relative one inside its folder that resolved to the level it leaves; other bare ids stay as they are. Promoting
+a project's persona, job, or milestone to the program, once more than one project needs it, is a move of the same kind
+(`planning:cross-project` in [`./projects.md`](./projects.md)). A record changing owner is deleted from its old owner's
+file and written under a new id in its new owner's, in a change that rewrites every citation. Citations outside the repo
+do not update when an id moves or is deleted, and that is the accepted cost, so make a move deliberately.
 
-**Detect.** After a move, a citation in the repo still carrying the old scope.
+**Detect.** After a move, a citation in the repo still carrying the old scope or project.
 
 ## Id citations and headings (planning:id-citations)
 

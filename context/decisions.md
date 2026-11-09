@@ -30,9 +30,10 @@ A folder's `decisions.md` holds both tiers' decisions in one list, in order:
 2. The open decisions.
 3. The made decisions, newest first.
 
-Never: dates; Context, Decision, or Consequences subsections; monthly or other per-period files; tables. The root
-`decisions.md` holds the program's, for calls that cut across epics. Both tiers' decisions share the one list and the
-`decision:` namespace, so there are no per-tier decision files. The file is created with the folder's first decision.
+Never: dates; Context, Decision, or Consequences subsections; monthly or other per-period files; tables. A project's
+`decisions.md` holds the calls cutting across its epics, and the root's the program's, for calls that cut across
+projects, or across epics in a repo without them. Both tiers' decisions share the one list and the `decision:`
+namespace, so there are no per-tier decision files. The file is created with the folder's first decision.
 
 ## Decision format (planning:decision-format)
 
@@ -71,10 +72,10 @@ left members waiting for each to assume the other had them.
 
 ## Decision ownership (planning:decision-ownership)
 
-A decision belongs to the epic or initiative whose delivery it constrains most, or to the program when no single one's
-does. Its one home is the owner's folder's `decisions.md`, or the root's for the program, and a scoped id's scope is
-that owner's id. A document elsewhere that it binds cites its id and never copies it. A decision that no longer applies
-at all, open or made, is deleted, and whatever cited it is corrected in the same change.
+A decision belongs to the epic, initiative, or project whose delivery it constrains most, or to the program when no
+single one's does. Its one home is the owner's folder's `decisions.md`, or the root's for the program, and a scoped id's
+scope is that owner's id. A document elsewhere that it binds cites its id and never copies it. A decision that no longer
+applies at all, open or made, is deleted, and whatever cited it is corrected in the same change.
 
 An initiative owns decisions about its direct scope or spanning several of its epics; a decision local to one epic stays
 with that epic. Changing the documents a decision overtakes follows `planning:change-in-place` in
