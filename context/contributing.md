@@ -4,7 +4,7 @@
 
 Every epic takes the same path from idea to delivered, and each step is a deliberate change:
 
-1. **Row and file together.** The epic's row in `epics.md` and its `epic.md` land in the same change. The file starts at
+1. **Name it with its file.** The epic's `epic.md` lands in the change that names the epic, at
    `refinement: outline`, with its frontmatter and at least a sentence of the problem. A milestone that demands the epic
    lands first or with it.
 2. **Deepen as the work gets close.** When the work is weeks away, `epic.md` gains its outcome and `## Left for later`,

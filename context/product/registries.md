@@ -1,14 +1,14 @@
 # Product registries
 
-A repo holding product content keeps four registries — `initiatives.md`, `epics.md`, `milestones.md`, and `delivered.md`
-— at its root, or in each project folder when the repo has projects. Each opens with one product-voice paragraph saying
+A repo holding product content keeps three registries — `initiatives.md`, `milestones.md`, and `delivered.md` — at its
+root, or in each project folder when the repo has projects. Each opens with one product-voice paragraph saying
 what the file is and that it is not a status board; that paragraph carries no status, dates, or epic list. The sections
 below say what comes after it.
 
 ## Registries across projects (planning:registry-levels)
 
 In a repo with [projects](../shared/projects.md), each project folder keeps its own registries for its own work, linking
-into that project's `work/` and `delivered/`. The program root holds no work, so it has no `epics.md` or
+into that project's `work/` and `delivered/`. The program root holds no work, so it has no
 `initiatives.md`; its `milestones.md` and `delivered.md` hold only destinations that belong to the program rather than
 to any one project.
 
@@ -33,34 +33,6 @@ Rows carry nothing else: no status, dates, tracker keys, epic list, or links to 
 | Initiative                                                                 | Outcome                                                                                                      |
 | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
 | [`initiative:reliable-borrowing`](./work/reliable-borrowing/initiative.md) | A member who reserves a tool finds it waiting, and the next member finds it back on the shelf when it is due |
-```
-
-## Epic registry (planning:epic-registry)
-
-A repo holding product content keeps `epics.md`, the capabilities the product still intends to build. After the opening
-paragraph comes one table, `Epic | Capability`, in product-priority order; the order changes only through a deliberate
-reprioritization.
-
-- **Epic** is the stable `epic:<slug>` id (`epic:<initiative>/<epic>` under an initiative), and is the row's one link,
-  to the epic's `epic.md`. For an epic planned in a tracker, that `epic.md` names the tracker item
-  (`planning:tracker-epic`).
-- **Capability** is the row's only prose. It starts with the person, problem, and promise before any mechanism. A
-  durable constraint on the capability belongs here; a relationship to other work does not.
-
-Rows carry no status, dates, tracker keys, horizons, milestones served, dependencies, gating, or scope rationale. Status
-lives in the epic's frontmatter (`planning:epic-frontmatter`), the tracker owns workflow, and the rest goes in
-`epic.md`.
-
-Every epic is needed by at least one milestone, directly or through its initiative; an epic that isn't uses its
-Capability cell to state the operational necessity that justifies it. Naming an epic writes its row and its `epic.md`
-together (`planning:lifecycle`); opening tracker work doesn't change the row. A delivered epic loses its row, and its id
-resolves to its `epic.md` in `delivered/`.
-
-```markdown
-| Epic                                                                                     | Capability                                                                                                                                                                      |
-| ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [`epic:reliable-borrowing/reservations`](./work/reliable-borrowing/reservations/epic.md) | A member who reserved a tool and never came should not keep it off the shelf for a week, and a member who wants a tool already reserved should hear the moment it frees up.     |
-| [`epic:volunteer-shifts`](./work/volunteer-shifts/epic.md)                               | A volunteer should sign up for a shift in the app and see who is coming during it, so the coordinator stops keeping the roster in a shared spreadsheet that members cannot see. |
 ```
 
 ## Milestone registry (planning:milestone-registry)

@@ -90,7 +90,8 @@ After its frontmatter, an `epic.md` holds, in order:
 
 1. A `#` title, then one line naming the parent initiative, if any, and where the product requirements live. A
    capability epic's line also names what it supports (`planning:capability-epics`).
-2. `## The problem`: whose work is hard and what that costs. An outline epic may hold just a sentence of it and nothing
+2. `## The problem`: whose work is hard and what that costs. Every epic is needed by a milestone, directly or through
+   its initiative; one that no milestone names says here what operational necessity justifies it. An outline epic may hold just a sentence of it and nothing
    after, growing the rest as the work gets close (`planning:lifecycle`).
 3. `## The outcome`: what is different for them once the work lands.
 

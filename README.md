@@ -96,7 +96,7 @@ Agents working in the workspace load the framework on demand through [`index.md`
 
 1. Add the README intro and the sections [`repository-entry.md`](./context/shared/repository-entry.md) requires for the
    tiers the repo holds.
-2. For product content, add the required root files — `charter/`, `epics.md`, `milestones.md`, `delivered.md` — and a
+2. For product content, add the required root files — `charter/`, `milestones.md`, `delivered.md` — and a
    folder under `work/` per epic, with its `epic.md`, in the change that names the epic, following the lifecycle in
    [`contributing.md`](./context/contributing.md). For engineering content alone, create one folder per epic under
    `work/`, with an `epic.md` for an epic planned in a tracker ([`layout.md`](./context/shared/layout.md)).

@@ -36,14 +36,14 @@ It may also have:
 - `mockup-kit/`, the one kit every project's mockups share ([mockups.md](../product/mockups.md))
 - `research/`, `presentations/`, and `supporting/`, as in a repo without projects
 
-Every epic belongs to a project, so the root has no `work/`, `delivered/`, `epics.md`, or `initiatives.md`.
+Every epic belongs to a project, so the root has no `work/`, `delivered/`, or `initiatives.md`.
 
 ## The project folder (planning:project-folder)
 
 A project folder is laid out like the root of a repo without projects, minus what belongs to the program: `README.md`,
 `strategy/`, `mockup-kit/`, and `supporting/`.
 
-It always has `charter/`, whose `mission.md` is the project's front door; the `epics.md`, `milestones.md`, and
+It always has `charter/`, whose `mission.md` is the project's front door; the `milestones.md` and
 `delivered.md` registries ([registries.md](../product/registries.md)); and `work/` and `delivered/` for its live and
 archived epic and initiative folders. It may have `initiatives.md` if it uses initiatives, `requirements.md` and
 `engineering.md` for records that bind every epic in the project, `decisions.md` for decisions that span its epics or

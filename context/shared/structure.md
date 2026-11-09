@@ -13,7 +13,7 @@ program root and each project folder split them ([`./projects.md`](./projects.md
 | Area                                                          | Required                     | Holds                                                                                                        |
 | ------------------------------------------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------ |
 | `charter/`                                                    | Yes                          | Mission, vision, and the `persona:` and `job:` registries ([`../product/charter.md`](../product/charter.md)) |
-| `initiatives.md`, `epics.md`, `milestones.md`, `delivered.md` | Yes, except `initiatives.md` | The live registries and the delivery ledger ([`../product/registries.md`](../product/registries.md))         |
+| `initiatives.md`, `milestones.md`, `delivered.md`             | Yes, except `initiatives.md` | The live registries and the delivery ledger ([`../product/registries.md`](../product/registries.md))         |
 | `strategy/`                                                   | No                           | Direction-setting papers for the program                                                                     |
 | `mockup-kit/`                                                 | No                           | The stylesheet, brand marks, and README the mockups share ([`../product/mockups.md`](../product/mockups.md)) |
 
@@ -85,6 +85,8 @@ The repo leaves these out on purpose; don't add them:
   `delivered/` is one way.
 - A `contracts/` folder. A shared contract lives with the epic that owns its capability.
 - A separate questions file. Clarifying questions sit in the file they concern, and deferred calls are open decisions.
+- An epic registry. The live epics are what `work/` contains, each `epic.md` is its epic's home, and milestone order
+  says what comes first.
 - A project registry. The `projects/` listing and the README name the projects; a repo planning one product has no
   `projects/` folder.
 - An `index.md` anywhere. A work folder's front door is its `epic.md` or `initiative.md`, and a document folder holds

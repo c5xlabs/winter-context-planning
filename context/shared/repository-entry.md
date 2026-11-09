@@ -36,7 +36,7 @@ fully in every case; only its Upstream schemes table changes.
 A sentence saying the repo is organized by epic, then a `Path | What it holds` table with one plain line per path, and a
 few sentences for whatever the table can't say.
 
-- Product rows: `charter/`, `initiatives.md` when used, `epics.md`, `milestones.md`, `delivered.md`, `mockup-kit/` when
+- Product rows: `charter/`, `initiatives.md` when used, `milestones.md`, `delivered.md`, `mockup-kit/` when
   present, `work/`, `delivered/`, and, written as `work/<initiative>/<epic>/…`, `initiative.md`, `epic.md`,
   `requirements.md`, and `mockups/`. With intent in another repo, product has no rows; only in a tracker or wiki, its
   one row is the tracker-planned epics' `epic.md`.
