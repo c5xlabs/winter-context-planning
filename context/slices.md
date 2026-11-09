@@ -1,7 +1,7 @@
 # Slices
 
 How an epic is cut into the changes that build it: what a slice file holds, how the cuts are made, how they are ordered,
-and how slices change. To cut an epic's slices, follow [workflows/slice-an-epic.md](./workflows/slice-an-epic.md).
+and how slices change. To cut an epic's slices, follow [`./workflows/slice-an-epic.md`](./workflows/slice-an-epic.md).
 
 ## Slice files (planning:slice-files)
 
@@ -43,7 +43,7 @@ can be deleted and cut again from the same sources, and their pointers found aga
 For the same reason nothing outside its own `slices/` names a slice: no requirement, spec, decision, or other epic's
 slice cites one. Slices carry no status; the work tracker owns their progress, and the epic's own `status:` says when
 the whole epic is delivered. Slices are written in the engineering voice (`planning:engineering-voice` in
-[voice.md](./voice.md)).
+[`./voice.md`](./voice.md)).
 
 ## Cutting slices (planning:slice-cuts)
 
@@ -67,7 +67,7 @@ reaches a system already in use, and each strategy is a sequence of slices of it
 
 The closing step of a strategy — retiring, removing the flag, removing the old mechanism — is always a slice, never a
 note on another, so the cleanup is planned and tracked like the rest. When no constraint settles the strategy and the
-choice matters, record it as a decision before cutting (`planning:decision-bar` in [decisions.md](./decisions.md)).
+choice matters, record it as a decision before cutting (`planning:decision-bar` in [`./decisions.md`](./decisions.md)).
 
 Every `product:` and `engineering:` requirement the epic holds, and every acceptance bullet under it, is delivered by at
 least one slice, and every spec section is built by one; a requirement no slice delivers is unplanned work or a
@@ -93,4 +93,4 @@ slicing earlier is how gaps surface: a fact a slice needs and no file states bec
 decision, a spec section, or an open question, and the epic is better for it. Re-slicing rewrites `slices/` in place: a
 slice with an `external:` keeps its name and `external:` while it still describes the same change, and the rest are
 renumbered, rewritten, or deleted freely. The folder moves to `delivered/` with its epic (`planning:delivered-archive`
-in [layout.md](./layout.md)) and freezes there, like the spec.
+in [`./layout.md`](./layout.md)) and freezes there, like the spec.

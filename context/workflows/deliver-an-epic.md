@@ -23,4 +23,4 @@ step applies the rule it cites; this is only the order of work, and every step l
      `milestones.md`.
    - Every relative link into or out of the moved folder resolves.
 8. **Commit** as a `chore` scoped by the epic id, its body saying the epic was delivered and archived —
-   `planning:commit-messages` in [contributing.md](../contributing.md).
+   `planning:commit-messages` in [`../contributing.md`](../contributing.md).

@@ -1,35 +1,37 @@
-# Product id namespaces
+# Ids
 
-The stable ids product content mints and cites, and the ids it never cites. Rule ids (`planning:`) live only in this
-framework; content never cites them.
+The stable ids product and engineering content mint and cite, and which ids product never cites. Rule ids (`planning:`)
+live only in this framework; content never cites them.
 
 ## Id namespaces (planning:id-namespaces)
 
-Every product id belongs to exactly one namespace, and each namespace has one canonical home — the file holding the id's
+Every stable id belongs to exactly one namespace, and each namespace has one canonical home — the file holding the id's
 defining row, section, or record, relative to the repo root. `planning:repository-entry` in
-[`./repository-entry.md`](./repository-entry.md) covers homes outside the repo.
+[`./repository-entry.md`](./repository-entry.md) covers homes outside the repo. Product's prefixes and engineering's are
+disjoint except `decision:`, which both tiers share under one subject rule (`planning:decision-slugs` in
+[`./decisions.md`](./decisions.md)), so both tiers share a folder without colliding.
 
-| Prefix        | Names                                                                            | Canonical home                                                                                                                                     |
-| ------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `persona:`    | A person the product serves                                                      | Row in `charter/personas.md`, or the persona's leaf in `charter/personas/` (`planning:persona-registry`)                                           |
-| `job:`        | Something a person is trying to accomplish                                       | Row in `charter/jobs.md`                                                                                                                           |
-| `initiative:` | A durable product investment broader than one capability                         | Row in `initiatives.md`                                                                                                                            |
-| `epic:`       | A major capability the product must establish, `<epic>` or `<initiative>/<epic>` | The epic's `epic.md`, under `work/` or `delivered/`; `epics.md` lists the live ones                                                                |
-| `product:`    | A product requirement of an epic, or one binding every epic of an initiative     | `## <Name> (product:<subject>)` heading in the owner's `requirements.md`, or `###` in `epic.md` when inline (`planning:requirement-records`)       |
-| `milestone:`  | A destination visible in a person's work                                         | `## <Name> (milestone:<slug>)` section in `milestones.md`, or in `delivered.md` once reached                                                       |
-| `decision:`   | A decision of either tier, open or made                                          | `## <Name> (decision:…)` heading in the owner's `decisions.md`, shared with engineering (`planning:decision-slugs`, `planning:decision-ownership`) |
+| Prefix         | Tier        | Names                                                                                      | Canonical home                                                                                                                               |
+| -------------- | ----------- | ------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `persona:`     | Product     | A person the product serves                                                                | Row in `charter/personas.md`, or the persona's leaf in `charter/personas/` (`planning:persona-registry`)                                     |
+| `job:`         | Product     | Something a person is trying to accomplish                                                 | Row in `charter/jobs.md`                                                                                                                     |
+| `initiative:`  | Product     | A durable product investment broader than one capability                                   | Row in `initiatives.md`                                                                                                                      |
+| `epic:`        | Product     | A major capability the product must establish, `<epic>` or `<initiative>/<epic>`           | The epic's `epic.md`, under `work/` or `delivered/`; `epics.md` lists the live ones                                                          |
+| `product:`     | Product     | A product requirement of an epic, or one binding every epic of an initiative               | `## <Name> (product:<subject>)` heading in the owner's `requirements.md`, or `###` in `epic.md` when inline (`planning:requirement-records`) |
+| `milestone:`   | Product     | A destination visible in a person's work                                                   | `## <Name> (milestone:<slug>)` section in `milestones.md`, or in `delivered.md` once reached                                                 |
+| `engineering:` | Engineering | What engineering commits to, `<owner id>/<subject>` or bare, always bare at the root       | `## <Name> (engineering:<subject>)` heading in the owning folder's, or the root's, `engineering.md`                                          |
+| `assume:`      | Engineering | Product intent engineering assumed because none was stated, `<owner id>/<subject>` or bare | `## <Name> (assume:<subject>)` heading in the `assumptions.md` of the folder whose requirements rest on it                                   |
+| `decision:`    | Both        | A decision of either tier, open or made, always written in full                            | `## <Name> (decision:…)` heading in the owner's `decisions.md` (`planning:decision-slugs`, `planning:decision-ownership`)                    |
 
-A fact that would still be true for a different product belongs in this framework, not in the repo.
+Upstream ids — the product intent an engineering requirement derives from — use the schemes of
+`planning:upstream-schemes` in [`./derivation.md`](./derivation.md), not namespaces minted here. A fact that would still
+be true for a different product belongs in this framework, not in the repo.
 
 ## Slugs, not numbers (planning:slugs-not-numbers)
-
-<!-- shared:slugs-not-numbers -->
 
 Every id this tier mints is built from lowercase kebab-case slugs naming its subject, joined by `/` where it is scoped —
 never a number, never date-prefixed, never reused once deleted. Replacing the thing an id names takes a new id. Subject
 slugs need no allocation, so parallel authors collide only when they name the same thing.
-
-<!-- /shared:slugs-not-numbers -->
 
 ## Stable product ids (planning:stable-product-ids)
 
@@ -39,8 +41,6 @@ changes only when the epic moves into or out of an initiative (`planning:moving-
 heading, or frontmatter entry leaves only through a decision. A deleted subject keeps its slug out of circulation.
 
 ## Owned and scoped ids (planning:owned-scoped-ids)
-
-<!-- shared:owned-scoped-ids -->
 
 An epic's id is `<epic>` when it stands alone and `<initiative>/<epic>` under an initiative, since two initiatives may
 each hold an epic of the same name; an initiative's id is its slug. An id an owner holds is
@@ -52,16 +52,17 @@ moves nothing in them.
 
 **Detect.** An id naming `work/` or `delivered/`; a decision id written bare or given a filler scope.
 
-<!-- /shared:owned-scoped-ids -->
+Product's owners are initiatives and epics, and a `decision:` or `product:` id may belong to either; a `product:`
+subject names what the requirement requires. The program is the program-wide owner and holds no `product:`: program-wide
+product direction is the charter's, so there is no root `requirements.md`, and a bare `product:` resolves no further out
+than its initiative.
 
-Owners are initiatives and epics, and a `decision:` or `product:` id may belong to either; a `product:` subject names
-what the requirement requires. The program is the program-wide owner and holds no `product:`: program-wide product
-direction is the charter's, so there is no root `requirements.md`, and a bare `product:` resolves no further out than
-its initiative.
+Engineering's owners are epics, initiatives, and the program, and a scoped owner id is an epic id — `<epic>` or
+`<initiative>/<epic>` — or an initiative slug. The program holds only the `engineering:` constraints binding the whole
+system (`planning:engineering-constraints` in [`./engineering.md`](./engineering.md)), always bare, and never an
+`assume:`, since a constraint rests on no assumption; an unscoped `decision:` is program-wide.
 
 ## Bare ids (planning:bare-ids)
-
-<!-- shared:bare-ids -->
 
 A `product:`, `engineering:`, or `assume:` id may be written bare, as its subject alone, and the heading defining it
 always carries the bare subject, since its folder supplies the scope. A bare id resolves like a scoped variable: first
@@ -71,11 +72,7 @@ in, and a bare id no level defines is read as a full id. The full form is valid 
 
 **Detect.** A defining heading carrying a full id; a bare citation that no level from the citing folder outward defines.
 
-<!-- /shared:bare-ids -->
-
 ## Moving ids (planning:moving-ids)
-
-<!-- shared:moving-ids -->
 
 Moving an epic into or out of an initiative changes the epic's id and every id scoped to it, and the change that moves
 it rewrites every full citation in the repo and every bare one inside its folder that resolved to the initiative it
@@ -85,11 +82,7 @@ id moves or is deleted, and that is the accepted cost, so make a move deliberate
 
 **Detect.** After a move, a citation in the repo still carrying the old scope.
 
-<!-- /shared:moving-ids -->
-
 ## Id citations and headings (planning:id-citations)
-
-<!-- shared:id-citations -->
 
 Cite an id as plain text, the id alone in backticks — `` `persona:member` `` — never as a markdown link; the one id that
 is a link is a registry row's own, which links the document owning it. Every id appears verbatim at its home, the row,
@@ -101,10 +94,9 @@ such as `decisions.md` or `assumptions.md`, each record is a `##` section; where
 sections, as requirement records inline in `epic.md` do, they gather under a `## Requirements` heading, each a `###`
 section. Any other link points at a document rather than citing an id, and stays a link.
 
-<!-- /shared:id-citations -->
-
 An id whose home is outside the repo is cited the same way; the Defined in column of the README's Ids table says where
-to look it up.
+to look it up. This covers prose, tables, and code comments. A scheme id (`product:`, `jira:`, …) is cited the same way,
+and a reader resolves it through the README's scheme table, never against a base the table does not declare.
 
 ## Product cites only product (planning:product-cites-product)
 

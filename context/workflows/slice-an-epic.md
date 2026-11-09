@@ -2,7 +2,7 @@
 
 Cut an epic into the ordered changes that build it, writing its `slices/` folder. Use it to slice an epic for the first
 time or to re-slice one after its requirements or spec change. What a slice holds and how slices are cut is
-[slices.md](../slices.md); this is only the order of work.
+[`../slices.md`](../slices.md); this is only the order of work.
 
 1. **Read the sources.** The epic folder's `epic.md`, its product requirements or the upstream intent its README points
    to, `engineering.md`, `assumptions.md`, the spec, and `decisions.md`; then the `engineering.md` of its initiative and
@@ -24,4 +24,4 @@ time or to re-slice one after its requirements or spec change. What a slice hold
    - The strategy's closing step is a slice of its own.
    - Nothing in a slice lacks a home it cites.
 7. **Report** the slices in order with what each depends on, and every gap filled or left open, then commit —
-   `planning:commit-messages` in [contributing.md](../contributing.md).
+   `planning:commit-messages` in [`../contributing.md`](../contributing.md).

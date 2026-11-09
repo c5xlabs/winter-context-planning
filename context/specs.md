@@ -17,14 +17,14 @@ interfaces, domain models, and payloads, so it is artifact-first and prose is us
 4. `Flows` — sequence diagrams for behaviour that crosses services, failure and retry paths included, external services'
    among them.
 5. `Data` — schema as DDL or tables, plus migrations.
-6. `Open questions` (`planning:inline-questions` in [decisions.md](./decisions.md)).
+6. `Open questions` (`planning:inline-questions` in [`./decisions.md`](./decisions.md)).
 
 A `spec/` leaf is named freely — by use case, contract, or area, whichever reads best — and uses any of these sections,
 or others it needs; there is no index. In either form code blocks and diagrams come first, and a sentence states only
 what no artifact can, such as idempotency, ordering, or failure behaviour, preferably as a comment inside the artifact,
-in the engineering voice (`planning:engineering-voice` in [voice.md](./voice.md)). An `engineering:` or `product:` id is
-mentioned where a piece serves it, often in a code comment, and resolves outward like any bare id; no line lists what
-the spec satisfies, and no requirement is restated.
+in the engineering voice (`planning:engineering-voice` in [`./voice.md`](./voice.md)). An `engineering:` or `product:`
+id is mentioned where a piece serves it, often in a code comment, and resolves outward like any bare id; no line lists
+what the spec satisfies, and no requirement is restated.
 
 Prose belongs to the requirement. The engineering requirement states the behaviour and its reason; the spec cites it by
 id and shows only the contract or flow that delivers it. A requirement, then the spec fragment answering it:
@@ -69,6 +69,6 @@ A contract several specs answer to has one home: a leaf of the spec of the epic 
 ## Spec freeze (planning:spec-freeze)
 
 A spec freezes when its epic is delivered and moves with it to `delivered/` (`planning:delivered-archive` in
-[layout.md](./layout.md)); what is built is documented in the owning project repo, not here. Later work on the same
+[`./layout.md`](./layout.md)); what is built is documented in the owning project repo, not here. Later work on the same
 capability is a new epic with a spec of its own, which cites the frozen one where it builds on it and never edits or
 deletes it.

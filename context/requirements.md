@@ -6,8 +6,6 @@ files fronting a work folder are [`./intent.md`](./intent.md).
 
 ## Classifying a requirement (planning:classify-requirement)
 
-<!-- shared:classify-requirement -->
-
 Three tells, asked in order, give any statement about the system its home. Could a user notice it changing? Then it is a
 product requirement (`product:`), or an assumption (`assume:`) when product never said it. Does it only describe how the
 code keeps a promise? Then it belongs in the spec, not in any requirement. Otherwise, does it bind every implementation?
@@ -29,8 +27,6 @@ through every home:
 Two statements that sound like requirements are neither. "Use a transaction around the check" is spec. "It should be
 fast" is a product promise with no number, so it becomes an open `decision:` or an `assume:`.
 
-<!-- /shared:classify-requirement -->
-
 ## Requirement records (planning:requirement-records)
 
 A product requirement is a record of its own, named for what it requires. Whatever supports a requirement — an
@@ -45,13 +41,9 @@ epic's `requirements.md` holds, in order:
    removed in the same change (`planning:change-in-place` in [`./structure.md`](./structure.md)).
 3. Optional: `## Open questions`.
 
-<!-- shared:requirement-status -->
-
 A requirement has one optional status, the **Proposed.** marker opening its body: written down but not yet binding. A
 requirement without it is accepted and binds; build and test to it. The change that accepts a proposed requirement drops
 the marker. Proposed and accepted are the only two states, and nothing records whether a requirement is met.
-
-<!-- /shared:requirement-status -->
 
 Never: prose between records, the problem restated, status, slices, stories, test-level criteria, or engineering ids.
 

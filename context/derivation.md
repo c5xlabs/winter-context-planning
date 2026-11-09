@@ -8,8 +8,8 @@ repo, a tracker, or a wiki.
 Every requirement names the product intent it serves in its prose — "Serves `product:card-hold`." — through at least one
 upstream id, `<scheme>:<key>` in any mix of schemes (`planning:upstream-schemes`), citing the most specific intent that
 exists: a product requirement over its epic, and a story over its tracker epic. The one exception is a standalone
-constraint (`planning:engineering-constraints` in [engineering.md](./engineering.md)), which nobody upstream asked for
-and stands without one. A feature requirement whose product intent is not written yet is not a constraint: record an
+constraint (`planning:engineering-constraints` in [`./engineering.md`](./engineering.md)), which nobody upstream asked
+for and stands without one. A feature requirement whose product intent is not written yet is not a constraint: record an
 assumption (`planning:assumption-record`) and serve it.
 
 ## Upstream schemes (planning:upstream-schemes)
@@ -31,10 +31,10 @@ in the epic's `requirements.md`, or the `###` one under `## Requirements` in its
 A whole epic is cited as `epic:<epic id>`, never as a `product:` id without a subject. An initiative's own `product:`
 subject is never one of its epics' slugs, so the segments of a full id read unambiguously; a bare subject resolves
 outward from the citing folder, no further than the initiative, since the root holds no `product:` (`planning:bare-ids`
-in [namespaces.md](./namespaces.md)). Milestones, personas, and jobs are not upstream ids, and product ids' stability is
-the product tier's to keep. A tracker id is written exactly as the `external:` value naming the same item in an
-`epic.md` (`planning:tracker-epic` in [layout.md](./layout.md)); when its key moves, update both in place. A raw URL is
-not an upstream id.
+in [`./namespaces.md`](./namespaces.md)). Milestones, personas, and jobs are not upstream ids, and product ids'
+stability is the product tier's to keep. A tracker id is written exactly as the `external:` value naming the same item
+in an `epic.md` (`planning:tracker-epic` in [`./layout.md`](./layout.md)); when its key moves, update both in place. A
+raw URL is not an upstream id.
 
 ## Scheme declaration (planning:scheme-declaration)
 

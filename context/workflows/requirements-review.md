@@ -3,9 +3,9 @@
 Check that an epic's engineering content still meets its product requirements, reading each side against the other, and
 fix what no longer holds. Use it after product intent changes — a requirement added, rewritten, accepted, or deleted, an
 assumption confirmed or rejected, a decision made — and before slicing or re-slicing an epic. A delivered epic is frozen
-and is not reviewed. What each record holds is [engineering.md](../engineering.md), [derivation.md](../derivation.md),
-[assumptions.md](../assumptions.md), [specs.md](../specs.md), and [slices.md](../slices.md); this is only the order of
-work.
+and is not reviewed. What each record holds is [`../engineering.md`](../engineering.md),
+[`../derivation.md`](../derivation.md), [`../assumptions.md`](../assumptions.md), [`../specs.md`](../specs.md), and
+[`../slices.md`](../slices.md); this is only the order of work.
 
 1. **Read both sides.** The epic folder's `epic.md` and its product requirements, or the upstream intent its README
    points to; its `engineering.md`, `assumptions.md`, spec, `decisions.md`, and `slices/`; then the `engineering.md` of
@@ -29,6 +29,6 @@ work.
    of an id it removes in the same change — `planning:change-in-place`. A product requirement whose meaning is unclear
    gets a bullet in the `## Open questions` of its file, citing no engineering id; one that needs a choice gets an open
    decision — `planning:inline-questions`, `planning:decision-format`. When any slice changed, re-slice —
-   [slice-an-epic.md](./slice-an-epic.md).
+   [`./slice-an-epic.md`](./slice-an-epic.md).
 5. **Report** what changed on each side and every question or decision left open, then commit —
-   `planning:commit-messages` in [contributing.md](../contributing.md).
+   `planning:commit-messages` in [`../contributing.md`](../contributing.md).

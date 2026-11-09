@@ -1,34 +1,8 @@
 # Engineering requirements
 
 Engineering requirements in a work folder's `engineering.md`: one record per `engineering:` id, each stating what
-engineering commits to.
-
-## Classifying a requirement (planning:classify-requirement)
-
-<!-- shared:classify-requirement -->
-
-Three tells, asked in order, give any statement about the system its home. Could a user notice it changing? Then it is a
-product requirement (`product:`), or an assumption (`assume:`) when product never said it. Does it only describe how the
-code keeps a promise? Then it belongs in the spec, not in any requirement. Otherwise, does it bind every implementation?
-Then it is an engineering requirement (`engineering:`), in one of two shapes: a bound derived from a product promise,
-which engineering can change alone so long as the promise holds, or a standalone constraint nobody upstream asked for —
-the language and runtime, data handling, idempotency, delivery semantics, migration compatibility, tracing. A choice
-between real alternatives is a decision recording its reason, whichever home its outcome takes. One topic, traced
-through every home:
-
-| Statement                                                                                                              | Home           | Why                                                                                    |
-| ---------------------------------------------------------------------------------------------------------------------- | -------------- | -------------------------------------------------------------------------------------- |
-| A volunteer cannot check in a tool they borrowed themselves.                                                           | `product:`     | A coordinator would notice if it broke.                                                |
-| A member hears their reservation lapsed within five minutes of the shift closing.                                      | `product:`     | A member would notice an hour; changing it is a product call.                          |
-| (Product never gave a time.) A member needs to hear their reservation lapsed within five minutes of the shift closing. | `assume:`      | Product-shaped, made up by engineering, held until product confirms.                   |
-| The `reservation.lapsed` event is consumed within 10 s at p95.                                                         | `engineering:` | A bound engineering derived so the five minutes hold; engineering can change it alone. |
-| `CHECK (checked_in_by <> borrower_id)`                                                                                 | spec, `Data`   | How the code keeps the no-self-check-in promise.                                       |
-| Loan periods kept in a table rather than in code, because the coordinator sets one per tool category.                  | `decision:`    | A choice between real alternatives, with its reason.                                   |
-
-Two statements that sound like requirements are neither. "Use a transaction around the check" is spec. "It should be
-fast" is a product promise with no number, so it becomes an open `decision:` or an `assume:`.
-
-<!-- /shared:classify-requirement -->
+engineering commits to. Whether a statement is engineering's to require at all is `planning:classify-requirement` in
+[`./requirements.md`](./requirements.md).
 
 ## Requirement ids (planning:requirement-ids)
 
@@ -46,20 +20,15 @@ another epic is deleted here and minted under a new id there, in a change that r
 
 Every requirement is a `##` section headed `<Name> (engineering:<subject>)` (`planning:id-citations`), then one or two
 sentences of what engineering commits to: a bound derived from a product promise, citing inline the intent it serves
-(`planning:serves` in [derivation.md](./derivation.md)), or a standalone constraint
+(`planning:serves` in [`./derivation.md`](./derivation.md)), or a standalone constraint
 (`planning:engineering-constraints`). There are no fields and no "implemented" state: delivery lives in the work tracker
 and the upstream intent. In folder form (`planning:file-or-folder`), each leaf is `engineering/<subject>.md`, with no
 index. The record carries the behaviour and its reason in prose, which the spec leaves out (`planning:spec-contracts` in
-[specs.md](./specs.md)). Records are written in the engineering voice (`planning:engineering-voice` in
-[voice.md](./voice.md)).
+[`./specs.md`](./specs.md)). Records are written in the engineering voice (`planning:engineering-voice` in
+[`./voice.md`](./voice.md)).
 
-<!-- shared:requirement-status -->
-
-A requirement has one optional status, the **Proposed.** marker opening its body: written down but not yet binding. A
-requirement without it is accepted and binds; build and test to it. The change that accepts a proposed requirement drops
-the marker. Proposed and accepted are the only two states, and nothing records whether a requirement is met.
-
-<!-- /shared:requirement-status -->
+An engineering requirement's status, the optional **Proposed.** marker, works as a product requirement's does
+(`planning:requirement-records` in [`./requirements.md`](./requirements.md)).
 
 ```markdown
 ## Cover expiry (engineering:cover-expiry)
@@ -102,7 +71,7 @@ A `engineering.md` holds, in order:
    delivered requirement, a contract it consumes, or a system limit, each cited by id or linked, so a reader knows what
    not to rebuild and what not to break.
 3. The `engineering:` records (`planning:requirement-record`), any of them opening **Proposed.**
-4. Optional: `## Open questions` (`planning:inline-questions` in [decisions.md](./decisions.md)).
+4. Optional: `## Open questions` (`planning:inline-questions` in [`./decisions.md`](./decisions.md)).
 
 The root file holds only constraints binding the whole system (`planning:engineering-constraints`). Never: restated
 product text, progress, or tasks.
@@ -110,5 +79,5 @@ product text, progress, or tasks.
 ## Removing a requirement (planning:requirement-removal)
 
 A requirement that no longer binds is deleted, and the same change rewrites or removes every citation of its id
-(`planning:change-in-place` in [structure.md](./structure.md)). Nothing marks it as gone; a decision behind the removal
-says why.
+(`planning:change-in-place` in [`./structure.md`](./structure.md)). Nothing marks it as gone; a decision behind the
+removal says why.
