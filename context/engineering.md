@@ -1,8 +1,7 @@
 # Engineering requirements
 
 A work folder's `engineering.md` holds what engineering commits to, one record per `engineering:` id. Whether a
-statement is engineering's to require at all is decided by `planning:classify-requirement` in
-[`./requirements.md`](./requirements.md).
+statement is engineering's to require at all is decided by `planning:classify-requirement`.
 
 ## Requirement ids (planning:requirement-ids)
 
@@ -23,15 +22,13 @@ belong to another epic is deleted here and written there under a new id, in the 
 
 Each requirement is a `##` section headed `<Name> (engineering:<subject>)`, followed by a sentence or two of what
 engineering commits to. That is either a bound derived from a product promise, citing the intent it serves inline
-(`planning:serves` in [`./derivation.md`](./derivation.md)), or a standalone constraint. Records have no fields and no
-"implemented" state; delivery is tracked in the work tracker and the upstream intent. A record may open with
-**Proposed.**, which means what it does on a product requirement (`planning:requirement-records` in
-[`./requirements.md`](./requirements.md)).
+(`planning:serves`), or a standalone constraint. Records have no fields and no "implemented" state; delivery is tracked
+in the work tracker and the upstream intent. A record may open with **Proposed.**, which means what it does on a product
+requirement (`planning:requirement-records`).
 
-The record says what the behaviour is and why, in prose; the spec leaves that out (`planning:spec-contracts` in
-[`./specs.md`](./specs.md)). Write it in the engineering voice (`planning:engineering-voice` in
-[`./voice.md`](./voice.md)). In folder form (`planning:file-or-folder`), each record is its own
-`engineering/<subject>.md`, with no index.
+The record says what the behaviour is and why, in prose; the spec leaves that out (`planning:spec-contracts`). Write it
+in the engineering voice (`planning:engineering-voice`). In folder form (`planning:file-or-folder`), each record is its
+own `engineering/<subject>.md`, with no index.
 
 ```markdown
 ## Cover expiry (engineering:cover-expiry)
@@ -79,7 +76,7 @@ An `engineering.md` holds, in order:
    requirement, a contract it consumes, or a system limit, each cited or linked, so the reader knows what not to rebuild
    or break.
 3. The `engineering:` records.
-4. Optionally, `## Open questions` (`planning:inline-questions` in [`./decisions.md`](./decisions.md)).
+4. Optionally, `## Open questions` (`planning:inline-questions`).
 
 The root and project files hold only records that bind the whole program or project: constraints, and bounds derived
 from the `product:` records at that same level.
@@ -87,5 +84,4 @@ from the `product:` records at that same level.
 ## Removing a requirement (planning:requirement-removal)
 
 A requirement that no longer binds is deleted, and the same change rewrites or removes every citation of its id
-(`planning:change-in-place` in [`./structure.md`](./structure.md)). Nothing marks it as gone; if a decision drove the
-removal, that decision says why.
+(`planning:change-in-place`). Nothing marks it as gone; if a decision drove the removal, that decision says why.

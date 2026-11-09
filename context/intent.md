@@ -8,7 +8,7 @@ frontmatter and states its intent. The requirements they front follow [`./requir
 An epic has a problem of its own (it could be prioritized, deferred, or dropped without changing why any other epic
 exists) and is delivered as a whole. When part of an epic needs to be prioritized, tracked, or delivered on its own,
 that part becomes an epic too, and the epics sharing the problem form an initiative. The change that makes the cut
-rewrites every citation of the old id (`planning:moving-ids` in [`./namespaces.md`](./namespaces.md)).
+rewrites every citation of the old id (`planning:moving-ids`).
 
 An epic with only a few sentences of its own probably belongs to another. An epic whose parts each need their own status
 is an initiative.
@@ -36,7 +36,7 @@ and the id is the key as that system writes it, the same string engineering cite
 key moves, update it in place.
 
 An epic planned in a tracker still has an `epic.md`, holding this frontmatter and nothing else, with `external:` naming
-the tracker epic (`planning:tracker-epic` in [`./layout.md`](./layout.md)).
+the tracker epic (`planning:tracker-epic`).
 
 ## Initiative frontmatter (planning:initiative-frontmatter)
 
@@ -89,9 +89,9 @@ Each fact has one source:
 After its frontmatter, an `epic.md` holds, in order:
 
 1. A `#` title, then one line naming the parent initiative, if any, and where the product requirements live. A
-   capability epic's line also names what it supports (`planning:capability-epics` in [`./layout.md`](./layout.md)).
+   capability epic's line also names what it supports (`planning:capability-epics`).
 2. `## The problem`: whose work is hard and what that costs. An outline epic may hold just a sentence of it and nothing
-   after, growing the rest as the work gets close (`planning:lifecycle` in [`./contributing.md`](./contributing.md)).
+   after, growing the rest as the work gets close (`planning:lifecycle`).
 3. `## The outcome`: what is different for them once the work lands.
 
 Any of these may follow:
@@ -100,16 +100,14 @@ Any of these may follow:
 - `## What this epic is not`, for what a reader might expect that the epic deliberately leaves undone, with no later
   work planned to do it.
 - `## Depends on`, product ids only.
-- `## Requirements`, holding the requirement records inline, for a small epic (`planning:requirement-records` in
-  [`./requirements.md`](./requirements.md)).
-- `## Open questions` (`planning:inline-questions` in [`./decisions.md`](./decisions.md)).
+- `## Requirements`, holding the requirement records inline, for a small epic (`planning:requirement-records`).
+- `## Open questions` (`planning:inline-questions`).
 
 An epic doesn't carry status prose, a stories or slices table, a `delivery/` folder, or epic-level acceptance such as
 "Complete when" or "How it is proven"; each requirement carries its own acceptance bullets
-(`planning:requirement-acceptance` in [`./requirements.md`](./requirements.md)). Nor does it carry a "What to build"
-list, which the requirement records already are, or an engineering id (`planning:product-cites-product` in
-[`./namespaces.md`](./namespaces.md)). An epic planned in a tracker follows `planning:tracker-epic` in
-[`./layout.md`](./layout.md) instead.
+(`planning:requirement-acceptance`). Nor does it carry a "What to build" list, which the requirement records already
+are, or an engineering id (`planning:product-cites-product`). An epic planned in a tracker follows
+`planning:tracker-epic` instead.
 
 After its frontmatter, an `initiative.md` holds, in order:
 

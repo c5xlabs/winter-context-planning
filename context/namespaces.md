@@ -34,8 +34,8 @@ prefixes, and no reusing a deleted id: replacing the thing an id names takes a n
 
 Never rename a `persona:`, `job:`, `initiative:`, or `milestone:` slug, an epic's own slug, or a `product:` subject.
 Trackers, other repos, and people cite them, and those citations never update. An epic's id changes only when the epic
-moves into or out of an initiative. A product id's definition is removed only through a decision, and its slug stays
-retired.
+moves into or out of an initiative or to another project (`planning:moving-ids`). A product id's definition is removed
+only through a decision, and its slug stays retired.
 
 ## Owned and scoped ids (planning:owned-scoped-ids)
 
@@ -51,7 +51,8 @@ never scoped: its `product:` records in the root `requirements.md` are promises 
 holds no `assume:`; an assumption sits beside the requirements resting on it. A `product:` subject names what the
 requirement requires.
 
-Decision ids are always written in full. One with no scope is program-wide; never give it a filler scope.
+A decision id is never bare: it always carries its owner, though inside a project it drops the project segment like any
+project-scoped id (`planning:bare-ids`). One with no owner is program-wide; never give it a filler scope.
 
 In a repo with [projects](./projects.md), a project is an owner between the program and its initiatives, and its slug is
 the first segment of every id it scopes: `epic:fleet/board`, `epic:fleet/reliability/hub`,

@@ -9,9 +9,9 @@ Every requirement says in its prose which product intent it serves, through at l
 `product:card-hold`." Schemes can be mixed freely. Cite the most specific intent that exists, so a product requirement
 rather than its epic, and a story rather than its tracker epic.
 
-A standalone constraint (`planning:engineering-constraints` in [`./engineering.md`](./engineering.md)) is the one
-requirement without an upstream id, since nobody upstream asked for it. A feature requirement whose product intent isn't
-written yet is not a constraint: record an assumption (`planning:assumption-record`) and serve that.
+A standalone constraint (`planning:engineering-constraints`) is the one requirement without an upstream id, since nobody
+upstream asked for it. A feature requirement whose product intent isn't written yet is not a constraint: record an
+assumption (`planning:assumption-record`) and serve that.
 
 ## Upstream schemes (planning:upstream-schemes)
 
@@ -33,13 +33,13 @@ changes when the epic moves into or out of an initiative. The subject is the `##
 the epic's `requirements.md`, or the `###` heading under `## Requirements` in its `epic.md` when the records are inline.
 An owner never uses the slug of an initiative or epic beneath it as a subject, so a full id always reads unambiguously.
 A bare subject resolves outward from the citing folder through its initiative and project to the program
-(`planning:bare-ids` in [`./namespaces.md`](./namespaces.md)).
+(`planning:bare-ids`).
 
 Cite a whole epic as `epic:<epic id>`, never as a `product:` id without a subject. Keeping product ids stable is the
 product tier's job.
 
 A tracker id is written exactly as the `external:` value that names the same item in an `epic.md`
-(`planning:tracker-epic` in [`./layout.md`](./layout.md)). When the tracker key changes, update both in place.
+(`planning:tracker-epic`). When the tracker key changes, update both in place.
 
 Milestones, personas, jobs, and raw URLs are not upstream ids.
 

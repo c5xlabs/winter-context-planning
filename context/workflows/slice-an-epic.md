@@ -4,9 +4,9 @@ Cut an epic into the ordered changes that build it, writing its `slices/` folder
 requirements or spec change. [`../slices.md`](../slices.md) says what a slice holds and how slices are cut; this is the
 order of work.
 
-1. **Read the sources.** In the epic folder: `epic.md`, the product requirements or upstream intent its README points
-   to, `engineering.md`, `assumptions.md`, the spec, and `decisions.md`. Then the `engineering.md` of its initiative,
-   project, and root, and the `epic.md` of every epic it builds on.
+1. **Read the sources.** In the epic folder: `epic.md`, the product requirements, or the upstream intent the repo
+   README's Upstream schemes table points to, `engineering.md`, `assumptions.md`, the spec, and `decisions.md`. Then the
+   `engineering.md` of its initiative, project, and root, and the `epic.md` of every epic it builds on.
 2. **Choose the strategy** for how the change reaches a system already in use. If the epic's constraints don't settle it
    and the choice matters, record a decision first.
 3. **Cut and order the slices** (`planning:slice-cuts`, `planning:slice-order`): seam first, then each surface,
@@ -22,4 +22,4 @@ order of work.
    - Each slice merges alone and leaves the main branch releasable.
    - The strategy's closing step is a slice of its own.
 7. **Report** the slices in order with their dependencies and every gap filled or left open, then commit
-   (`planning:commit-messages` in [`../contributing.md`](../contributing.md)).
+   (`planning:commit-messages`).

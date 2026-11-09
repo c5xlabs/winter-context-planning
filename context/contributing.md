@@ -14,8 +14,7 @@ Every epic takes the same path from idea to delivered, and each step is a delibe
    lifecycle below.
 4. **File tracker work once every prerequisite can be named**, as already landed or filed alongside. When work starts,
    the epic moves to `status: in-progress`, and the same change updates its cell in every milestone chart that names it.
-5. **Deliver and archive.** Evidence of delivery sets `status: delivered`; that one change archives the epic and updates
-   every registry naming it, as [`./workflows/deliver-an-epic.md`](./workflows/deliver-an-epic.md) describes.
+5. **Deliver and archive** through [`./workflows/deliver-an-epic.md`](./workflows/deliver-an-epic.md).
 
 Turning an epic into an initiative, moving an epic into or out of one, or moving either to another project changes the
 epic's id and every `product:`, `engineering:`, `assume:`, and `decision:` id scoped to it. That change rewrites every
@@ -34,14 +33,14 @@ Engineering starts once product intent exists, as a `product:` requirement or wh
 3. **File tracker work once every prerequisite can be named**: the slices or epics it depends on, the requirements it
    builds on, the open decisions it waits on. A filed slice records its tracker item in `external:`, and from then on
    the tracker owns its progress.
-4. **Deliver and archive.** A delivered epic says so in `status:`, and its folder moves to `delivered/` and freezes
-   ([`./layout.md`](./layout.md)).
+4. **Deliver and archive** with the epic's product side, through
+   [`./workflows/deliver-an-epic.md`](./workflows/deliver-an-epic.md).
 
 ## Commit messages (planning:commit-messages)
 
 Commits follow Conventional Commits. The scope is the epic or initiative id, with its project in a repo that has
-projects (`docs(reliable-borrowing/reservations): …`, `docs(fleet/board): …`); the project for a project-wide change;
-and the root file for a program-wide one.
+projects (`docs(reliable-borrowing/reservations): …`, `docs(fleet/board): …`), or the project slug for a project-wide
+change (`docs(fleet): …`). A program-wide change has no scope (`docs: …`).
 
 - `feat` adds a registry row or a new requirements, spec, or slice file.
 - `chore` is a status move or an archive move.
@@ -75,8 +74,8 @@ one change touches (a decision, the decision it overturns, the documents it corr
    program it binds (`planning:engineering-constraints`).
 4. Mint the id and add a section headed by a short name and the bare id in parentheses to that level's `engineering.md`
    (`planning:requirement-ids`, `planning:owned-scoped-ids`).
-5. Write one or two sentences starting **Proposed.**, citing what it serves (`planning:requirement-record`). A new
-   scheme needs a README scheme row; unstated intent needs an assumption first.
+5. Write one or two sentences citing what it serves (`planning:requirement-record`). A new scheme needs a README scheme
+   row; unstated intent needs an assumption first.
 6. Add an `Acceptance:` list holding only what engineering can verify. Anything product can judge goes under the product
    requirement.
 
@@ -98,8 +97,8 @@ requirement that served only it, and fix every other citation (`planning:rejecte
 ### Recording a decision
 
 1. Check it clears the bar (`planning:decision-bar`); a clarification edits the requirement or spec instead.
-2. Choose the owner, which fixes the file and the id's scope (`planning:decision-ownership`). Then choose a slug that
-   collides with nothing in the owner's `decisions.md` or any level outward (`planning:decision-slugs`).
+2. Choose the owner, which fixes the file and the id's scope (`planning:decision-ownership`). Then choose a slug that is
+   new in the owner's `decisions.md` (`planning:decision-slugs`) and at every level outward (`planning:no-shadowing`).
 3. Write it in the owner's `decisions.md`, creating the file if needed, and leave it open if the call is deferred
    (`planning:decision-format`).
 4. Making an open decision or overturning a made one rewrites its entry in place under the same id.
@@ -122,19 +121,13 @@ answered, fold the answer into the text and delete the bullet.
 
 ### Before finishing
 
-- Every new document sits where the layout puts it, or is linked from the document that owns its subject.
-- Every cited id is plain text and appears verbatim in a real row, heading, or frontmatter field. A bare id resolves at
-  the nearest level outward that defines it, and a scheme id resolves through the README's scheme table. No heading is
-  an id alone.
-- No citation points at a deleted id, and no scoped id changed except by moving its epic into or out of an initiative or
-  to another project.
-- No subject is defined at two levels on one path to the root (`planning:no-shadowing`), and no initiative, epic, or
-  program takes a project's slug (`planning:project-slugs`).
-- No product-owned file cites an `engineering:` or `assume:` id or links an engineering file.
-- Every changed `epic.md` or `initiative.md` still satisfies its frontmatter rule, every milestone chart naming a
-  changed epic shows its status, and every newly reached milestone has moved to `delivered.md`
-  (`planning:delivery-ledger`).
-- A `delivered` epic sits in `delivered/`; every other epic stays in `work/`.
-- Every slice still derives from what it cites, and every `depends-on` names a lower-numbered slice of its epic, or an
-  epic or initiative.
-- Nothing in `supporting/` was edited unless someone asked.
+- Every new document passes `planning:document-admission` and sits where `planning:layout` puts it.
+- Every cited id resolves (`planning:id-citations`, `planning:bare-ids`), and none points at a deleted id
+  (`planning:change-in-place`).
+- No scoped id changed except through `planning:moving-ids`.
+- Nothing breaks `planning:no-shadowing`, `planning:project-slugs`, or `planning:product-cites-product`.
+- Every changed `epic.md` or `initiative.md` meets `planning:epic-frontmatter` or `planning:initiative-frontmatter`.
+- Every milestone chart and ledger naming a changed epic is current (`planning:milestone-registry`,
+  `planning:delivery-ledger`), and the epic's folder matches its status (`planning:delivered-archive`).
+- Every slice still meets `planning:slice-files` and `planning:slice-order`.
+- Nothing in `supporting/` was edited unless someone asked (`planning:layout`).

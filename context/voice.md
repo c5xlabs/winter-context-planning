@@ -2,7 +2,7 @@
 
 Product content and engineering content each have their own voice. Each voice applies to its own tier's files. Research,
 decision records, and other supporting documents stay out of scope. They are rewritten in place or deleted when a
-decision overtakes them ([`planning:change-in-place`](./structure.md)), but never rewritten just for voice.
+decision overtakes them (`planning:change-in-place`), but never rewritten just for voice.
 
 ## Product voice (planning:product-voice)
 
@@ -49,7 +49,7 @@ These tells sound fluent and say little. Rewrite them when you find them:
 `engineering.md`, `assumptions.md`, `spec.md` or `spec/`, `slices/`, and engineering's entries in `decisions.md` are
 engineering content. Write them as a senior software engineer writing for other engineers who will build to it, test it,
 and get paged for it. An assumption is the one exception: it still states its intent in product terms
-([`planning:assumption-record`](./assumptions.md)).
+(`planning:assumption-record`).
 
 - **Statements, not stories.** Say what the system does, under what conditions, and how you would test it. Lead with the
   requirement, then give its reason or cite the product requirement it serves. Scenes and personas belong to product.

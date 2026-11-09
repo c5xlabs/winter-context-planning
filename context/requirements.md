@@ -35,10 +35,10 @@ them.
 
 An epic's `requirements.md` opens with a `#` title and one line citing the epic's `epic:` id, then has one record per
 requirement, then optionally `## Open questions`. A record is a `## <Name> (product:<subject>)` heading, where the name
-is a short phrase for the capability and the subject names what it requires (see `planning:id-citations` in
-[`./namespaces.md`](./namespaces.md)); then one or two plain sentences on what changes for the person once it holds,
-linking any mockup and citing any `decision:` inline; then its acceptance bullets. Nothing else goes in the file: no
-prose between records, no restated problem, and no status, slices, stories, test-level criteria, or engineering ids.
+is a short phrase for the capability and the subject names what it requires (see `planning:id-citations`); then one or
+two plain sentences on what changes for the person once it holds, linking any mockup and citing any `decision:` inline;
+then its acceptance bullets. Nothing else goes in the file: no prose between records, no restated problem, and no
+status, slices, stories, test-level criteria, or engineering ids.
 
 ```markdown
 ## Coordinator cover (product:coordinator-cover)
@@ -55,7 +55,7 @@ Acceptance:
 A requirement is accepted and binding unless its body opens with **Proposed.**, which means written down but not yet
 binding. Accepting it drops the marker. There are no other states, and nothing records whether a requirement is met. A
 requirement no longer wanted is deleted, and every citation of it is rewritten or removed in the same change (see
-`planning:change-in-place` in [`./structure.md`](./structure.md)).
+`planning:change-in-place`).
 
 A small epic may skip the file and put the same records in `epic.md` under a `## Requirements` heading after its intent,
 each record a `###` section. Moving a record between the two changes only its heading level. An epic planned in a
@@ -76,9 +76,8 @@ how the system works. A derived bound, or how the code meets the bullet, belongs
 ## Requirement files (planning:requirement-files)
 
 When an epic's records outgrow one file, switch to a folder with one leaf per requirement, `requirements/<subject>.md`,
-and no index (see `planning:file-or-folder` in [`./layout.md`](./layout.md)). The epic frontmatter names no leaf. A leaf
-keeps its record's heading and may carry frontmatter naming its epic, but never a status, a slice, or an `external:`
-value:
+and no index (see `planning:file-or-folder`). The epic frontmatter names no leaf. A leaf keeps its record's heading and
+may carry frontmatter naming its epic, but never a status, a slice, or an `external:` value:
 
 ```yaml
 ---

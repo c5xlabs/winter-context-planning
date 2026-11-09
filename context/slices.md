@@ -38,7 +38,7 @@ fact none of them states, add the fact to its home first. Slices can then always
 
 Nothing outside an epic's `slices/` names one of its slices. Slices carry no status: the tracker owns their progress,
 and the epic's `status:` says when the whole epic is delivered. They are written in the engineering voice
-(`planning:engineering-voice` in [`./voice.md`](./voice.md)).
+(`planning:engineering-voice`).
 
 ## Cutting slices (planning:slice-cuts)
 
@@ -61,8 +61,8 @@ already in use. Each strategy is its own run of slices:
 | Branch by abstraction | A mechanism in use is replaced while work keeps moving | Put a seam around the old one → build the new one behind it → switch → remove old |
 
 The closing step — retiring, removing the flag, removing the old mechanism — is always a slice of its own. If no
-constraint settles the strategy and the choice matters, record it as a decision before cutting (`planning:decision-bar`
-in [`./decisions.md`](./decisions.md)).
+constraint settles the strategy and the choice matters, record it as a decision before cutting
+(`planning:decision-bar`).
 
 Every requirement in the epic, and every acceptance bullet under it, is delivered by at least one slice, and every spec
 section is built by one. A requirement no slice delivers is either unplanned work or shouldn't be there. A slice that
@@ -89,4 +89,4 @@ or open question.
 
 Re-slicing rewrites `slices/` in place. A slice with an `external:` keeps its name and `external:` as long as it
 describes the same change; the rest can be renumbered, rewritten, or deleted. The folder moves to `delivered/` with its
-epic and freezes there (`planning:delivered-archive` in [`./layout.md`](./layout.md)).
+epic and freezes there (`planning:delivered-archive`).

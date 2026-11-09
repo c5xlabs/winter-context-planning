@@ -9,9 +9,9 @@ This file is only the order of work. What each record holds is in [engineering](
 [derivation](../derivation.md), [assumptions](../assumptions.md), [specs](../specs.md), and [slices](../slices.md).
 
 1. **Read both sides.** On the product side, the epic's `epic.md` and its product requirements, or the upstream intent
-   its README points to. On the engineering side, its `engineering.md`, `assumptions.md`, spec, `decisions.md`, and
-   `slices/`, plus the `engineering.md` of its initiative, its project, and the root. `git log` on the product files
-   since the engineering files last changed shows what moved.
+   the repo README's Upstream schemes table points to. On the engineering side, its `engineering.md`, `assumptions.md`,
+   spec, `decisions.md`, and `slices/`, plus the `engineering.md` of its initiative, its project, and the root.
+   `git log` on the product files since the engineering files last changed shows what moved.
 2. **Product against engineering.** For each product requirement and each of its acceptance bullets:
    - Where engineering must commit to more than the product text says, an engineering requirement does so, and none
      merely restates the product.

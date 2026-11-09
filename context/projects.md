@@ -11,9 +11,9 @@ named by its slug. The levels run program, project, initiative, epic, slice. The
 it, each project plans one product, and initiatives, epics, and slices sit inside a project just as they do in a repo
 without projects. Requirements can sit at any level and bind everything beneath it.
 
-A repo that plans one product has no projects and no `projects/` folder. Its root follows `planning:layout` in
-[layout.md](./layout.md), and the rest of this file doesn't apply. A repo with projects has at least two. There is no
-project registry: the projects are what `projects/` contains, and the README names each one in its Contents rows
+A repo that plans one product has no projects and no `projects/` folder. Its root follows `planning:layout`, and the
+rest of this file doesn't apply. A repo with projects has at least two. There is no project registry: the projects are
+what `projects/` contains, and the README names each one in its Contents rows
 ([repository-entry.md](./repository-entry.md)).
 
 Name a project after the product it plans, not a team, phase, or technology.

@@ -11,8 +11,8 @@ under the file's `#` title, headed `<Name> (assume:<subject>)`. In folder form, 
 
 A record is one or two sentences. It states the assumption the way product would — the person, their problem, what the
 product promises them — and says why engineering had to assume it, citing the product requirement it fills a gap in when
-that helps. Apart from that product framing it is written in the engineering voice (`planning:engineering-voice` in
-[`./voice.md`](./voice.md)). It has no field list, index table, status word, or technology choice.
+that helps. Apart from that product framing it is written in the engineering voice (`planning:engineering-voice`). It
+has no field list, index table, status word, or technology choice.
 
 ```markdown
 ## Cover length cap (assume:cover-max-duration)
@@ -39,5 +39,4 @@ An assumption exists only while it is open. The change that settles it deletes t
 ## Rejected assumptions (planning:rejected-assumption)
 
 When an assumption is rejected, every requirement that served only it is re-derived from what product said instead, or
-deleted (`planning:requirement-removal` in [`./engineering.md`](./engineering.md)). No requirement is left serving a
-deleted assumption.
+deleted (`planning:requirement-removal`). No requirement is left serving a deleted assumption.

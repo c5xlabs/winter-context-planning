@@ -14,11 +14,11 @@ provider caps role lifetimes at 90 days is a fact.
 
 ## Decision ids (planning:decision-slugs)
 
-A decision's id names the subject decided, not the edit that recorded it: `decision:<owner id>/<subject>`, always
-written in full, or `decision:<subject>` for a program-wide decision. Owner ids follow
-[`planning:owned-scoped-ids`](./namespaces.md). Product and engineering share the namespace, so two decisions in one
-owner's file never share a subject. The id stays the same when an open decision is made and when a made one is
-overturned.
+A decision's id names the subject decided, not the edit that recorded it: `decision:<owner id>/<subject>`, or
+`decision:<subject>` for a program-wide decision. It always carries its owner and is never cited bare; owner ids and the
+project-relative form follow `planning:owned-scoped-ids` and `planning:bare-ids`. Product and engineering share the
+namespace, so two decisions in one owner's file never share a subject. The id stays the same when an open decision is
+made and when a made one is overturned.
 
 ## The decisions file (planning:decisions-file)
 
@@ -68,8 +68,8 @@ epics, and a project owns those cutting across its epics. Calls that cut across 
 without projects, belong to the program and live in the root `decisions.md`.
 
 The decision lives only in its owner's `decisions.md`. Any document it binds cites its id rather than copying it. When a
-decision overtakes other documents, they change as [`planning:change-in-place`](./structure.md) describes. A decision
-that no longer applies, open or made, is deleted, and the same change corrects everything that cited it.
+decision overtakes other documents, they change as `planning:change-in-place` describes. A decision that no longer
+applies, open or made, is deleted, and the same change corrects everything that cited it.
 
 ## Inline questions (planning:inline-questions)
 

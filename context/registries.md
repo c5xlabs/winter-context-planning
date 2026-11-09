@@ -52,8 +52,8 @@ lives in the epic's frontmatter (`planning:epic-frontmatter`), the tracker owns 
 
 Every epic is needed by at least one milestone, directly or through its initiative; an epic that isn't uses its
 Capability cell to state the operational necessity that justifies it. Naming an epic writes its row and its `epic.md`
-together (`planning:lifecycle` in [`./contributing.md`](./contributing.md)); opening tracker work doesn't change the
-row. A delivered epic loses its row, and its id resolves to its `epic.md` in `delivered/`.
+together (`planning:lifecycle`); opening tracker work doesn't change the row. A delivered epic loses its row, and its id
+resolves to its `epic.md` in `delivered/`.
 
 ```markdown
 | Epic                                                                                     | Capability                                                                                                                                                                      |
@@ -104,8 +104,8 @@ The ledger ends with `## Outside the milestones`, in the same shape, for deliver
 change that delivers such an epic adds its row. Omit the section when it would be empty. An empty ledger is just its
 heading and opening paragraph. Correct factual errors, but don't rewrite history into later vocabulary.
 
-The ledger is not the `delivered/` archive (`planning:delivered-archive` in [`./layout.md`](./layout.md)), which takes
-an epic's folder when the epic is delivered, whether or not any milestone it serves is reached.
+The ledger is not the `delivered/` archive (`planning:delivered-archive`), which takes an epic's folder when the epic is
+delivered, whether or not any milestone it serves is reached.
 
 ```markdown
 ## Reserve ahead (milestone:reserve-ahead)

@@ -12,27 +12,26 @@ Files have the same names wherever they sit, so either framework can find a file
 use. No file takes a name outside this table. An epic folder holds `epic.md` and whichever of the rest it needs; an
 initiative folder holds `initiative.md`, its epic folders, and whichever of the rest apply to it.
 
-| File              | Owner       | Holds                                                                          |
-| ----------------- | ----------- | ------------------------------------------------------------------------------ |
-| `epic.md`         | Product     | The epic's front door: frontmatter, problem, outcome, what it leaves for later |
-| `initiative.md`   | Product     | The same, for an initiative                                                    |
-| `requirements.md` | Product     | Product requirements; in an initiative folder, those binding every epic        |
-| `engineering.md`  | Engineering | Engineering requirements                                                       |
-| `assumptions.md`  | Engineering | Product-shaped intent engineering assumed in order to move forward             |
-| `spec.md`         | Engineering | Designs and technical contracts                                                |
-| `slices/`         | Engineering | The ordered changes that build the epic, one file each                         |
-| `decisions.md`    | Shared      | Decisions of both tiers, open and made                                         |
-| `research/`       | Shared      | Investigation local to the folder                                              |
-| `assets/`         | Shared      | Non-markdown material: proofs of concept, sample configs, images, data         |
-| `presentations/`  | Shared      | Material authored to be presented or published                                 |
-| `mockups/`        | Product     | UI mockups; these never go in `assets/`                                        |
+| File              | Owner       | Holds                                                                             |
+| ----------------- | ----------- | --------------------------------------------------------------------------------- |
+| `epic.md`         | Product     | The epic's front door ([`./intent.md`](./intent.md))                              |
+| `initiative.md`   | Product     | The initiative's front door ([`./intent.md`](./intent.md))                        |
+| `requirements.md` | Product     | Product requirement records ([`./requirements.md`](./requirements.md))            |
+| `engineering.md`  | Engineering | Engineering requirements and constraints ([`./engineering.md`](./engineering.md)) |
+| `assumptions.md`  | Engineering | The assumptions its requirements rest on ([`./assumptions.md`](./assumptions.md)) |
+| `spec.md`         | Engineering | The epic's technical contracts ([`./specs.md`](./specs.md))                       |
+| `slices/`         | Engineering | The ordered changes that build the epic ([`./slices.md`](./slices.md))            |
+| `decisions.md`    | Shared      | Decisions of both tiers, open and made ([`./decisions.md`](./decisions.md))       |
+| `research/`       | Shared      | Investigation local to the folder                                                 |
+| `assets/`         | Shared      | Non-markdown material: proofs of concept, sample configs, images, data            |
+| `presentations/`  | Shared      | Material authored to be presented or published                                    |
+| `mockups/`        | Product     | UI mockups, never in `assets/` ([`./mockups.md`](./mockups.md))                   |
 
 The repo root holds `README.md`, `work/`, `delivered/` once anything is delivered, the program's `decisions.md`, and the
-program-wide product files (`planning:product-areas` in [`./structure.md`](./structure.md)). It also holds a
-`requirements.md` when a product requirement binds every epic, an `engineering.md` when an engineering record binds the
-whole system, and the shared `research/`, `presentations/`, and `supporting/` when there are any. A repo with projects
-repeats this layout inside each project folder and keeps at its root only what binds the whole program
-([`./projects.md`](./projects.md)).
+program-wide product files (`planning:product-areas`). It also holds a `requirements.md` when a product requirement
+binds every epic, an `engineering.md` when an engineering record binds the whole system, and the shared `research/`,
+`presentations/`, and `supporting/` when there are any. A repo with projects repeats this layout inside each project
+folder and keeps at its root only what binds the whole program ([`./projects.md`](./projects.md)).
 
 `research/` holds findings and options that stop short of a choice, one `research/<subject>/` folder per subject, with
 the scripts that produced the findings beside them. `supporting/` holds reference material authored outside the team and
@@ -97,7 +96,7 @@ no folders for services, components, or system areas.
 
 When a requirement serves a shared capability that no epic owns yet, ask product for that epic rather than parking the
 requirement in the first epic that needed it. In a repo with projects, the capability epic sits in the project that owns
-the capability, and the others cite it by full id (`planning:cross-project` in [`./projects.md`](./projects.md)).
+the capability, and the others cite it by full id (`planning:cross-project`).
 
 ## Delivered archive (planning:delivered-archive)
 
