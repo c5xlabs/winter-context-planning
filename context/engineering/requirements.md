@@ -41,6 +41,25 @@ Acceptance:
 - A roster change the stand-in submits 61 seconds after the end time is refused.
 ```
 
+## Brief requirements (planning:brief-requirements)
+
+A requirement that one sentence fully states can be a bullet instead of a section. Brief requirements gather in a
+`## Brief requirements` section above the full records. Each bullet opens with the id as a heading would give it,
+without backticks, then an em dash and one sentence, followed by its "Serves" citation when it has one. The whole bullet
+fits in two lines.
+
+```markdown
+## Brief requirements
+
+- engineering:utc-timestamps — Every stored or emitted timestamp is in UTC. Serves `product:stable-json`.
+- engineering:uuid-record-ids — Every new record id is a UUIDv7.
+```
+
+A brief requirement is a full record in every other way: the bullet is its home, it may open with **Proposed.** after
+the dash, and it is cited, moved, and removed like any other. It has no acceptance list and no second sentence. When it
+needs either, rewrite it as a full record under the same id. In folder form, the section is one leaf,
+`engineering/brief-requirements.md`.
+
 ## Beyond product (planning:beyond-product)
 
 An engineering requirement never restates a product requirement; it says what engineering commits to beyond it, or it
@@ -75,8 +94,9 @@ An `engineering.md` holds, in order:
 2. Optionally, `## What already holds`: existing behaviour the work builds on, such as another epic's delivered
    requirement, a contract it consumes, or a system limit, each cited or linked, so the reader knows what not to rebuild
    or break.
-3. The `engineering:` records.
-4. Optionally, `## Open questions` (`planning:inline-questions`).
+3. Optionally, `## Brief requirements` (`planning:brief-requirements`).
+4. The full `engineering:` records.
+5. Optionally, `## Open questions` (`planning:inline-questions`).
 
 The root and project files hold only records that bind the whole program or project: constraints, and bounds derived
 from the `product:` records at that same level.

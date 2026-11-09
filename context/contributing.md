@@ -73,7 +73,8 @@ one change touches (a decision, the decision it overturns, the documents it corr
 3. Find the epic it serves. A constraint that serves no product requirement goes to the epic, initiative, project, or
    program it binds (`planning:engineering-constraints`).
 4. Mint the id and add a section headed by a short name and the bare id in parentheses to that level's `engineering.md`
-   (`planning:requirement-ids`, `planning:owned-scoped-ids`).
+   (`planning:requirement-ids`, `planning:owned-scoped-ids`), or a bullet under `## Brief requirements` when one
+   sentence states it fully (`planning:brief-requirements`).
 5. Write one or two sentences citing what it serves (`planning:requirement-record`). A new scheme needs a README scheme
    row; unstated intent needs an assumption first.
 6. Add an `Acceptance:` list holding only what engineering can verify. Anything product can judge goes under the product

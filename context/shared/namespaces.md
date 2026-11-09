@@ -9,17 +9,17 @@ Every stable id belongs to one namespace, and each namespace has one home: the f
 section, or record. Homes outside the repo are covered in [`./repository-entry.md`](./repository-entry.md). Product and
 engineering use disjoint prefixes, except `decision:`, which both share.
 
-| Prefix         | Tier        | Names                                                            | Home                                                                              |
-| -------------- | ----------- | ---------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| `persona:`     | Product     | A person the product serves                                      | A row in a charter's `personas.md`, or a leaf in its `personas/`                  |
-| `job:`         | Product     | Something a person is trying to accomplish                       | A row in a charter's `jobs.md`                                                    |
-| `initiative:`  | Product     | A durable investment broader than one capability                 | A row in `initiatives.md`                                                         |
-| `epic:`        | Product     | A major capability the product must establish                    | The epic's `epic.md`, under `work/` or `delivered/`; `epics.md` lists live ones   |
-| `product:`     | Product     | A requirement of an epic, or one binding every epic of its owner | A heading in the owner's `requirements.md`, or inline in `epic.md`                |
-| `milestone:`   | Product     | A destination visible in a person's work                         | A section in a `milestones.md`, then in the `delivered.md` beside it once reached |
-| `engineering:` | Engineering | What engineering commits to                                      | A heading in the owning folder's, or the root's, `engineering.md`                 |
-| `assume:`      | Engineering | Product intent engineering assumed because none was stated       | A heading in the `assumptions.md` beside the requirements resting on it           |
-| `decision:`    | Both        | A decision of either tier, open or made                          | A heading in the owner's [`decisions.md`](./decisions.md)                         |
+| Prefix         | Tier        | Names                                                            | Home                                                                                          |
+| -------------- | ----------- | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `persona:`     | Product     | A person the product serves                                      | A row in a charter's `personas.md`, or a leaf in its `personas/`                              |
+| `job:`         | Product     | Something a person is trying to accomplish                       | A row in a charter's `jobs.md`                                                                |
+| `initiative:`  | Product     | A durable investment broader than one capability                 | A row in `initiatives.md`                                                                     |
+| `epic:`        | Product     | A major capability the product must establish                    | The epic's `epic.md`, under `work/` or `delivered/`; `epics.md` lists live ones               |
+| `product:`     | Product     | A requirement of an epic, or one binding every epic of its owner | A heading in the owner's `requirements.md`, or inline in `epic.md`                            |
+| `milestone:`   | Product     | A destination visible in a person's work                         | A section in a `milestones.md`, then in the `delivered.md` beside it once reached             |
+| `engineering:` | Engineering | What engineering commits to                                      | A heading or brief-requirement bullet in the owning folder's, or the root's, `engineering.md` |
+| `assume:`      | Engineering | Product intent engineering assumed because none was stated       | A heading in the `assumptions.md` beside the requirements resting on it                       |
+| `decision:`    | Both        | A decision of either tier, open or made                          | A heading in the owner's [`decisions.md`](./decisions.md)                                     |
 
 Upstream ids, naming the product intent an engineering requirement derives from, use the schemes in
 [`../engineering/derivation.md`](../engineering/derivation.md) rather than a namespace minted here. A fact that would
@@ -99,7 +99,8 @@ definition.
 
 A heading that defines an id names the record, then gives the id in parentheses, bare where it has a bare form and
 without backticks: `## Volunteers per shift (decision:volunteer-shifts/volunteers-per-shift)`,
-`## Cover expiry (engineering:cover-expiry)`. No heading is an id alone. In a file that exists to hold records, such as
+`## Cover expiry (engineering:cover-expiry)`. No heading is an id alone. A brief engineering requirement is the one
+record defined by a bullet instead (`planning:brief-requirements`). In a file that exists to hold records, such as
 `decisions.md` or `assumptions.md`, each record is a `##` section. Records inline in `epic.md` gather under a
 `## Requirements` heading, each a `###` section.
 
