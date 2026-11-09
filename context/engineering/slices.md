@@ -1,7 +1,7 @@
 # Slices
 
 How an epic is cut into the changes that build it. To cut an epic's slices, follow
-[`./workflows/slice-an-epic.md`](./workflows/slice-an-epic.md).
+[`../workflows/slice-an-epic.md`](../workflows/slice-an-epic.md).
 
 ## Slice files (planning:slice-files)
 
@@ -42,14 +42,15 @@ and the epic's `status:` says when the whole epic is delivered. They are written
 
 ## Cutting slices (planning:slice-cuts)
 
-Cut by mechanism and surface, not by what a user notices. Each slice is a change a reviewer can hold in their head,
+Cut by mechanism and entrypoint, not by what a user notices. Each slice is a change a reviewer can hold in their head,
 merges on its own with its tests passing, and leaves the main branch releasable. The usual sequence:
 
 1. **The seam or record** — the table, interface, or contract the rest stands on, with nothing calling it yet.
-2. **Each surface in turn** — an API, a worker, an event consumer, a screen — building on the seam.
-3. **Carry-over** — migrating or backfilling existing data, when there is any.
-4. **Proof** — an end-to-end slice, when no surface slice exercises the whole path.
-5. **The harness** — the procedure or guide people need once the change is theirs.
+2. **Each entrypoint in turn** — an API, a CLI, a worker, an event consumer, a screen — building on the seam.
+3. **Migration** — moving or backfilling existing data into the new shape, when there is any.
+4. **Proof** — an end-to-end slice, when no entrypoint slice exercises the whole path.
+5. **The harness** — what people and agents need to work with the change once it lands: agent-facing context and
+   workflows, human-facing documentation, and automations.
 
 The constraints binding the epic, at every level from the epic up to the root, decide how a change reaches a system
 already in use. Each strategy is its own run of slices:
@@ -60,9 +61,17 @@ already in use. Each strategy is its own run of slices:
 | Feature flag          | Unfinished behaviour must not reach people who use it  | Build behind a flag that is off → turn it on → remove the flag and its off path   |
 | Branch by abstraction | A mechanism in use is replaced while work keeps moving | Put a seam around the old one → build the new one behind it → switch → remove old |
 
-The closing step — retiring, removing the flag, removing the old mechanism — is always a slice of its own. If no
-constraint settles the strategy and the choice matters, record it as a decision before cutting
-(`planning:decision-bar`).
+The closing step — retiring, removing the flag, removing the old mechanism — is always a slice of its own, and it is
+often the breaking change: the point where something that used to work stops working. If no constraint settles the
+strategy and the choice matters, record it as a decision before cutting (`planning:decision-bar`).
+
+A breaking change is one that forces someone outside the slice to change too: a caller, a user, an operator, or stored
+data. What counts as breaking, and what a project owes the people it breaks, depends on the project, so this framework
+doesn't define it. Each target project declares its own breaking-change policy in its own documentation: what it treats
+as breaking, how a break is versioned and announced, and how long the old shape must keep working. Read that policy
+before cutting. It decides whether a change can land in one slice or needs a strategy above, and the slice that breaks
+something names the break and cites the policy. When a project has no policy, treat any change to a contract others
+depend on as breaking, and record how to land it as a decision.
 
 Every requirement in the epic, and every acceptance bullet under it, is delivered by at least one slice, and every spec
 section is built by one. A requirement no slice delivers is either unplanned work or shouldn't be there. A slice that

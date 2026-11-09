@@ -10,12 +10,12 @@ An area's name is a promise that everything in it is that thing. Beyond its work
 at the root; the required ones are required once the repo holds any product content. In a repo with projects, the
 program root and each project folder split them ([`./projects.md`](./projects.md)).
 
-| Area                                                          | Required                     | Holds                                                                                      |
-| ------------------------------------------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------ |
-| `charter/`                                                    | Yes                          | Mission, vision, and the `persona:` and `job:` registries ([`./charter.md`](./charter.md)) |
-| `initiatives.md`, `epics.md`, `milestones.md`, `delivered.md` | Yes, except `initiatives.md` | The live registries and the delivery ledger ([`./registries.md`](./registries.md))         |
-| `strategy/`                                                   | No                           | Direction-setting papers for the program                                                   |
-| `mockup-kit/`                                                 | No                           | The stylesheet, brand marks, and README the mockups share ([`./mockups.md`](./mockups.md)) |
+| Area                                                          | Required                     | Holds                                                                                                        |
+| ------------------------------------------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `charter/`                                                    | Yes                          | Mission, vision, and the `persona:` and `job:` registries ([`../product/charter.md`](../product/charter.md)) |
+| `initiatives.md`, `epics.md`, `milestones.md`, `delivered.md` | Yes, except `initiatives.md` | The live registries and the delivery ledger ([`../product/registries.md`](../product/registries.md))         |
+| `strategy/`                                                   | No                           | Direction-setting papers for the program                                                                     |
+| `mockup-kit/`                                                 | No                           | The stylesheet, brand marks, and README the mockups share ([`../product/mockups.md`](../product/mockups.md)) |
 
 Strategy papers are few, long-lived, and heavily cited; intent for a single initiative or epic belongs in its folder,
 and research findings in `research/`. Technical design, such as sequence diagrams, schemas, and endpoint contracts,

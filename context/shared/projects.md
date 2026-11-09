@@ -23,7 +23,7 @@ Name a project after the product it plans, not a team, phase, or technology.
 In a repo with projects, the root holds what binds the whole program, and no work of its own. It always has:
 
 - `README.md`, the repo's only README; projects don't get their own
-- `charter/`, the program's charter ([charter.md](./charter.md))
+- `charter/`, the program's charter ([charter.md](../product/charter.md))
 - `projects/`, one folder per project
 
 It may also have:
@@ -33,7 +33,7 @@ It may also have:
 - `milestones.md`, for destinations that are the program's rather than one project's, and `delivered.md` once one is
   reached
 - `strategy/`, for direction-setting papers ([structure.md](./structure.md))
-- `mockup-kit/`, the one kit every project's mockups share ([mockups.md](./mockups.md))
+- `mockup-kit/`, the one kit every project's mockups share ([mockups.md](../product/mockups.md))
 - `research/`, `presentations/`, and `supporting/`, as in a repo without projects
 
 Every epic belongs to a project, so the root has no `work/`, `delivered/`, `epics.md`, or `initiatives.md`.
@@ -44,10 +44,10 @@ A project folder is laid out like the root of a repo without projects, minus wha
 `strategy/`, `mockup-kit/`, and `supporting/`.
 
 It always has `charter/`, whose `mission.md` is the project's front door; the `epics.md`, `milestones.md`, and
-`delivered.md` registries ([registries.md](./registries.md)); and `work/` and `delivered/` for its live and archived
-epic and initiative folders. It may have `initiatives.md` if it uses initiatives, `requirements.md` and `engineering.md`
-for records that bind every epic in the project, `decisions.md` for decisions that span its epics or that no epic owns,
-and `research/` and `presentations/`.
+`delivered.md` registries ([registries.md](../product/registries.md)); and `work/` and `delivered/` for its live and
+archived epic and initiative folders. It may have `initiatives.md` if it uses initiatives, `requirements.md` and
+`engineering.md` for records that bind every epic in the project, `decisions.md` for decisions that span its epics or
+that no epic owns, and `research/` and `presentations/`.
 
 An epic lives at `projects/<project>/work/<epic>/`, or `projects/<project>/work/<initiative>/<epic>/` under an
 initiative, and moves to the same path under the project's `delivered/` when it is delivered.
@@ -64,7 +64,7 @@ Each record lives at the narrowest level it binds: an epic or initiative, a proj
 constraint, or decision that binds more than one project, or a milestone that is no single project's destination,
 belongs to the program. A capability several projects build on is a capability epic in the project that owns it
 ([layout.md](./layout.md)), since the program root holds no work; other projects cite it by its full id. Nothing shared
-is copied into a second project. Where personas and jobs live is covered in [charter.md](./charter.md).
+is copied into a second project. Where personas and jobs live is covered in [charter.md](../product/charter.md).
 
 Moving an epic or initiative to another project, or a record from a project up to the program, changes its id
 ([namespaces.md](./namespaces.md)).

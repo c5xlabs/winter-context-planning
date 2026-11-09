@@ -65,7 +65,7 @@ A `requirements.md` beside it is optional and holds only `product:` records that
 
 Status is coarse product state, and only two events move it. Work on the epic starting in the tracker sets
 `in-progress`. Evidence that the epic reached its users sets `delivered`, in the one change
-[`./workflows/deliver-an-epic.md`](./workflows/deliver-an-epic.md) lays out. An epic filed in the tracker but not yet
+[`../workflows/deliver-an-epic.md`](../workflows/deliver-an-epic.md) lays out. An epic filed in the tracker but not yet
 started stays `planned`. Whoever runs the work updates the status; progress inside the epic belongs to the tracker.
 
 New intent starts at `refinement: outline`, and an agent always writes `outline`. `refined` means the intent is settled

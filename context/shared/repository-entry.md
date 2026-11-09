@@ -49,8 +49,9 @@ few sentences for whatever the table can't say.
 
 ### Upstream schemes
 
-The `Scheme | Resolves to | Example` table [`./derivation.md`](./derivation.md) defines, introduced as how a reader
-resolves the upstream ids that requirements and assumptions cite. Its `product:` row depends on where intent lives:
+The `Scheme | Resolves to | Example` table [`../engineering/derivation.md`](../engineering/derivation.md) defines,
+introduced as how a reader resolves the upstream ids that requirements and assumptions cite. Its `product:` row depends
+on where intent lives:
 
 - In this repo: this repository, and where an epic's product requirements are found.
 - In another repo: that repo's URL, and where they are found there.
@@ -66,7 +67,7 @@ resolves the upstream ids that requirements and assumptions cite. Its `product:`
   `final`) and epic status (`planned`, `in-progress`, `delivered`) means.
 - The repo's format in plain terms.
 - One short YAML example of a slice's keys: `name`, `external` in its scalar form, `depends-on` with what it may name,
-  and `code` (see [`./slices.md`](./slices.md)).
+  and `code` (see [`../engineering/slices.md`](../engineering/slices.md)).
 - With no product content, the keys of each tracker-planned epic's `epic.md`: `epic`, `refinement` and its grades,
   `status` and its values, and `external` in its scalar form.
 

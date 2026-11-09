@@ -22,10 +22,10 @@ than 30 days; `product:coordinator-cover` sets no bound, and expiry needs one.
 ```
 
 An assumption is a made-up product requirement, so it has to pass the product test in `planning:classify-requirement`
-([`./requirements.md`](./requirements.md)): a user could notice it changing, it is stated in user or business terms, and
-any implementation could satisfy it. Technology and implementation choices ("the app is written in C#", "uses a queue")
-are never assumptions; a constraint is an `engineering:` record and a choice between alternatives is a decision. Product
-files never hold or cite an assumption.
+([`../product/requirements.md`](../product/requirements.md)): a user could notice it changing, it is stated in user or
+business terms, and any implementation could satisfy it. Technology and implementation choices ("the app is written in
+C#", "uses a queue") are never assumptions; a constraint is an `engineering:` record and a choice between alternatives
+is a decision. Product files never hold or cite an assumption.
 
 ## Assumption lifecycle (planning:assumption-lifecycle)
 

@@ -22,8 +22,8 @@ engineering use disjoint prefixes, except `decision:`, which both share.
 | `decision:`    | Both        | A decision of either tier, open or made                          | A heading in the owner's [`decisions.md`](./decisions.md)                         |
 
 Upstream ids, naming the product intent an engineering requirement derives from, use the schemes in
-[`./derivation.md`](./derivation.md) rather than a namespace minted here. A fact that would still be true for a
-different product belongs in this framework, not in the repo.
+[`../engineering/derivation.md`](../engineering/derivation.md) rather than a namespace minted here. A fact that would
+still be true for a different product belongs in this framework, not in the repo.
 
 ## Slugs, not numbers (planning:slugs-not-numbers)
 
@@ -46,7 +46,7 @@ Ids never name the `work/`, `delivered/`, or `projects/` folder, so delivery cha
 
 In both tiers the owners are epics, initiatives, and the program. The program's records bind everything in it and are
 never scoped: its `product:` records in the root `requirements.md` are promises every epic must keep, and its
-`engineering:` records in the root [`engineering.md`](./engineering.md) bind the whole system, as
+`engineering:` records in the root [`engineering.md`](../engineering/requirements.md) bind the whole system, as
 `engineering:written-in-typescript` does. Who the product serves and why it exists stays in the charter. The program
 holds no `assume:`; an assumption sits beside the requirements resting on it. A `product:` subject names what the
 requirement requires.

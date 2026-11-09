@@ -24,10 +24,10 @@ requirements, research, and decisions rather than restating them.
 
 ## Program and project charters (planning:charter-levels)
 
-There are only two places a charter can live: the root, for the program, and, in a repo with [projects](./projects.md),
-each project folder. Initiatives and epics have no charter content of their own; their intent cites the charter above
-them. In a repo with projects, every charter needs a `mission.md`, but its other files exist only when there is
-something to put in them.
+There are only two places a charter can live: the root, for the program, and, in a repo with
+[projects](../shared/projects.md), each project folder. Initiatives and epics have no charter content of their own;
+their intent cites the charter above them. In a repo with projects, every charter needs a `mission.md`, but its other
+files exist only when there is something to put in them.
 
 The program's charter says what the whole program is for. Its scope filter decides whether a product belongs as a
 project, and it holds the personas and jobs that more than one project serves. A project's charter narrows that for one
@@ -36,8 +36,8 @@ project serves. It never restates the program's.
 
 Each persona and job lives in exactly one charter. Once a second project serves a project's persona or job, meaning its
 mission or epics are written for that person or that work, it moves up to the program's charter under the same slug
-without the project segment. The same change rewrites every citation ([moving ids](./namespaces.md)). A project that
-touches people it doesn't serve cites the other project's persona in full, as in `persona:platform/operator`.
+without the project segment. The same change rewrites every citation ([moving ids](../shared/namespaces.md)). A project
+that touches people it doesn't serve cites the other project's persona in full, as in `persona:platform/operator`.
 
 ## Persona registry (planning:persona-registry)
 
@@ -45,8 +45,8 @@ touches people it doesn't serve cites the other project's persona in full, as in
 is a person, never a job: `persona:shift-volunteer`, not `persona:check-in-returns`.
 
 When the detail behind the personas, such as alignment analysis or source research, outgrows one file, switch to the
-[folder form](./layout.md): `personas/<persona>.md` inside the charter, one file per persona and no index. Each file
-opens with who the person is, followed by the detail. Epics cite that detail rather than repeating it.
+[folder form](../shared/layout.md): `personas/<persona>.md` inside the charter, one file per persona and no index. Each
+file opens with who the person is, followed by the detail. Epics cite that detail rather than repeating it.
 
 If the product serves people who don't have a persona yet, name the gap in the introduction (or in `mission.md`, for the
 folder form) and cite the open decision in that charter level's `decisions.md` that will settle it.

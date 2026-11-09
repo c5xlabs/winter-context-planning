@@ -29,7 +29,7 @@ Engineering starts once product intent exists, as a `product:` requirement or wh
    way: product files never cite engineering ids.
 2. **Slice.** Cut the epic into the ordered changes that build it, in its `slices/`, following
    [`./workflows/slice-an-epic.md`](./workflows/slice-an-epic.md). Slicing often surfaces gaps; fill each at its home
-   before a slice cites it ([`./slices.md`](./slices.md)).
+   before a slice cites it ([`./engineering/slices.md`](./engineering/slices.md)).
 3. **File tracker work once every prerequisite can be named**: the slices or epics it depends on, the requirements it
    builds on, the open decisions it waits on. A filed slice records its tracker item in `external:`, and from then on
    the tracker owns its progress.

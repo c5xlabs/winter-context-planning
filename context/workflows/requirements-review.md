@@ -5,8 +5,9 @@ fix what no longer holds. Run it whenever product intent changes (a requirement 
 an assumption confirmed or rejected, a decision made) and before slicing or re-slicing an epic. A delivered epic is
 frozen, so it isn't reviewed.
 
-This file is only the order of work. What each record holds is in [engineering](../engineering.md),
-[derivation](../derivation.md), [assumptions](../assumptions.md), [specs](../specs.md), and [slices](../slices.md).
+This file is only the order of work. What each record holds is in [engineering](../engineering/requirements.md),
+[derivation](../engineering/derivation.md), [assumptions](../engineering/assumptions.md),
+[specs](../engineering/specs.md), and [slices](../engineering/slices.md).
 
 1. **Read both sides.** On the product side, the epic's `epic.md` and its product requirements, or the upstream intent
    the repo README's Upstream schemes table points to. On the engineering side, its `engineering.md`, `assumptions.md`,

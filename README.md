@@ -6,9 +6,16 @@ requirements, product decisions, and mockups, so product intent stays findable, 
 opens the repo. The **engineering tier** covers what the system must do, why, what engineering is assuming, how it is to
 be built, and in what steps.
 
-It merges the former Product Requirements Framework (`winter-product-requirements`) and Engineering Requirements
-Framework (`winter-engineering-requirements`); both histories are kept, and their rules now share one `planning:` id
-namespace.
+Together the two tiers make a fully agentic software development lifecycle possible. The framework governs the product
+intent, the engineering that serves it, and the specs that development is driven from. It then slices the work into
+small, ordered changes that can be handed to agents in a software factory. Every step from idea to delivered work is
+written down in a form that agents can read, cite, and act on.
+
+A planning repo holds change, not state. It describes what is about to be different in the software and why, and stops
+there. What the software already is (its current requirements, behaviour, and design) lives with each project, in
+whatever that project uses to keep it: a context repo, a wiki, a docs site. Once planned work ships, its folder freezes
+in place as a record of what was promised and how it was built. Later work cites it as history, while each project's own
+docs say what is true today.
 
 📚 **Documentation:** <https://paul-gross.github.io/winter-docs/>
 
@@ -85,49 +92,16 @@ tooling.
 Agents working in the workspace load the framework on demand through [`index.md`](./index.md) and cite its rules as
 `planning:<slug>`.
 
-## 🎯 Scope
-
-Both sides of a requirements repo, product and engineering. Each tier stands alone: a repo may hold only product
-content, only engineering content, or both, and their files sit side by side in one work folder.
-
 ## 🏔️ Adopting it in a requirements repo
 
-1. Add the README intro and the sections [`repository-entry.md`](./context/repository-entry.md) requires for the tiers
-   the repo holds.
+1. Add the README intro and the sections [`repository-entry.md`](./context/shared/repository-entry.md) requires for the
+   tiers the repo holds.
 2. For product content, add the required root files — `charter/`, `epics.md`, `milestones.md`, `delivered.md` — and a
    folder under `work/` per epic, with its `epic.md`, in the change that names the epic, following the lifecycle in
    [`contributing.md`](./context/contributing.md). For engineering content alone, create one folder per epic under
-   `work/`, with an `epic.md` for an epic planned in a tracker ([`layout.md`](./context/layout.md)).
+   `work/`, with an `epic.md` for an epic planned in a tracker ([`layout.md`](./context/shared/layout.md)).
 3. Write requirements, assumptions, specs, and slices following the rules routed from
    [`context/index.md`](./context/index.md).
-
-## 🗂️ Files
-
-| File                                                                             | Covers                                                                                                                |
-| -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| [`index.md`](./index.md)                                                         | Extension entry point; when to read the routing hub                                                                   |
-| [`context/index.md`](./context/index.md)                                         | Agent routing hub                                                                                                     |
-| [`repository-entry.md`](./context/repository-entry.md)                           | The README sections a repo must carry, by tier; external homes                                                        |
-| [`projects.md`](./context/projects.md)                                           | The project level: program root, project folders, reserved slugs, work shared across projects                         |
-| [`namespaces.md`](./context/namespaces.md)                                       | Id prefixes of both tiers, slugs, stability, scopes, citation, and the engineering ids product never cites            |
-| [`layout.md`](./context/layout.md)                                               | The `work/` layout, file ownership, file-or-folder, front doors, epics planned in a tracker, the `delivered/` archive |
-| [`structure.md`](./context/structure.md)                                         | Product and engineering areas, admission, placement, changing in place, what is deliberately absent                   |
-| [`charter.md`](./context/charter.md)                                             | Mission, vision, persona and job registries                                                                           |
-| [`registries.md`](./context/registries.md)                                       | Shapes of `initiatives.md`, `epics.md`, `milestones.md`, `delivered.md`                                               |
-| [`intent.md`](./context/intent.md)                                               | Epic or initiative; `epic.md` and `initiative.md`, their frontmatter, epic status and refinement, sections            |
-| [`requirements.md`](./context/requirements.md)                                   | Classifying a requirement; product requirement records, acceptance, requirement files                                 |
-| [`engineering.md`](./context/engineering.md)                                     | `engineering:` ids, record shape, constraints, recommended sections, removal                                          |
-| [`derivation.md`](./context/derivation.md)                                       | What a requirement serves, upstream schemes, the scheme table                                                         |
-| [`assumptions.md`](./context/assumptions.md)                                     | `assume:` records and their lifecycle                                                                                 |
-| [`specs.md`](./context/specs.md)                                                 | Epic specs, shared contracts, freeze on delivery                                                                      |
-| [`slices.md`](./context/slices.md)                                               | Slice files, how an epic is cut, slice order, re-slicing                                                              |
-| [`decisions.md`](./context/decisions.md)                                         | The bar for a decision; open and made decisions; inline clarifying questions                                          |
-| [`voice.md`](./context/voice.md)                                                 | The product and engineering voices, and the tells each avoids                                                         |
-| [`mockups.md`](./context/mockups.md)                                             | Mockup kit, authoring, publishing                                                                                     |
-| [`contributing.md`](./context/contributing.md)                                   | The lifecycle from idea to delivered, engineering's part of it, commit messages, checklists                           |
-| [`workflows/deliver-an-epic.md`](./context/workflows/deliver-an-epic.md)         | The steps for delivering and archiving an epic                                                                        |
-| [`workflows/slice-an-epic.md`](./context/workflows/slice-an-epic.md)             | The steps for slicing an epic                                                                                         |
-| [`workflows/requirements-review.md`](./context/workflows/requirements-review.md) | The steps for checking engineering content against its product requirements                                           |
 
 ## License
 

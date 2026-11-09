@@ -7,9 +7,10 @@ below say what comes after it.
 
 ## Registries across projects (planning:registry-levels)
 
-In a repo with [projects](./projects.md), each project folder keeps its own registries for its own work, linking into
-that project's `work/` and `delivered/`. The program root holds no work, so it has no `epics.md` or `initiatives.md`;
-its `milestones.md` and `delivered.md` hold only destinations that belong to the program rather than to any one project.
+In a repo with [projects](../shared/projects.md), each project folder keeps its own registries for its own work, linking
+into that project's `work/` and `delivered/`. The program root holds no work, so it has no `epics.md` or
+`initiatives.md`; its `milestones.md` and `delivered.md` hold only destinations that belong to the program rather than
+to any one project.
 
 A milestone lives at the level whose destination it is, never at both. A chart row citing an epic or initiative from
 another project uses its full id. The program's `delivered.md` has no `## Outside the milestones` section: an epic that

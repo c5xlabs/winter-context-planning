@@ -1,16 +1,16 @@
 # Slice an epic
 
 Cut an epic into the ordered changes that build it, writing its `slices/` folder, either for the first time or after its
-requirements or spec change. [`../slices.md`](../slices.md) says what a slice holds and how slices are cut; this is the
-order of work.
+requirements or spec change. [`../engineering/slices.md`](../engineering/slices.md) says what a slice holds and how
+slices are cut; this is the order of work.
 
 1. **Read the sources.** In the epic folder: `epic.md`, the product requirements, or the upstream intent the repo
    README's Upstream schemes table points to, `engineering.md`, `assumptions.md`, the spec, and `decisions.md`. Then the
    `engineering.md` of its initiative, project, and root, and the `epic.md` of every epic it builds on.
 2. **Choose the strategy** for how the change reaches a system already in use. If the epic's constraints don't settle it
    and the choice matters, record a decision first.
-3. **Cut and order the slices** (`planning:slice-cuts`, `planning:slice-order`): seam first, then each surface,
-   carry-over, proof, and harness, within the strategy's sequence. Number them in build order.
+3. **Cut and order the slices** (`planning:slice-cuts`, `planning:slice-order`): seam first, then each entrypoint,
+   migration, proof, and harness, within the strategy's sequence. Number them in build order.
 4. **Fill the gaps.** A fact a slice needs that no source states goes to its home first, as an assumption, requirement,
    decision, spec section, or open question, so the slice can cite it.
 5. **Write the files** (`planning:slice-files`), pointing `code:` at the code each slice changes. When re-slicing, a

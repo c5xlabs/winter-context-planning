@@ -12,20 +12,20 @@ Files have the same names wherever they sit, so either framework can find a file
 use. No file takes a name outside this table. An epic folder holds `epic.md` and whichever of the rest it needs; an
 initiative folder holds `initiative.md`, its epic folders, and whichever of the rest apply to it.
 
-| File              | Owner       | Holds                                                                             |
-| ----------------- | ----------- | --------------------------------------------------------------------------------- |
-| `epic.md`         | Product     | The epic's front door ([`./intent.md`](./intent.md))                              |
-| `initiative.md`   | Product     | The initiative's front door ([`./intent.md`](./intent.md))                        |
-| `requirements.md` | Product     | Product requirement records ([`./requirements.md`](./requirements.md))            |
-| `engineering.md`  | Engineering | Engineering requirements and constraints ([`./engineering.md`](./engineering.md)) |
-| `assumptions.md`  | Engineering | The assumptions its requirements rest on ([`./assumptions.md`](./assumptions.md)) |
-| `spec.md`         | Engineering | The epic's technical contracts ([`./specs.md`](./specs.md))                       |
-| `slices/`         | Engineering | The ordered changes that build the epic ([`./slices.md`](./slices.md))            |
-| `decisions.md`    | Shared      | Decisions of both tiers, open and made ([`./decisions.md`](./decisions.md))       |
-| `research/`       | Shared      | Investigation local to the folder                                                 |
-| `assets/`         | Shared      | Non-markdown material: proofs of concept, sample configs, images, data            |
-| `presentations/`  | Shared      | Material authored to be presented or published                                    |
-| `mockups/`        | Product     | UI mockups, never in `assets/` ([`./mockups.md`](./mockups.md))                   |
+| File              | Owner       | Holds                                                                                                         |
+| ----------------- | ----------- | ------------------------------------------------------------------------------------------------------------- |
+| `epic.md`         | Product     | The epic's front door ([`../product/intent.md`](../product/intent.md))                                        |
+| `initiative.md`   | Product     | The initiative's front door ([`../product/intent.md`](../product/intent.md))                                  |
+| `requirements.md` | Product     | Product requirement records ([`../product/requirements.md`](../product/requirements.md))                      |
+| `engineering.md`  | Engineering | Engineering requirements and constraints ([`../engineering/requirements.md`](../engineering/requirements.md)) |
+| `assumptions.md`  | Engineering | The assumptions its requirements rest on ([`../engineering/assumptions.md`](../engineering/assumptions.md))   |
+| `spec.md`         | Engineering | The epic's technical contracts ([`../engineering/specs.md`](../engineering/specs.md))                         |
+| `slices/`         | Engineering | The ordered changes that build the epic ([`../engineering/slices.md`](../engineering/slices.md))              |
+| `decisions.md`    | Shared      | Decisions of both tiers, open and made ([`./decisions.md`](./decisions.md))                                   |
+| `research/`       | Shared      | Investigation local to the folder                                                                             |
+| `assets/`         | Shared      | Non-markdown material: proofs of concept, sample configs, images, data                                        |
+| `presentations/`  | Shared      | Material authored to be presented or published                                                                |
+| `mockups/`        | Product     | UI mockups, never in `assets/` ([`../product/mockups.md`](../product/mockups.md))                             |
 
 The repo root holds `README.md`, `work/`, `delivered/` once anything is delivered, the program's `decisions.md`, and the
 program-wide product files (`planning:product-areas`). It also holds a `requirements.md` when a product requirement
