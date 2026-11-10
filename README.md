@@ -49,10 +49,11 @@ docs say what is true today.
 - **Specs** — the technical contracts in the folder's `spec.md` that answer its requirements, frozen once delivered.
 - **Slices** — the ordered changes that build an epic, one file each in its `slices/`, derived from its requirements and
   spec and cut so the main branch stays releasable after each; the work tracker owns their progress.
+- **Review rubrics** — criteria for evaluating planning artifacts, independent of the workflow running the review; start
+  at [review/index.md](./context/review/index.md).
 - **Decisions** — `decision:` entries in each folder's shared `decisions.md`, open until the call is made; clarifying
   questions sit inline at the end of the file they concern.
-- **Workflows** — [slicing an epic](./context/workflows/slice-an-epic.md) and
-  [reviewing requirements](./context/workflows/requirements-review.md) against the product intent they serve.
+- **Slicing an epic** — a [workflow](./context/workflows/slice-an-epic.md) for cutting an epic into buildable changes.
 
 ## 🚀 Installation
 

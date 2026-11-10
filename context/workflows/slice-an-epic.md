@@ -15,11 +15,6 @@ slices are cut; this is the order of work.
    decision, spec section, or open question, so the slice can cite it.
 5. **Write the files** (`planning:slice-files`), pointing `code:` at the code each slice changes. When re-slicing, a
    filed slice that still describes the same change keeps its name and `external:` (`planning:slice-lifecycle`).
-6. **Check the cut.**
-   - Every requirement, acceptance bullet, and spec section of the epic is delivered by a slice.
-   - Every `depends-on` names something the slice builds on: a lower-numbered slice of this epic, or an epic or
-     initiative.
-   - Each slice merges alone and leaves the main branch releasable.
-   - The strategy's closing step is a slice of its own.
+6. **Check the cut** against [`../review/slices.md`](../review/slices.md).
 7. **Report** the slices in order with their dependencies and every gap filled or left open, then commit
    (`planning:commit-messages`).

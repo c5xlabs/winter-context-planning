@@ -112,8 +112,7 @@ Follow [`./workflows/slice-an-epic.md`](./workflows/slice-an-epic.md).
 
 ### Reviewing requirements
 
-Follow [`./workflows/requirements-review.md`](./workflows/requirements-review.md) after product intent changes and
-before slicing.
+Evaluate against [`./review/requirements.md`](./review/requirements.md) after product intent changes and before slicing.
 
 ### Asking a clarifying question
 

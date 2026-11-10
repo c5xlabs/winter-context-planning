@@ -6,10 +6,10 @@ framework itself. The rules for a requirements repo's own content are in
 
 ## Routing
 
-[`context/index.md`](./context/index.md) routes to three rule folders, `shared/`, `product/`, and `engineering/`, plus
-`contributing.md` and the workflows. Each folder's `index.md` routes to its own rule files. A rule file goes in the
-folder of the tier whose content it governs, or in `shared/` when it binds both. Each row says when to read the file,
-not what it contains. The root [`index.md`](./index.md) is only a short pointer to the hub.
+[`context/index.md`](./context/index.md) routes to the rule folders, `contributing.md`, and the workflows. Each folder's
+`index.md` routes to its own files. Content rules go in the tier they govern, or in `shared/` when they bind both;
+artifact-evaluation criteria go in `review/`. Each row says when to read the file, not what it contains. The root
+[`index.md`](./index.md) is only a short pointer to the hub.
 
 When you add, move, or remove a rule file, update its row in its folder's index in the same change. A `planning:` rule
 id is defined only in the heading of its rule, every slug is unique, and the rule's id sits in its file's Rule ids cell.
