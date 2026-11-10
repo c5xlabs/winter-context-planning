@@ -1,39 +1,19 @@
 # Product registries
 
-A repo holding product content keeps three registries — `initiatives.md`, `milestones.md`, and `delivered.md` — at its
-root, or in each project folder when the repo has projects. Each opens with one product-voice paragraph saying
-what the file is and that it is not a status board; that paragraph carries no status, dates, or epic list. The sections
-below say what comes after it.
+A repo holding product content keeps two registries — `milestones.md` and `delivered.md` — at its root, or in each
+project folder when the repo has projects. Each opens with one product-voice paragraph saying what the file is and that
+it is not a status board; that paragraph carries no status, dates, or epic list. The sections below say what comes after
+it.
 
 ## Registries across projects (planning:registry-levels)
 
 In a repo with [projects](../shared/projects.md), each project folder keeps its own registries for its own work, linking
-into that project's `work/` and `delivered/`. The program root holds no work, so it has no
-`initiatives.md`; its `milestones.md` and `delivered.md` hold only destinations that belong to the program rather than
-to any one project.
+into that project's `work/` and `delivered/`. The program root holds no work, so its `milestones.md` and `delivered.md`
+hold only destinations that belong to the program rather than to any one project.
 
 A milestone lives at the level whose destination it is, never at both. A chart row citing an epic or initiative from
 another project uses its full id. The program's `delivered.md` has no `## Outside the milestones` section: an epic that
 serves no milestone is recorded in its own project's ledger.
-
-## Initiative registry (planning:initiative-registry)
-
-A repo that uses initiatives keeps `initiatives.md`. An initiative is a durable product investment broader than one
-capability; it can own work directly and contain epics. After the opening paragraph comes one table,
-`Initiative | Outcome`:
-
-- **Initiative** is the stable `initiative:<slug>` id, linked to the initiative's owning doc: its
-  `work/<initiative>/initiative.md` (`planning:initiative-frontmatter`) or its declared external home
-  (`planning:repository-entry`). Once its last epic settles, the link points into `delivered/`.
-- **Outcome** is the shared product result, not a project phase, team, or mechanism.
-
-Rows carry nothing else: no status, dates, tracker keys, epic list, or links to supporting material.
-
-```markdown
-| Initiative                                                                 | Outcome                                                                                                      |
-| -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| [`initiative:reliable-borrowing`](./work/reliable-borrowing/initiative.md) | A member who reserves a tool finds it waiting, and the next member finds it back on the shelf when it is due |
-```
 
 ## Milestone registry (planning:milestone-registry)
 
@@ -53,6 +33,23 @@ two disagree, the epic is right and the cell gets corrected. An initiative's row
 
 A milestone enters before or with the epics it needs. It is reached when every row is `delivered`, and the change that
 delivers the last one moves its section into `delivered.md`.
+
+## Future state (planning:future-state)
+
+After the last milestone, `milestones.md` may end with `## Future state`: the ideas on the roadmap that no milestone
+needs yet. It holds a short product-voice paragraph saying so, then the same `Epic | Status` chart. It has no
+`milestone:` id, is never reached, and never moves into `delivered.md`. An epic leaves it in the change that names it in
+a milestone; one delivered from it goes under `## Outside the milestones` in the ledger.
+
+```markdown
+## Future state
+
+Ideas for where the shed goes next, not yet needed by any milestone.
+
+| Epic                 | Status  |
+| -------------------- | ------- |
+| `epic:tool-delivery` | planned |
+```
 
 ```markdown
 ## Reserve ahead (milestone:reserve-ahead)

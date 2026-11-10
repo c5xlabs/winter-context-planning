@@ -33,13 +33,12 @@ fully in every case; only its Upstream schemes table changes.
 
 ### Contents
 
-A sentence saying the repo is organized by epic, then a `Path | What it holds` table with one plain line per path, and a
-few sentences for whatever the table can't say.
+A sentence saying the repo is organized by epic, under its initiative and, in a repo with projects, its project, then a
+`Path | What it holds` table with one plain line per path, and a few sentences for whatever the table can't say.
 
-- Product rows: `charter/`, `initiatives.md` when used, `milestones.md`, `delivered.md`, `mockup-kit/` when
-  present, `work/`, `delivered/`, and, written as `work/<initiative>/<epic>/…`, `initiative.md`, `epic.md`,
-  `requirements.md`, and `mockups/`. With intent in another repo, product has no rows; only in a tracker or wiki, its
-  one row is the tracker-planned epics' `epic.md`.
+- Product rows: `charter/`, `milestones.md`, `delivered.md`, `mockup-kit/` when present, `work/`, `delivered/`, and,
+  written as `work/<initiative>/<epic>/…`, `initiative.md`, `epic.md`, `requirements.md`, and `mockups/`. With intent in
+  another repo, product has no rows; only in a tracker or wiki, its one row is the tracker-planned epics' `epic.md`.
 - Engineering rows: the root `engineering.md` when present, and, written as `work/<initiative>/<epic>/…`,
   `engineering.md`, `assumptions.md`, `spec.md` or `spec/`, and `slices/`.
 - A shared file such as `decisions.md` gets one row.

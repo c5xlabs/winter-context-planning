@@ -13,8 +13,8 @@ engineering use disjoint prefixes, except `decision:`, which both share.
 | -------------- | ----------- | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | `persona:`     | Product     | A person the product serves                                      | A row in a charter's `personas.md`, or a leaf in its `personas/`                              |
 | `job:`         | Product     | Something a person is trying to accomplish                       | A row in a charter's `jobs.md`                                                                |
-| `initiative:`  | Product     | A durable investment broader than one capability                 | A row in `initiatives.md`                                                                     |
-| `epic:`        | Product     | A major capability the product must establish                    | The epic's `epic.md`, under `work/` or `delivered/`                                            |
+| `initiative:`  | Product     | A durable investment broader than one capability                 | The initiative's `initiative.md`, under `work/` or `delivered/`                               |
+| `epic:`        | Product     | A major capability the product must establish                    | The epic's `epic.md`, under `work/` or `delivered/`                                           |
 | `product:`     | Product     | A requirement of an epic, or one binding every epic of its owner | A heading in the owner's `requirements.md`, or inline in `epic.md`                            |
 | `milestone:`   | Product     | A destination visible in a person's work                         | A section in a `milestones.md`, then in the `delivered.md` beside it once reached             |
 | `engineering:` | Engineering | What engineering commits to                                      | A heading or brief-requirement bullet in the owning folder's, or the root's, `engineering.md` |
