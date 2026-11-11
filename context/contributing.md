@@ -12,8 +12,8 @@ Every epic takes the same path from idea to delivered, and each step is a delibe
    product owner grades refinement; an agent writes `outline` on anything it creates and never changes the grade.
 3. **Engineering derives** its requirements, assumptions, and spec in the same folder, following the engineering
    lifecycle below.
-4. **File tracker work once every prerequisite can be named**, as already landed or filed alongside. When work starts,
-   the epic moves to `status: in-progress`, and the same change updates its cell in every milestone chart that names it.
+4. **Publish work** through [`./workflows/publish-work.md`](./workflows/publish-work.md). When work starts, the epic
+   moves to `status: in-progress`, and the same change updates its cell in every milestone chart that names it.
 5. **Deliver and archive** through [`./workflows/deliver-an-epic.md`](./workflows/deliver-an-epic.md).
 
 Turning an epic into an initiative, moving an epic into or out of one, or moving either to another project changes the
@@ -30,9 +30,7 @@ Engineering starts once product intent exists, as a `product:` requirement or wh
 2. **Slice.** Cut the epic into the ordered changes that build it, in its `slices/`, following
    [`./workflows/slice-an-epic.md`](./workflows/slice-an-epic.md). Slicing often surfaces gaps; fill each at its home
    before a slice cites it ([`./engineering/slices.md`](./engineering/slices.md)).
-3. **File tracker work once every prerequisite can be named**: the slices or epics it depends on, the requirements it
-   builds on, the open decisions it waits on. A filed slice records its tracker item in `external:`, and from then on
-   the tracker owns its progress.
+3. **Publish work** through [`./workflows/publish-work.md`](./workflows/publish-work.md).
 4. **Deliver and archive** with the epic's product side, through
    [`./workflows/deliver-an-epic.md`](./workflows/deliver-an-epic.md).
 

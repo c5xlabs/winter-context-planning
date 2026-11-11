@@ -11,6 +11,7 @@ If the request is a whole workflow, follow the workflow. It sends you to the rul
 | ------------------------------------------------------------------ | ------------------------------------------ |
 | [`./workflows/deliver-an-epic.md`](./workflows/deliver-an-epic.md) | Marking an epic delivered and archiving it |
 | [`./workflows/slice-an-epic.md`](./workflows/slice-an-epic.md)     | Slicing or re-slicing an epic              |
+| [`./workflows/publish-work.md`](./workflows/publish-work.md)       | Publishing prepared work to a forge        |
 
 | File                                               | When to read                                                                                                | Rule ids                                                                                                       |
 | -------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |

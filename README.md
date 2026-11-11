@@ -52,6 +52,7 @@ docs say what is true today.
 - **Decisions** — `decision:` entries in each folder's shared `decisions.md`, open until the call is made; clarifying
   questions sit inline at the end of the file they concern.
 - **Slicing an epic** — a [workflow](./context/workflows/slice-an-epic.md) for cutting an epic into buildable changes.
+- **Publishing work** — a [workflow](./context/workflows/publish-work.md) for handing prepared work to a forge.
 
 ### Review
 
