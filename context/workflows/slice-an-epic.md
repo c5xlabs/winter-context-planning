@@ -16,5 +16,8 @@ slices are cut; this is the order of work.
 5. **Write the files** (`planning:slice-files`), pointing `code:` at the code each slice changes. When re-slicing, a
    filed slice that still describes the same change keeps its name and `external:` (`planning:slice-lifecycle`).
 6. **Check the cut** against [`../review/slices.md`](../review/slices.md).
-7. **Report** the slices in order with their dependencies and every gap filled or left open, then commit
+7. **Record readiness.** For an unstarted epic, set `ready` only when the preparation meets `planning:epic-status`;
+   otherwise keep it `planned`. Update affected milestone rows under `planning:milestone-registry` in the same change.
+   Re-slicing work already in progress does not reset its status.
+8. **Report** the slices in order with their dependencies and every gap filled or left open, then commit
    (`planning:commit-messages`).

@@ -28,8 +28,15 @@ reached — something observable in their work, not a feature, an implementation
 epic can serve several milestones.
 
 An epic's Status is its own `status:` (`planning:epic-status`), updated in the same change that moves the epic; when the
-two disagree, the epic is right and the cell gets corrected. An initiative's row is `delivered` once all its epics are,
-`in-progress` once any is in progress or delivered, and `planned` otherwise.
+two disagree, the epic is right and the cell gets corrected. An epic's status change also updates affected initiative
+rows in the same change. An initiative's row takes the first matching status:
+
+| Status        | When                                  |
+| ------------- | ------------------------------------- |
+| `delivered`   | All its epics are delivered.          |
+| `in-progress` | Any epic is in progress or delivered. |
+| `ready`       | All its epics are ready.              |
+| `planned`     | Otherwise.                            |
 
 A milestone enters before or with the epics it needs. It is reached when every row is `delivered`, and the change that
 delivers the last one moves its section into `delivered.md`.

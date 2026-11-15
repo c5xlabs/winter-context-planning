@@ -24,7 +24,7 @@ Every `epic.md` begins with this frontmatter:
 ---
 epic: volunteer-shifts          # required; the epic id, matching epic:<id>
 refinement: refined             # required; outline | refined | final
-status: in-progress             # required; planned | in-progress | delivered
+status: ready                   # required; planned | ready | in-progress | delivered
 external: jira:SHED-50          # optional; the epic in another system, one <system>:<id>
 ---
 ```
@@ -63,14 +63,29 @@ A `requirements.md` beside it is optional and holds only `product:` records that
 
 ## Epic status and refinement (planning:epic-status)
 
-Status is coarse product state, and only two events move it. Work on the epic starting in the tracker sets
-`in-progress`. Evidence that the epic reached its users sets `delivered`, in the one change
-[`../workflows/deliver-an-epic.md`](../workflows/deliver-an-epic.md) lays out. An epic filed in the tracker but not yet
-started stays `planned`. Whoever runs the work updates the status; progress inside the epic belongs to the tracker.
+Status records the epic's preparation and delivery state:
+
+| Status        | Meaning                                                                                        |
+| ------------- | ---------------------------------------------------------------------------------------------- |
+| `planned`     | Intended work whose preparation is not yet complete.                                           |
+| `ready`       | Requirements, spec, and ordered slices are complete and ready to ingest; work has not started. |
+| `in-progress` | Implementation has started in the tracker.                                                     |
+| `delivered`   | Evidence shows that the epic reached its users.                                                |
+
+Mark an epic `ready` when its preparation leaves no blocking planning question and its slices declare their
+dependencies. Those dependencies may still be undelivered: readiness describes the prepared work, not its place in the
+schedule. If a change invalidates that preparation before implementation starts, return it to `planned` until ready
+again.
+
+Readiness does not authorize publication, ingestion, or execution. Publishing or ingesting alone changes no status;
+starting implementation sets `in-progress`. Whoever prepares or runs the work updates its status; progress inside the
+epic belongs to the tracker. Delivery follows [`../workflows/deliver-an-epic.md`](../workflows/deliver-an-epic.md).
 
 New intent starts at `refinement: outline`, and an agent always writes `outline`. `refined` means the intent is settled
 enough to build from; `final` means the product owner has declared it complete. Only the product owner records either,
 and the committed value is the sign-off. An epic being `delivered` may prompt the call to `final` but doesn't make it.
+Readiness judges the whole preparation package, not just product intent; setting `ready` neither changes refinement nor
+requires `final`.
 
 Each fact has one source:
 

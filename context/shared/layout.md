@@ -74,13 +74,12 @@ The product intent for this epic lives in its tracker epic; this file tracks its
 ```
 
 Each `external:` value is one `<system>:<id>`, the same string an engineering requirement uses to cite the item. Status
-moves as it does for any epic: `in-progress` when work starts, `delivered` once there is evidence it reached its users.
-Either tier may write the file, since it records tracker state rather than intent. An agent writes
-`refinement: outline`; only the product owner records another grade. In a repo holding only engineering content, this
-rule alone shapes the file.
+follows `planning:epic-status`, including readiness before work starts. Either tier may write the file, since it records
+preparation and tracker state rather than intent. An agent writes `refinement: outline`; only the product owner records
+another grade. In a repo holding only engineering content, this rule alone shapes the file.
 
-When all of a repo's product intent lives in a tracker, engineering writes each epic's `epic.md` as it files the epic's
-work and keeps its `status:` in step with the tracker.
+When all of a repo's product intent lives in a tracker, engineering writes each epic's `epic.md` as it prepares the
+epic's work and maintains its `status:` under `planning:epic-status`.
 
 ## Capability epics (planning:capability-epics)
 

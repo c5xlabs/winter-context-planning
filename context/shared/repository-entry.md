@@ -63,7 +63,7 @@ on where intent lives:
   a requirement leaf in folder form.
 - The keys `epic`, `initiative`, `refinement`, `status`, `external` in its scalar form, and `epics`, as a
   `Key | Meaning | Values` table or a tight list, with a line on what each refinement value (`outline`, `refined`,
-  `final`) and epic status (`planned`, `in-progress`, `delivered`) means.
+  `final`) and epic status (`planned`, `ready`, `in-progress`, `delivered`) means.
 - The repo's format in plain terms.
 - One short YAML example of a slice's keys: `name`, `external` in its scalar form, `depends-on` with what it may name,
   and `code` (see [`../engineering/slices.md`](../engineering/slices.md)).
@@ -72,7 +72,7 @@ on where intent lives:
 
 ### Markers
 
-One line per status word that sits in a body rather than frontmatter: the milestone chart statuses `planned`,
+One line per status word that sits in a body rather than frontmatter: the milestone chart statuses `planned`, `ready`,
 `in-progress`, and `delivered` when the repo holds product content, the **Proposed.** marker on a requirement, and the
 **Open.** marker and **Decider:** line on a decision.
 
