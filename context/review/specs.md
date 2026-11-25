@@ -6,9 +6,8 @@ leaving consequential choices to the builder. Assessment and finding weight use 
 
 ## Spec dimensions (planning:spec-review)
 
-The applicable cases depend on the system; the rubric does not require retries, persistence, services, or security
-mechanisms where the work has none. Routine implementation choices can remain local. Missing choices matter when they
-change a contract, ownership boundary, compatibility promise, or the way correctness is established.
+Routine implementation choices can remain local. Missing choices matter when they change a contract, ownership
+boundary, compatibility promise, or the way correctness is established.
 
 ### Requirement coverage
 
@@ -17,13 +16,12 @@ silently narrow a requirement or invent one.
 
 ### Contract completeness
 
-Interfaces, types, state transitions, and ownership are precise enough that independent implementations would agree on
-observable behavior.
+Interfaces, types, state transitions, and ownership are precise enough that a builder cannot miss a promised behavior,
+or cite the source that defines it.
 
 ### Failure behavior
 
-The design defines relevant invalid input, partial failure, timeout, cancellation, retry, and cleanup cases, not only
-the successful path.
+The design defines the failure cases its requirements promise, not only the successful path.
 
 ### Technical feasibility
 

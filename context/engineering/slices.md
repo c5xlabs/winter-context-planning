@@ -75,7 +75,7 @@ depend on as breaking, and record how to land it as a decision.
 
 Every requirement in the epic, and every acceptance bullet under it, is delivered by at least one slice, and every spec
 section is built by one. A requirement no slice delivers is either unplanned work or shouldn't be there. A slice that
-needs a design of its own means the spec is missing a section: write it and cite it.
+needs a design its builder cannot settle locally means the spec is missing a section: write it and cite it.
 
 ## Slice order (planning:slice-order)
 

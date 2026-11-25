@@ -25,8 +25,9 @@ needs, and has no index.
 In either form, artifacts come first. A sentence says only what no artifact can, such as idempotency, ordering, or
 failure behaviour, ideally as a comment inside the artifact and in the engineering voice (`planning:engineering-voice`).
 Mention an `engineering:` or `product:` id where a piece serves it, often in a code comment, but never list what the
-spec satisfies or restate a requirement. The requirement carries the prose, the behaviour and its reason; the spec shows
-only the contract or flow that delivers it. A requirement, then the spec fragment answering it:
+spec satisfies or restate a requirement, or behaviour a cited source already defines. The requirement carries the prose,
+the behaviour and its reason; the spec shows only the contract or flow that delivers it. A requirement, then the spec
+fragment answering it:
 
 ```markdown
 ## Reserve once (engineering:reserve-once)

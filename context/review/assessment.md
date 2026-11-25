@@ -27,14 +27,14 @@ The criterion does not apply to this work or stage, with a reason.
 
 ## Finding weight (planning:review-finding-weight)
 
-A finding identifies the affected passage or omission, its governing criterion, the consequence, and the correction
-needed. A preferred alternative is not a defect unless the chosen approach fails a criterion. An unresolved question
-blocks only the readiness claim that depends on its answer.
+A finding identifies the affected passage or omission, its governing criterion, the consequence, and the smallest
+correction, often a deletion. A preferred alternative is not a defect unless the chosen approach fails a criterion. An
+unresolved question blocks only the readiness claim that depends on its answer.
 
 ### Acceptance-blocking
 
-A binding promise or constraint is violated, or a missing contract, decision, or verification basis prevents the work
-from being built or judged correct at the intended stage.
+A binding promise or constraint is violated, or the work cannot be built or judged correct at the intended stage for
+want of a contract, decision, or verification basis that no source supplies.
 
 ### Improvement
 
